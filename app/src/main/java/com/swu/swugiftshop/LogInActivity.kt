@@ -11,8 +11,8 @@ class LogInActivity : AppCompatActivity() {
         setContentView(R.layout.activity_log_in)
 
         registerBtn.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+            val registerIntent = Intent(this, RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
     }
 }
