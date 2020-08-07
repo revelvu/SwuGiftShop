@@ -14,5 +14,10 @@ class LogInActivity : AppCompatActivity() {
             val registerIntent = Intent(this, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
+
+        loginBtn.setOnClickListener {
+            val homeIntent = Intent(this, HomeActivity::class.java)
+            startActivity(homeIntent)
+        }
     }
 }
