@@ -54,9 +54,9 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="160dp"
                 android:background="#DBDBDB"
-                android:layout_marginBottom="15dp"/>
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -70,6 +70,7 @@
                     android:text="인기 추천 공식 굿즈"
                     android:textColor="#000000"
                     android:textSize="18dp"
+                    android:textStyle="bold"
                     android:layout_marginBottom="10dp"/>
 
                 <LinearLayout
@@ -93,14 +94,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명1" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -123,14 +124,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명2" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -151,14 +152,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명3" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -170,9 +171,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="신규 공식 굿즈"
+                    android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:text="신규 공식 굿즈" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -195,14 +197,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명1" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -222,14 +224,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명2" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -241,9 +243,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="신규 비공식 굿즈 펀딩"
+                    android:textStyle="bold"
                     android:textColor="#000000"
-                    android:textSize="18dp" />
+                    android:textSize="18dp"
+                    android:text="신규 비공식 굿즈 펀딩"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -266,14 +269,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명1" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
@@ -293,14 +296,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="상품명2" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
-                            android:textSize="10dp"
+                            android:textSize="14dp"
                             android:text="가격" />
 
                     </LinearLayout>
