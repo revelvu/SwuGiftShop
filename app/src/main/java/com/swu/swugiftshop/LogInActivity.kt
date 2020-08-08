@@ -29,28 +29,28 @@ class LogInActivity : AppCompatActivity() {
             startActivity(registerIntent)
         }
 
-//        loginBtn.setOnClickListener {
-//            val loginIntent = Intent(this, MainActivity::class.java)
-//            startActivity(loginIntent)
-//        }
+        loginBtn.setOnClickListener {
+            val loginIntent = Intent(this, MainActivity::class.java)
+            startActivity(loginIntent)
+        }
 
 
         //로그인 버튼 눌렀을 때
-        loginBtn.setOnClickListener {
-            firebaseAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
-                .addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Log.d(TAG, "Login Success")
-                        Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-                        val homeIntent = Intent(this, MainActivity::class.java)
-                        startActivity(homeIntent)
-                    } else {
-                        Log.w(TAG, "Login Failure", task.exception)
-                        Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-                        email?.setText("")
-                        password?.setText("")
-                    }
-                }
-        }
+//        loginBtn.setOnClickListener {
+//            firebaseAuth.signInWithEmailAndPassword(email.text.toString(), password.text.toString())
+//                .addOnCompleteListener(this) { task ->
+//                    if (task.isSuccessful) {
+//                        Log.d(TAG, "Login Success")
+//                        Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+//                        val homeIntent = Intent(this, MainActivity::class.java)
+//                        startActivity(homeIntent)
+//                    } else {
+//                        Log.w(TAG, "Login Failure", task.exception)
+//                        Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+//                        email?.setText("")
+//                        password?.setText("")
+//                    }
+//                }
+//        }
     }
 }
