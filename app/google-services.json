@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "5238337587",
+    "firebase_url": "https://swugiftshop.firebaseio.com",
+    "project_id": "swugiftshop",
+    "storage_bucket": "swugiftshop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5238337587:android:78f7989540a32a41193346",
+        "android_client_info": {
+          "package_name": "com.swu.swugiftshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5238337587-ancu8b5fg0nc3kuo6qcq7un2dh5bjcrl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsEBQJrgTd94ah7eU6p0XkjJHxf0fjnrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5238337587-ancu8b5fg0nc3kuo6qcq7un2dh5bjcrl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
