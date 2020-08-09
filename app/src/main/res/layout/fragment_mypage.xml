@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="#fff"
-    tools:context=".MypageActivity">
+    android:background="#fff">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -90,13 +89,14 @@
             android:background="#DBDBDB"/>
 
         <TextView
+            android:id="@+id/purchaseBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="17dp"
             android:layout_marginBottom="10dp"
             android:textColor="#000"
             android:textSize="18dp"
-            android:text="구매한 굿즈"/>
+            android:text="구입한 굿즈"/>
 
         <TextView
             android:layout_width="wrap_content"

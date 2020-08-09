@@ -1,27 +1,23 @@
 package com.swu.swugiftshop
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
-class MypageFragment : Fragment() {
+class PurchasedGoodsFragment: Fragment() {
     companion object {
         const val TAG: String = "로그"
-        fun newInstance(): MypageFragment {
-            return MypageFragment()
+        fun newInstance(): PurchasedGoodsFragment {
+            return PurchasedGoodsFragment()
         }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onAttach(context: Context) {
@@ -33,11 +29,8 @@ class MypageFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_mypage, container, false)
-        
-
+        val view = inflater.inflate(R.layout.activity_purchased_goods, container, false)
         return view
+
     }
-
-
 }

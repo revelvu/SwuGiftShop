@@ -1,5 +1,6 @@
 package com.swu.swugiftshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,7 +22,6 @@ class MainActivity : AppCompatActivity() {
         const val TAG: String = "로그"
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,8 +29,11 @@ class MainActivity : AppCompatActivity() {
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNaviItemSeletedListener)
         homeFragment = HomeFragment.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragments_frame, homeFragment).commit()
+
+
     }
 
+    // 하단 네비게이션 바
     private val onBottomNaviItemSeletedListener = BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId) {
             R.id.homeicon -> {
