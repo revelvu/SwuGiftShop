@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -18,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var database: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email_inputbox)
         val password = findViewById<EditText>(R.id.password)
         val passwordAgain = findViewById<EditText>(R.id.reEnterPassword)
-
+        val nickname = findViewById<EditText>(R.id.nickName)
         signUpBtn.setOnClickListener {
             if (password.text.toString() != passwordAgain.text.toString()) {
                 //두 번 입력한 비밀번호 일치하지 않는 경우
@@ -61,6 +61,9 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
     }
+
+    val database=Firebase.database
+
 }
 
 
