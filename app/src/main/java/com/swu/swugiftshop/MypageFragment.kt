@@ -36,8 +36,6 @@ class MypageFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
-        return view
-
         //로그아웃 버튼 클릭시
         logoutBtn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -48,6 +46,8 @@ class MypageFragment : Fragment() {
                 startActivity(relogin)
             }
         }
+
+        return view
     }
 
 
