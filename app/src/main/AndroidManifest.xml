@@ -10,9 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".FundingDetailpageActivity"></activity>
-<!--         <activity-->
-<!--         android:name=".HomeFragment"-->
-<!--         android:label="@string/title_activity_home" />-->
+        <activity android:name=".DetailpageActivity"/>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
