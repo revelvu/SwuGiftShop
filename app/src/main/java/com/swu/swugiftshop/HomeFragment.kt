@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -25,10 +24,25 @@ class HomeFragment: Fragment() {
 
         detailImage1.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, DetailpageActivity::class.java)
+                val intent = Intent(context, DetailpageActivity1::class.java)
                 startActivity(intent)
             }
         }
+
+        detailImage2.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, DetailpageActivity2::class.java)
+                startActivity(intent)
+            }
+        }
+
+        detailImage3.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, DetailpageActivity3::class.java)
+                startActivity(intent)
+            }
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

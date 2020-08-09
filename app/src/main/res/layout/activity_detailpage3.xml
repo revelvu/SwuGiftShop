@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#fff"
-    tools:context=".DetailpageActivity">
+    tools:context=".DetailpageActivity3">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="유시 유선 노트"
+                android:text="파미 포스트잇 + 펜세트"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold" />
@@ -165,6 +165,7 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 
 
