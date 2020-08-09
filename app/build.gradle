@@ -54,11 +54,13 @@ dependencies {
     // bottom Navigation bar | material design
     implementation 'com.google.android.material:material:1.1.0'
 
+    // firebase
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
     implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
     implementation 'com.google.firebase:firebase-database-ktx:19.3.1'
 
-
+    // navigation drawer | tab bar
+    implementation 'com.android.support:design:29.1.1'
 
 }

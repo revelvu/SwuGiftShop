@@ -251,17 +251,32 @@
                 android:layout_height="1dp"
                 android:background="#DBDBDB"/>
 
-            <Button
-                android:id="@+id/fundingBtn"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:padding="15dp"
-                android:textColor="#fff"
-                android:background="@color/swuColor"
-                android:textStyle="bold"
-                android:textSize="16dp"
-                android:text="펀딩하기"/>
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/fundingBtn"
+                    android:layout_width="325dp"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textColor="#fff"
+                    android:background="@color/swuColor"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="펀딩하기"/>
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="52dp"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/buttonedge"
+                    android:padding="8dp"
+                    android:src="@drawable/heartempty"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
