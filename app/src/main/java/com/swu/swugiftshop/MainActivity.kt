@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import androidx.core.view.GravityCompat
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // 하단 네비게이션 바
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNaviItemSeletedListener)
         homeFragment = HomeFragment.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragments_frame, homeFragment).commit()
@@ -43,8 +45,9 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.categoryicon -> {
                 Log.d(TAG, "category button")
-                categoryFragment = CategoryFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, categoryFragment).commit()
+//                categoryFragment = CategoryFragment.newInstance()
+//                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, categoryFragment).commit()
+//                drawerLayout.openDrawer(GravityCompat.START)
             }
             R.id.wishlisticon -> {
                 Log.d(TAG, "wishlist button")
@@ -66,3 +69,4 @@ class MainActivity : AppCompatActivity() {
     }
 
 }
+

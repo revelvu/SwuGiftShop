@@ -87,8 +87,9 @@
                         <ImageView
                             android:id="@+id/detailImage1"
                             android:layout_width="match_parent"
-                            android:layout_height="90dp"
+                            android:layout_height="85dp"
                             android:background="#DBDBDB"
+                            android:src="@drawable/usinotecrop"
                             android:layout_marginBottom="3dp"/>
 
                         <TextView
@@ -96,14 +97,14 @@
                             android:layout_height="wrap_content"
                             android:textColor="#000"
                             android:textSize="14dp"
-                            android:text="상품명1" />
+                            android:text="유시 무선 노트" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
                             android:textSize="14dp"
-                            android:text="가격" />
+                            android:text="3,000원" />
 
                     </LinearLayout>
 
@@ -118,7 +119,7 @@
                         <ImageView
                             android:id="@+id/detailImage2"
                             android:layout_width="match_parent"
-                            android:layout_height="90dp"
+                            android:layout_height="85dp"
                             android:background="#DBDBDB"
                             android:layout_marginBottom="3dp"/>
 
@@ -147,7 +148,7 @@
                         <ImageView
                             android:id="@+id/detailImage3"
                             android:layout_width="match_parent"
-                            android:layout_height="90dp"
+                            android:layout_height="85dp"
                             android:background="#DBDBDB"
                             android:layout_marginBottom="3dp"/>
 
