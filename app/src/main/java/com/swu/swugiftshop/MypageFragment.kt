@@ -39,7 +39,7 @@ class MypageFragment : Fragment() {
         //로그아웃 버튼 클릭시
         logoutBtn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-                //로그아웃을 성공하면, 다시 로그인 페이지
+                //로그아웃을 성공하면, 다시 로그인 페이지!
 
             activity?.let{
                 val relogin = Intent(context, LogInActivity::class.java)
