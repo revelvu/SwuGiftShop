@@ -43,6 +43,13 @@ class HomeFragment: Fragment() {
             }
         }
 
+        fundingDetail1.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, FundingDetailpageActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
