@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="#fff">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -22,11 +22,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="155dp"
+            android:text="마이페이지"
             android:textColor="#000"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_marginLeft="155dp"
-            android:text="마이페이지"/>
+            android:textStyle="bold" />
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -47,17 +47,17 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@drawable/mypagedefault"/>
+                android:src="@drawable/mypagedefault" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="김슈니"
                 android:textColor="#000"
                 android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:text="김슈니"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
@@ -71,14 +71,14 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:src="@drawable/swusymbol"/>
+                android:src="@drawable/swusymbol" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
-                android:text="email@xxxxx.com"/>
+                android:text="@string/user_email" />
 
         </LinearLayout>
 
@@ -86,56 +86,69 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="20dp"
-            android:background="#DBDBDB"/>
+            android:background="#DBDBDB" />
 
-        <TextView
+        <Button
             android:id="@+id/purchaseBtn"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
+            android:background="#fff"
+            android:gravity="left"
+            android:text="구입한 굿즈"
             android:textColor="#000"
-            android:textSize="18dp"
-            android:text="구입한 굿즈"/>
+            android:textSize="18dp" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_marginLeft="17dp"
+            android:background="#fff"
+            android:gravity="left"
+            android:text="내가 참여한 펀딩"
+            android:textColor="#000"
+            android:textSize="18dp" />
 
         <TextView
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="15dp"
+            android:background="#fff"
+            android:gravity="left"
+            android:text="내가 만든 펀딩"
             android:textColor="#000"
-            android:textSize="18dp"
-            android:text="내가 참여한 펀딩"/>
-
-       <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
-           android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:textSize="18dp"
-            android:text="내가 만든 펀딩"/>
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="20dp"
-            android:background="#DBDBDB"/>
+            android:background="#DBDBDB" />
 
         <Button
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
+            android:background="#fff"
+            android:gravity="left"
+            android:text="설정"
             android:textColor="#000"
-            android:textSize="18dp"
-            android:text="설정"/>
+            android:textSize="18dp" />
 
         <Button
             android:id="@+id/logoutBtn"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="17dp"
+            android:background="#fff"
+            android:gravity="left"
             android:text="로그아웃"
             android:textColor="#000"
             android:textSize="18dp" />
@@ -144,12 +157,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="아직 덜 만든 마이페이지"/>
+            android:text="아직 덜 만든 마이페이지" />
 
     </LinearLayout>
-
-
-
 
 
 </LinearLayout>

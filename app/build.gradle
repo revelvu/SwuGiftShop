@@ -62,5 +62,7 @@ dependencies {
 
     // navigation drawer | tab bar
     implementation 'com.android.support:design:30.1.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
 
 }

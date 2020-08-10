@@ -3,15 +3,12 @@ package com.swu.swugiftshop
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MypageFragment : Fragment() {
     companion object {
@@ -49,6 +46,7 @@ class MypageFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
 
         val logoutbtn = view.findViewById<Button>(R.id.logoutBtn)
+        val purchasebtn = view.findViewById<Button>(R.id.purchaseBtn)
 
         logoutbtn.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -57,6 +55,13 @@ class MypageFragment : Fragment() {
             activity?.let {
                 val relogin = Intent(context, LogInActivity::class.java)
                 startActivity(relogin)
+            }
+        }
+
+        purchasebtn.setOnClickListener {
+            activity?.let {
+                val purchase = Intent(context, Mypage_purchaseActivity::class.java)
+                startActivity(purchase)
             }
         }
 

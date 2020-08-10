@@ -107,46 +107,31 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:background="@drawable/buttonedge"
-                    android:gravity="center"
-                    android:textColor="#000"
-                    android:textSize="25dp"
-                    android:text="ㅡ" />
-
-                <EditText
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="1"/>
-
-                <Button
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:text="+"/>
-
-
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/fundingBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp"
-                android:padding="15dp"
-                android:textColor="#fff"
-                android:background="@color/swuColor"
-                android:textStyle="bold"
-                android:textSize="16dp"
-                android:text="구입하기"/>
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="52dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/buttonedge"
+                    android:padding="8dp"
+                    android:src="@drawable/heartempty"/>
+
+                <Button
+                    android:id="@+id/fundingBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textColor="#fff"
+                    android:background="@color/swuColor"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="구입하기"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
