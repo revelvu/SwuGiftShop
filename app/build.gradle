@@ -4,12 +4,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.swu.swugiftshop"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
@@ -49,15 +49,18 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // top Tool bar
-    implementation 'com.android.support:appcompat-v7:29.1.0'
+    implementation 'com.android.support:appcompat-v7:30.1.0'
 
     // bottom Navigation bar | material design
     implementation 'com.google.android.material:material:1.1.0'
 
+    // firebase
     implementation 'com.google.firebase:firebase-analytics:17.2.2'
     implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
     implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
     implementation 'com.google.firebase:firebase-database-ktx:19.3.1'
 
+    // navigation drawer | tab bar
+    implementation 'com.android.support:design:30.1.1'
 
 }

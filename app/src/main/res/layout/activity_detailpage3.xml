@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="파미 포스트잇 + 펜세트"
+                android:text="유시 L자 파일"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold" />

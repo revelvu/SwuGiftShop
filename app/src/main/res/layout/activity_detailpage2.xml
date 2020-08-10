@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="우치 우산(장/접이식)"
+                android:text="웬디 손거울"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="bold" />

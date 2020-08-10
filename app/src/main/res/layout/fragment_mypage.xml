@@ -122,7 +122,7 @@
             android:layout_marginBottom="20dp"
             android:background="#DBDBDB"/>
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="17dp"
@@ -131,14 +131,14 @@
             android:textSize="18dp"
             android:text="설정"/>
 
-        <TextView
+        <Button
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
+            android:layout_marginLeft="15dp"
+            android:text="로그아웃"
             android:textColor="#000"
-            android:textSize="18dp"
-            android:text="로그아웃"/>
+            android:textSize="18dp" />
 
         <TextView
             android:layout_width="match_parent"

@@ -8,7 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.fragment_mypage.*
 
 class MypageFragment : Fragment() {
@@ -22,6 +24,17 @@ class MypageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+        //로그아웃 버튼 클릭시
+//        logoutBtn.setOnClickListener {
+//            FirebaseAuth.getInstance().signOut()
+//            //로그아웃을 성공하면, 다시 로그인 페이지!
+//
+//            activity?.let {
+//                val relogin = Intent(context, LogInActivity::class.java)
+//                startActivity(relogin)
+//            }
+//        }
     }
 
     override fun onAttach(context: Context) {
@@ -34,10 +47,24 @@ class MypageFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_mypage, container, false)
-        
+
+        val logoutbtn = view.findViewById<Button>(R.id.logoutBtn)
+
+        logoutbtn.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            //로그아웃을 성공하면, 다시 로그인 페이지!
+
+            activity?.let {
+                val relogin = Intent(context, LogInActivity::class.java)
+                startActivity(relogin)
+            }
+        }
 
         return view
     }
-
-
 }
+
+
+
+
+

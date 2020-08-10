@@ -90,6 +90,7 @@
                             android:layout_height="85dp"
                             android:background="#DBDBDB"
                             android:src="@drawable/usinotecrop"
+                            android:scaleType="centerCrop"
                             android:layout_marginBottom="3dp"/>
 
                         <TextView
@@ -99,12 +100,28 @@
                             android:textSize="14dp"
                             android:text="유시 무선 노트" />
 
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="3,000원" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:textSize="14dp"
+                                android:textStyle="bold"
+                                android:text="3,000" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#000"
+                                android:textSize="12dp"
+                                android:text="원" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -121,21 +138,39 @@
                             android:layout_width="match_parent"
                             android:layout_height="85dp"
                             android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
+                            android:layout_marginBottom="3dp"
+                            android:src="@drawable/wendi_mirror_crop"
+                            />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
                             android:textSize="14dp"
-                            android:text="상품명2" />
+                            android:text="웬디 손거울" />
 
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:textSize="14dp"
+                                android:textStyle="bold"
+                                android:text="3,000" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#000"
+                                android:textSize="12dp"
+                                android:text="원" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -150,21 +185,38 @@
                             android:layout_width="match_parent"
                             android:layout_height="85dp"
                             android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
+                            android:layout_marginBottom="3dp"
+                            android:src="@drawable/usifile_crop"/>
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="#000"
                             android:textSize="14dp"
-                            android:text="상품명3" />
+                            android:text="유시 L자 파일" />
 
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textColor="#000"
+                                android:textSize="14dp"
+                                android:textStyle="bold"
+                                android:text="1,500" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:textColor="#000"
+                                android:textSize="12dp"
+                                android:text="원" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 
