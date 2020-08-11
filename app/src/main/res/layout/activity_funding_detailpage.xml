@@ -23,8 +23,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="155dp"
-            android:text="상세페이지 (화살표 넣기)"
+            android:layout_gravity="center"
+            android:text="상세페이지"
             android:textColor="#000"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -213,6 +213,8 @@
                 android:layout_height="1dp"
                 android:background="#DBDBDB"/>
 
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,6 +252,120 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DBDBDB"/>
+
+            <Button
+                android:id="@+id/optionBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="색상 ▽"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:background="@drawable/buttonedge"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_margin="15dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:text="우치 에코백 - 블랙"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text="-" />
+
+                    <EditText
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:text="1"/>
+
+                    <Button
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text="+" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB"/>
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_centerVertical="true"
+                    android:text="총 상품 금액"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:text="3,000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="원"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

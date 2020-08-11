@@ -22,6 +22,13 @@ class HomeFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        searchBtn.setOnClickListener {
+            activity?.let {
+                val searchIntent = Intent(context, SearchActivity::class.java)
+                startActivity(searchIntent)
+            }
+        }
+
         detailImage1.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, DetailpageActivity1::class.java)
@@ -42,6 +49,14 @@ class HomeFragment: Fragment() {
                 startActivity(intent)
             }
         }
+
+        fundingDetail1.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, FundingDetailpageActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
 
     }
 

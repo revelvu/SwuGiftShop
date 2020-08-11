@@ -6,10 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import androidx.core.view.GravityCompat
-import com.google.android.material.bottomnavigation.BottomNavigationItemView
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation
+import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_mypage.*
+import kotlinx.android.synthetic.main.drawer_layout.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +31,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // 하단 네비게이션 바
+        // tool bar
+        setSupportActionBar(my_toolbar)
+
+
+        // bottom Navigation bar
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNaviItemSeletedListener)
         homeFragment = HomeFragment.newInstance()
         supportFragmentManager.beginTransaction().add(R.id.fragments_frame, homeFragment).commit()
@@ -35,7 +43,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    // 하단 네비게이션 바
+    // bottom Navigation bar
     private val onBottomNaviItemSeletedListener = BottomNavigationView.OnNavigationItemSelectedListener {
         when(it.itemId) {
             R.id.homeicon -> {
@@ -43,11 +51,11 @@ class MainActivity : AppCompatActivity() {
                 homeFragment = HomeFragment.newInstance()
                 supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, homeFragment).commit()
             }
+            // 카테고리 버튼을 눌렀을 때
             R.id.categoryicon -> {
                 Log.d(TAG, "category button")
-//                categoryFragment = CategoryFragment.newInstance()
-//                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, categoryFragment).commit()
-//                drawerLayout.openDrawer(GravityCompat.START)
+                // 드로어 열기
+//                main_drawer_layout.openDrawer(GravityCompat.START)
             }
             R.id.wishlisticon -> {
                 Log.d(TAG, "wishlist button")
@@ -71,5 +79,37 @@ class MainActivity : AppCompatActivity() {
         true
     }
 
+    // navigation Drawer
+    class MainActivity : AppCompatActivity(),
+        NavigationView.OnNavigationItemSelectedListener {
+
+        override fun onNavigationItemSelected(item: MenuItem): Boolean {
+            when (item.itemId) {
+                R.id.nav_stationery -> {
+                    Toast.makeText(this, "account clicked", Toast.LENGTH_SHORT).show()
+                }
+                R.id.nav_clothing -> {
+                    Toast.makeText(this, "account clicked", Toast.LENGTH_SHORT)
+                    .show()
+                }
+                R.id.nav_accessory -> {
+                    Toast.makeText(this, "account clicked", Toast.LENGTH_SHORT)
+                    .show()
+                }
+                R.id.nav_etc -> {Toast.makeText(this, "account clicked", Toast.LENGTH_SHORT).show()
+                }
+            }
+            main_drawer_layout.closeDrawers()
+            return false
+        }
+
+        override fun onBackPressed() { //뒤로가기 처리
+            if (main_drawer_layout.isDrawerOpen(GravityCompat.START)) {
+                main_drawer_layout.closeDrawers()
+            } else {
+                super.onBackPressed()
+            }
+        }
+    }
 }
 
