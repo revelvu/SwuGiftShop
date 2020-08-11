@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.swu.swugiftshop">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,6 +15,7 @@
         <activity android:name=".DetailpageActivity1" />
         <activity android:name=".DetailpageActivity2" />
         <activity android:name=".DetailpageActivity3" />
+        <activity android:name=".MypageActivity"/>
 
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">

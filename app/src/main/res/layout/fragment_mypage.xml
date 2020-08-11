@@ -50,14 +50,15 @@
                 android:src="@drawable/mypagedefault"/>
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/myNickName"
+                android:layout_width="84dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="김슈니"
                 android:textColor="#000"
                 android:textSize="30dp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center"
-                android:text="김슈니"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 

@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var categoryFragment: CategoryFragment
     private lateinit var wishlistFragment: WishlistFragment
     private lateinit var messageFragment: MessageFragment
-    private lateinit var mypageFragment: MypageFragment
+//    private lateinit var mypageFragment: MypageFragment
 
     companion object {
         const val TAG: String = "로그"
@@ -61,8 +61,11 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.mypageicon -> {
                 Log.d(TAG, "mypage button")
-                mypageFragment = MypageFragment.newInstance()
-                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
+
+                val mypageIntent = Intent(this, MypageActivity::class.java)
+                startActivity(mypageIntent)
+//                mypageFragment = MypageFragment.newInstance()
+//                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
             }
         }
         true
