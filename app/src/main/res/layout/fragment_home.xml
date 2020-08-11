@@ -34,10 +34,13 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/searchBtn"
             android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_marginLeft="65dp"
-            android:src="@drawable/search" />
+            android:src="@drawable/search"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </androidx.appcompat.widget.Toolbar>
 

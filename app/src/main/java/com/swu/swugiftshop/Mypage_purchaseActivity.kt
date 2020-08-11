@@ -13,11 +13,14 @@ import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_mypage_purchase.*
 
 class Mypage_purchaseActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mypage_purchase)
 
+        // tool bar back button
         setSupportActionBar(my_toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
 
@@ -33,29 +36,23 @@ class Mypage_purchaseActivity : AppCompatActivity() {
                 view_pager.setCurrentItem(tab!!.position)
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {
-
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab?) {
-
-            }
-
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
         })
         view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
     }
 
-    // tool bar
+
+    // tool bar back button
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            R.id.home -> {
+        val id = item.itemId
+        when (id) {
+            android.R.id.home -> {
                 finish()
                 return true
             }
-            else -> {
-                return super.onOptionsItemSelected(item)
-            }
         }
+        return super.onOptionsItemSelected(item)
     }
 }
 

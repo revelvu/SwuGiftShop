@@ -1,5 +1,6 @@
 package com.swu.swugiftshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_layout.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +33,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // tool bar
+        setSupportActionBar(my_toolbar)
+
 
         // bottom Navigation bar
         bottom_nav.setOnNavigationItemSelectedListener(onBottomNaviItemSeletedListener)
@@ -51,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             R.id.categoryicon -> {
                 Log.d(TAG, "category button")
                 // 드로어 열기
-                main_drawer_layout.openDrawer(GravityCompat.START)
+//                main_drawer_layout.openDrawer(GravityCompat.START)
             }
             R.id.wishlisticon -> {
                 wishlistFragment = WishlistFragment.newInstance()
