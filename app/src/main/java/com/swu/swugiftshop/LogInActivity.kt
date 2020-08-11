@@ -2,6 +2,7 @@ package com.swu.swugiftshop
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -35,6 +36,8 @@ class LogInActivity : AppCompatActivity() {
 
         val email = findViewById<TextView>(R.id.username_inputbox)
         val password = findViewById<TextView>(R.id.password_inputbox)
+
+        registerBtn.setPaintFlags(registerBtn.paintFlags or Paint.UNDERLINE_TEXT_FLAG)
 
         //회원가입
         registerBtn.setOnClickListener {
