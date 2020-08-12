@@ -184,6 +184,7 @@
 
 
                 <ImageView
+                    android:id="@+id/empty_heart"
                     android:layout_width="50dp"
                     android:layout_height="52dp"
                     android:layout_marginRight="5dp"
