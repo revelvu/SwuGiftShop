@@ -71,8 +71,14 @@ class MainActivity : AppCompatActivity() {
             R.id.mypageicon -> {
                 Log.d(TAG, "mypage button")
 
-                val mypageIntent = Intent(this, MypageActivity::class.java)
-                startActivity(mypageIntent)
+
+                val mainIntent = getIntent()
+                val NickName = mainIntent.getStringExtra("닉네임")
+
+                val goMainIntent = Intent(this, MypageActivity::class.java)
+                goMainIntent.putExtra("닉네임",NickName)
+
+                startActivity(goMainIntent)
 //                mypageFragment = MypageFragment.newInstance()
 //                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
             }

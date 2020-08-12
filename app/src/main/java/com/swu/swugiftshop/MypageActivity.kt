@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
@@ -21,10 +22,14 @@ class MypageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_mypage)
 
-        val mypageIntent= intent
-        val MyNickName= mypageIntent.getStringExtra("닉네임").toString()
+        val nick = findViewById<TextView>(R.id.myNickName)
+//
+        val mypageIntent = Intent()
+        val MyNickName = mypageIntent.getStringExtra("닉네임")
+//        nick.text = "$MyNickName 슈니"
+        nick.text = "$MyNickName 슈니"
 
-        myNickName!!.text = "$MyNickName 슈니"
+
 
         val logoutbtn = findViewById<Button>(R.id.logoutBtn)
 
@@ -41,6 +46,9 @@ class MypageActivity : AppCompatActivity() {
     }
 
 }
+
+
+
 
 
 //class MypageActivity : Fragment() {
