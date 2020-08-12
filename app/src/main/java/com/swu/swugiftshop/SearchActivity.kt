@@ -18,7 +18,6 @@ class SearchActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-
     }
 
     // tool bar back button

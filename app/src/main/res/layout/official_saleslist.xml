@@ -53,6 +53,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/official_salelist1"
                     android:layout_width="182dp"
                     android:layout_height="180dp"
                     android:orientation="vertical"
@@ -99,6 +100,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/official_salelist2"
                     android:layout_width="182dp"
                     android:layout_height="180dp"
                     android:orientation="vertical"
@@ -151,6 +153,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/official_salelist3"
                     android:layout_width="182dp"
                     android:layout_height="180dp"
                     android:orientation="vertical"
