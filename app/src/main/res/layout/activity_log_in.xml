@@ -92,6 +92,7 @@
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
             android:fontFamily="@font/kopubworld_dotum_medium"
+            android:paddingRight="1dp"
             android:text="아직 회원이 아니신가요?"
             android:textColor="#000"
             android:textSize="16dp" />
