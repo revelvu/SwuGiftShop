@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.navigation.Navigation
-import androidx.navigation.ui.AppBarConfiguration
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,7 +18,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var homeFragment: HomeFragment
     private lateinit var wishlistFragment: WishlistFragment
     private lateinit var messageFragment: MessageFragment
-    //    private lateinit var mypageFragment: MypageFragment
+    private lateinit var mypageFragment: MypageFragment
     private lateinit var officialSaleslistFragment: OfficialSaleslistFragment
     lateinit var navView: NavigationView
 
@@ -52,42 +49,36 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         BottomNavigationView.OnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.homeicon -> {
-                    Log.d(TAG, "home button")
                     homeFragment = HomeFragment.newInstance()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragments_frame, homeFragment).commit()
                 }
-                // 카테고리 버튼을 눌렀을 때
                 R.id.categoryicon -> {
-                    Log.d(TAG, "category button")
                     var drawer = findViewById<DrawerLayout>(R.id.drawer_Layout)
                     drawer.openDrawer(GravityCompat.START)
                 }
                 R.id.wishlisticon -> {
-                    Log.d(TAG, "wishlist button")
                     wishlistFragment = WishlistFragment.newInstance()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragments_frame, wishlistFragment).commit()
                 }
                 R.id.messageicon -> {
-                    Log.d(TAG, "message button")
                     messageFragment = MessageFragment.newInstance()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragments_frame, messageFragment).commit()
                 }
                 R.id.mypageicon -> {
-                    Log.d(TAG, "mypage button")
-
+                    mypageFragment = MypageFragment.newInstance()
+                    supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
 
                     val mainIntent = getIntent()
                     val NickName = mainIntent.getStringExtra("닉네임")
 
-                    val goMainIntent = Intent(this, MypageActivity::class.java)
-                    goMainIntent.putExtra("닉네임", NickName)
+//                    val goMainIntent = Intent(this, MypageFragment::class.java)
+//                    goMainIntent.putExtra("닉네임", NickName)
+//
+//                    startActivity(goMainIntent)
 
-                    startActivity(goMainIntent)
-//                mypageFragment = MypageFragment.newInstance()
-//                supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
                 }
             }
             true

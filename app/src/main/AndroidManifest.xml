@@ -16,7 +16,7 @@
         <activity android:name=".DetailpageActivity1" />
         <activity android:name=".DetailpageActivity2" />
         <activity android:name=".DetailpageActivity3" />
-        <activity android:name=".MypageActivity"/>
+        <activity android:name=".Mypage_purchaseActivity"/>
 
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">
