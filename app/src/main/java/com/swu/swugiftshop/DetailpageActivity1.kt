@@ -10,8 +10,6 @@ import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.activity_mypage_purchase.*
 import kotlinx.android.synthetic.main.navi_header.*
 
-var i=0
-
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +26,21 @@ class DetailpageActivity1 : AppCompatActivity() {
 
         emptyheart.setOnClickListener {
 
-            i = if(i==0){
+            val putItem2=RecyclerItem("유시 유선 노트", "1 개", "usinotecrop")
+            var i=0
+
+            if(i==0){
                 emptyheart.setImageResource(R.drawable.heartfull)
                 i+1
-            }else{
+
+                wishList.add(putItem2)
+
+            }else {
                 emptyheart.setImageResource(R.drawable.heartempty)
-                i-1
+                i - 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem2)
             }
         }
     }

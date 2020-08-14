@@ -21,26 +21,35 @@ class DetailpageActivity3 : AppCompatActivity() {
 
         emptyhearttt.setOnClickListener {
 
-            i = if(i==0){
+            val putItem3 = RecyclerItem("유시 L자 파일", "3 개", "usifile_crop")
+            var i =0
+
+            if (i == 0) {
                 emptyhearttt.setImageResource(R.drawable.heartfull)
-                i+1
-            }else{
+                i + 1
+
+                wishList.add(putItem3)
+
+            } else {
                 emptyhearttt.setImageResource(R.drawable.heartempty)
-                i-1
+                i - 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem3)
             }
+
         }
 
-    }
-
-    // tool bar back button
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-            android.R.id.home -> {
-                finish()
-                return true
+        // tool bar back button
+        fun onOptionsItemSelected(item: MenuItem): Boolean {
+            val id = item.itemId
+            when (id) {
+                android.R.id.home -> {
+                    finish()
+                    return true
+                }
             }
+            return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
 }

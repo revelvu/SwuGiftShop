@@ -1,5 +1,6 @@
 package com.swu.swugiftshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -22,12 +23,22 @@ class DetailpageActivity2 : AppCompatActivity() {
 
         emptyheartt.setOnClickListener {
 
-            i = if(i==0){
+            val putItem1= RecyclerItem("웬디 손거울","2 개","wendi_mirror_crop")
+            var i=0
+
+            if(i==0){
                 emptyheartt.setImageResource(R.drawable.heartfull)
                 i+1
+
+                //하트가 채워지면, recyclerview item들 중에서 해당 데이터가 추가되어야한다.
+                wishList.add(putItem1)
+
             }else{
                 emptyheartt.setImageResource(R.drawable.heartempty)
                 i-1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem1)
             }
         }
     }

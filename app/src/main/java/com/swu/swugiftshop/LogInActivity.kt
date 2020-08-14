@@ -92,7 +92,7 @@ class LogInActivity : AppCompatActivity() {
                 }
             }
         return mynick
-        Log.d(TAG, "왜 안나와? $mynick")
+        Log.d(TAG, "왜 안나와? $mynick")   //Unreachable code랍니다.
     }
 }
 
