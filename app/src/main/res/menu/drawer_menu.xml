@@ -3,25 +3,21 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_stationery"
-            android:icon="@drawable/ic_launcher_foreground"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="문구류"
             />
         <item
             android:id="@+id/nav_clothing"
-            android:icon="@drawable/ic_launcher_foreground"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="의류"
             />
         <item
             android:id="@+id/nav_accessory"
-            android:icon="@drawable/ic_launcher_foreground"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="악세사리" />
 
         <item
             android:id="@+id/nav_etc"
-            android:icon="@drawable/ic_launcher_foreground"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="기타" />
     </group>

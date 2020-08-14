@@ -89,32 +89,31 @@
             android:layout_marginBottom="20dp"
             android:background="#DBDBDB"/>
 
-        <TextView
+        <Button
             android:id="@+id/purchaseBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
+            android:paddingTop="7dp"
             android:textColor="#000"
             android:textSize="18dp"
+            android:background="#fff"
+            android:gravity="left"
+            style="?android:attr/borderlessButtonStyle"
             android:text="구입한 굿즈"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="#000"
-            android:textSize="18dp"
-            android:text="내가 참여한 펀딩"/>
 
-       <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp"
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="40dp"
+           android:layout_marginLeft="17dp"
            android:layout_marginBottom="20dp"
-            android:textColor="#000"
-            android:textSize="18dp"
+           android:paddingTop="7dp"
+           android:textColor="#000"
+           android:textSize="18dp"
+           android:background="#fff"
+           android:gravity="left"
+           style="?android:attr/borderlessButtonStyle"
             android:text="내가 만든 펀딩"/>
 
         <TextView
@@ -125,27 +124,30 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_marginLeft="17dp"
-            android:layout_marginBottom="10dp"
+            android:paddingTop="7dp"
             android:textColor="#000"
             android:textSize="18dp"
+            android:background="#fff"
+            android:gravity="left"
+            style="?android:attr/borderlessButtonStyle"
             android:text="설정"/>
 
         <Button
             android:id="@+id/logoutBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="17dp"
+            android:paddingTop="7dp"
+            style="?android:attr/borderlessButtonStyle"
+            android:gravity="left"
             android:text="로그아웃"
             android:textColor="#000"
             android:textSize="18dp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="아직 덜 만든 마이페이지"/>
 
     </LinearLayout>
 

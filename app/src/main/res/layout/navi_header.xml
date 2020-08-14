@@ -3,38 +3,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">]
+    android:background="@color/swuColor"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="15dp"
+
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             app:srcCompat="@drawable/mypageicon"
             android:id="@+id/imageView"/>
 
-        <TextView
-            android:id="@+id/nickname"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_gravity="center"
-            android:textSize="20dp"
-            android:text="김슈니"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nickname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:textColor="#fff"
+                android:textSize="20dp"
+                android:text="김슈니"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-15dp"
+                android:layout_marginBottom="-15dp"
+                android:fontFamily="@font/notosans_regular"
+                android:textColor="#fff"
+                android:text="@string/user_email" />
+
+        </LinearLayout>
 
     </LinearLayout>
-
-
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/user_email" />
-
 
 </LinearLayout>
