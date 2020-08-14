@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="#fff"
     android:orientation="vertical">
 
@@ -29,173 +30,179 @@
 
 
     </androidx.appcompat.widget.Toolbar>
-
-    <LinearLayout
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/wish_recycler"
         android:layout_width="match_parent"
-        android:layout_height="124dp"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:visibility="visible">
+        android:layout_height="match_parent"/>
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:background="#DBDBDB" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="124dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="12dp"-->
+<!--        android:visibility="visible">-->
 
-            <TextView
-                android:id="@+id/goodsName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="굿즈명"
-                android:textColor="#000"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+<!--        <ImageView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:background="#DBDBDB" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="3dp"
-                android:text="제작자"
-                android:textColor="#000"
-                android:textSize="14dp" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:orientation="horizontal">
+<!--            <TextView-->
+<!--                android:id="@+id/goodsName"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:text="굿즈명"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="16dp"-->
+<!--                android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="#000"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="가격"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginBottom="3dp"-->
+<!--                android:text="제작자"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="14dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="원"
-                    android:textColor="#000"
-                    android:textSize="14dp" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="3dp"-->
+<!--                android:orientation="horizontal">-->
 
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:text="가격"/>-->
 
-        </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:text="원"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:textSize="14dp" />-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--            </LinearLayout>-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/heartempty" />
+<!--        </LinearLayout>-->
 
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-    </LinearLayout>
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:src="@drawable/heartempty" />-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DBDBDB"/>
+<!--        </RelativeLayout>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="124dp"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:visibility="visible">
+<!--    </LinearLayout>-->
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="100dp"
-            android:background="#DBDBDB" />
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="#DBDBDB"/>-->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="124dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:padding="12dp"-->
+<!--        android:visibility="visible">-->
 
-            <TextView
-                android:id="@+id/fundingName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="5dp"
-                android:text="펀딩명"
-                android:textColor="#000"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+<!--        <ImageView-->
+<!--            android:layout_width="150dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:background="#DBDBDB" />-->
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="3dp"
-                android:text="제작자"
-                android:textColor="#000"
-                android:textSize="14dp" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:orientation="horizontal">
+<!--            <TextView-->
+<!--                android:id="@+id/fundingName"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginBottom="5dp"-->
+<!--                android:text="펀딩명"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="16dp"-->
+<!--                android:textStyle="bold" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:textColor="#000"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:text="펀딩률"/>
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:layout_marginBottom="3dp"-->
+<!--                android:text="제작자"-->
+<!--                android:textColor="#000"-->
+<!--                android:textSize="14dp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="%"
-                    android:textColor="#000"
-                    android:textSize="14dp" />
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="3dp"-->
+<!--                android:orientation="horizontal">-->
 
-            </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_marginLeft="8dp"-->
+<!--                    android:text="펀딩률"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold" />-->
 
-        </LinearLayout>
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:text="%"-->
+<!--                    android:textColor="#000"-->
+<!--                    android:textSize="14dp" />-->
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+<!--            </LinearLayout>-->
 
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:src="@drawable/heartempty" />
+<!--        </LinearLayout>-->
 
-        </RelativeLayout>
+<!--        <RelativeLayout-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
 
-    </LinearLayout>
+<!--            <ImageView-->
+<!--                android:layout_width="30dp"-->
+<!--                android:layout_height="30dp"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_alignParentBottom="true"-->
+<!--                android:src="@drawable/heartempty" />-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="#DBDBDB"/>
+<!--        </RelativeLayout>-->
+
+<!--    </LinearLayout>-->
+
+<!--    <TextView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="1dp"-->
+<!--        android:background="#DBDBDB"/>-->
 
 </LinearLayout>

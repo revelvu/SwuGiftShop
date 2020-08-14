@@ -34,10 +34,13 @@
             android:textStyle="bold" />
 
         <ImageView
+            android:id="@+id/searchBtn"
             android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_marginLeft="65dp"
-            android:src="@drawable/search" />
+            android:src="@drawable/search"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -67,11 +70,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:text="인기 추천 공식 굿즈"
                     android:textColor="#000000"
                     android:textSize="18dp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="10dp"/>
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,24 +84,24 @@
                     <LinearLayout
                         android:layout_width="115dp"
                         android:layout_height="140dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="15dp">
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/detailImage1"
                             android:layout_width="match_parent"
                             android:layout_height="85dp"
+                            android:layout_marginBottom="3dp"
                             android:background="#DBDBDB"
-                            android:src="@drawable/usinotecrop"
                             android:scaleType="centerCrop"
-                            android:layout_marginBottom="3dp"/>
+                            android:src="@drawable/usinotecrop" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="유시 무선 노트"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="유시 무선 노트" />
+                            android:textSize="14dp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -108,46 +111,44 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="3,000"
                                 android:textColor="#000"
                                 android:textSize="14dp"
-                                android:textStyle="bold"
-                                android:text="3,000" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
+                                android:text="원"
                                 android:textColor="#000"
-                                android:textSize="12dp"
-                                android:text="원" />
+                                android:textSize="12dp" />
 
                         </LinearLayout>
 
                     </LinearLayout>
 
 
-
                     <LinearLayout
                         android:layout_width="115dp"
                         android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="15dp">
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/detailImage2"
                             android:layout_width="match_parent"
                             android:layout_height="85dp"
-                            android:background="#DBDBDB"
                             android:layout_marginBottom="3dp"
-                            android:src="@drawable/wendi_mirror_crop"
-                            />
+                            android:background="#DBDBDB"
+                            android:src="@drawable/wendi_mirror_crop" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="웬디 손거울"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="웬디 손거울" />
+                            android:textSize="14dp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -157,18 +158,18 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="3,000"
                                 android:textColor="#000"
                                 android:textSize="14dp"
-                                android:textStyle="bold"
-                                android:text="3,000" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
+                                android:text="원"
                                 android:textColor="#000"
-                                android:textSize="12dp"
-                                android:text="원" />
+                                android:textSize="12dp" />
 
                         </LinearLayout>
 
@@ -177,23 +178,23 @@
                     <LinearLayout
                         android:layout_width="115dp"
                         android:layout_height="150dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="15dp">
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:id="@+id/detailImage3"
                             android:layout_width="match_parent"
                             android:layout_height="85dp"
-                            android:background="#DBDBDB"
                             android:layout_marginBottom="3dp"
-                            android:src="@drawable/usifile_crop"/>
+                            android:background="#DBDBDB"
+                            android:src="@drawable/usifile_crop" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="유시 L자 파일"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="유시 L자 파일" />
+                            android:textSize="14dp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -203,18 +204,18 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="1,500"
                                 android:textColor="#000"
                                 android:textSize="14dp"
-                                android:textStyle="bold"
-                                android:text="1,500" />
+                                android:textStyle="bold" />
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
+                                android:text="원"
                                 android:textColor="#000"
-                                android:textSize="12dp"
-                                android:text="원" />
+                                android:textSize="12dp" />
 
                         </LinearLayout>
 
@@ -227,10 +228,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:textStyle="bold"
+                    android:text="신규 공식 굿즈"
                     android:textColor="#000000"
                     android:textSize="18dp"
-                    android:text="신규 공식 굿즈" />
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,28 +241,28 @@
                     <LinearLayout
                         android:layout_width="182dp"
                         android:layout_height="180dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="15dp">
+                        android:layout_marginRight="15dp"
+                        android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
+                            android:layout_marginBottom="3dp"
+                            android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="상품명1"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="상품명1" />
+                            android:textSize="14dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="가격"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
+                            android:textSize="14dp" />
 
                     </LinearLayout>
 
@@ -273,36 +274,36 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
+                            android:layout_marginBottom="3dp"
+                            android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="상품명2"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="상품명2" />
+                            android:textSize="14dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="가격"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
+                            android:textSize="14dp" />
 
                     </LinearLayout>
 
 
-                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:textStyle="bold"
+                    android:text="신규 비공식 굿즈 펀딩"
                     android:textColor="#000000"
                     android:textSize="18dp"
-                    android:text="신규 비공식 굿즈 펀딩"/>
+                    android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -310,57 +311,65 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/fundingDetail1"
                         android:layout_width="182dp"
-                        android:layout_height="180dp"
-                        android:orientation="vertical"
-                        android:layout_marginRight="15dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
-                            android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="상품명1" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="182dp"
-                        android:layout_height="180dp"
+                        android:layout_height="200dp"
+                        android:layout_marginRight="15dp"
                         android:orientation="vertical">
 
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="120dp"
-                            android:background="#DBDBDB"
-                            android:layout_marginBottom="3dp"/>
+                            android:layout_marginBottom="3dp"
+                            android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="상품명2" />
+                            android:text="그루밍천재"
+                            android:textColor="#808080"
+                            android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:text="귀여운 우치를 내 가방 속에, 우치 에코백"
                             android:textColor="#000"
-                            android:textSize="14dp"
-                            android:text="가격" />
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="0%"
+                            android:textColor="#000"
+                            android:textSize="14dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="182dp"
+                        android:layout_height="200dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#DBDBDB" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="상품명2"
+                            android:textColor="#000"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="가격"
+                            android:textColor="#000"
+                            android:textSize="14dp" />
 
                     </LinearLayout>
 
