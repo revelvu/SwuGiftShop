@@ -5,20 +5,38 @@ import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.ImageView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.fragment_home.*
+
+var i = 0
 
 class FundingDetailpageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_funding_detailpage)
 
+
         // tool bar back button
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+
+        //하트 클릭시 full/empty heart 이미지 나오도록하기
+        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+
+        emptyheart.setOnClickListener {
+
+            i = if(i==0){
+                emptyheart.setImageResource(R.drawable.heartfull)
+                i+1
+            }else{
+                emptyheart.setImageResource(R.drawable.heartempty)
+                i-1
+            }
+        }
 
         // 펀딩하기 버튼을 눌렀을 때
         fundingBtn.setOnClickListener {

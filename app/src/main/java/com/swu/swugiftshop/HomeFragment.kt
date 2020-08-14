@@ -24,26 +24,26 @@ class HomeFragment: Fragment() {
 
         searchBtn.setOnClickListener {
             activity?.let {
-                val searchIntent = Intent(context, SearchActivity::class.java)
+                val searchIntent = Intent(context, ItemSearchActivity::class.java)
                 startActivity(searchIntent)
             }
         }
 
-        detailImage1.setOnClickListener {
+        detaillayout1.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, DetailpageActivity1::class.java)
                 startActivity(intent)
             }
         }
 
-        detailImage2.setOnClickListener {
+        detaillayout2.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, DetailpageActivity2::class.java)
                 startActivity(intent)
             }
         }
 
-        detailImage3.setOnClickListener {
+        detaillayout3.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, DetailpageActivity3::class.java)
                 startActivity(intent)
