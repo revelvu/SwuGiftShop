@@ -23,7 +23,7 @@ class DetailpageActivity2 : AppCompatActivity() {
 
         emptyheartt.setOnClickListener {
 
-            val putItem1= RecyclerItem("웬디 손거울","2 개","wendi_mirror_crop")
+            val putItem1= RecyclerItem("웬디 손거울","1 개","wendi_mirror_crop")
             var i=0
 
             if(i==0){
