@@ -21,7 +21,7 @@ class DetailpageActivity3 : AppCompatActivity() {
 
         emptyhearttt.setOnClickListener {
 
-            val putItem3 = RecyclerItem("유시 L자 파일", "3 개", "usifile_crop")
+            val putItem3 = RecyclerItem("유시 L자 파일", "1 개", "usifile_crop")
             var i =0
 
             if (i == 0) {
