@@ -24,7 +24,7 @@ class HomeFragment: Fragment() {
 
         searchBtn.setOnClickListener {
             activity?.let {
-                val searchIntent = Intent(context, ItemSearchActivity::class.java)
+                val searchIntent = Intent(context, MainListViewActivity::class.java)
                 startActivity(searchIntent)
             }
         }

@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ItemSearchActivity"></activity>
+        <activity android:name=".MainListViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ItemSearchActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".FundingDetailpageActivity" />
         <activity android:name=".DetailpageActivity1" />
@@ -19,13 +26,9 @@
         <activity android:name=".DetailpageActivity3" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
