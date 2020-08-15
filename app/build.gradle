@@ -59,6 +59,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
     implementation 'com.google.firebase:firebase-firestore-ktx:21.5.0'
     implementation 'com.google.firebase:firebase-database-ktx:19.3.1'
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    implementation 'com.google.firebase:firebase-core:17.0.0'
 
     // navigation drawer | tab bar
     implementation 'com.android.support:design:29.1.1'

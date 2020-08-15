@@ -29,6 +29,7 @@ class CategoryFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_category, container, false)
+
         return view
     }
 }
