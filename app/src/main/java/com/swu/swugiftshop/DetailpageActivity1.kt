@@ -26,16 +26,16 @@ class DetailpageActivity1 : AppCompatActivity() {
 
         emptyheart.setOnClickListener {
 
-            val putItem2=RecyclerItem("유시 유선 노트", "1 개", "usinotecrop")
-            var i=0
+            val putItem2 = RecyclerItem("유시 유선 노트", "1 개", "usinotecrop")
+            var i = 0
 
-            if(i==0){
+            if (i == 0) {
                 emptyheart.setImageResource(R.drawable.heartfull)
-                i+1
+                i + 1
 
                 wishList.add(putItem2)
 
-            }else {
+            } else {
                 emptyheart.setImageResource(R.drawable.heartempty)
                 i - 1
 

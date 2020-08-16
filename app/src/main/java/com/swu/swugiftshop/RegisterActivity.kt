@@ -1,6 +1,8 @@
 package com.swu.swugiftshop
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -9,11 +11,13 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.IgnoreExtraProperties
 import com.google.firebase.database.ktx.database
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import com.swu.swugiftshop.MainActivity.Companion.TAG
 import kotlinx.android.synthetic.main.activity_log_in.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -25,7 +29,6 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -36,10 +39,9 @@ class RegisterActivity : AppCompatActivity() {
         val email = findViewById<EditText>(R.id.email_inputbox)
         val password = findViewById<EditText>(R.id.password)
         val passwordAgain = findViewById<EditText>(R.id.reEnterPassword)
+        val nickname = findViewById<EditText>(R.id.nickName)
 
         signUpBtn.setOnClickListener {
-
-            val nickname = findViewById<EditText>(R.id.nickName).getText().toString()   //여기에 쓰인 글자를 가져오기 getText()
 
             if (password.text.toString() != passwordAgain.text.toString()) {
                 //두 번 입력한 비밀번호 일치하지 않는 경우
@@ -55,12 +57,13 @@ class RegisterActivity : AppCompatActivity() {
                             Log.d("createAccount", "createUserWithEmail:success")
                             Toast.makeText(this, "회원가입에 성공하였습니다.", Toast.LENGTH_SHORT).show()
 
+                            val nicknamehash = hashMapOf(
+                                "nickname" to nickname.text.toString()
+                            )
+                            db.collection("UserProfile").document(email.text.toString())
+                                .set(nicknamehash)
 
                             val user = FirebaseAuth.getInstance().currentUser
-                            db.collection(password.getText().toString())  //password 라는 컬렉션 밑에
-                                .add(saveNickName(nickname))  //닉네임 저장  .add는 ()안에 string이나 object만 들어와야한다.
-
-
                             val loginIntent = Intent(this, LogInActivity::class.java)
                             startActivity(loginIntent)
 
@@ -73,6 +76,9 @@ class RegisterActivity : AppCompatActivity() {
                             ).show()
                             email?.setText("")
                             password?.setText("")
+                            nickname.setText("")
+                            reEnterPassword.setText("")
+
                             email.requestFocus()
                         }
                     }
@@ -85,11 +91,6 @@ class RegisterActivity : AppCompatActivity() {
     }
 
 }
-
-data class saveNickName(
-    val nick: String
-)
-
 
 //알아서 getter,setter 만드는 클래스 'data class'
 
