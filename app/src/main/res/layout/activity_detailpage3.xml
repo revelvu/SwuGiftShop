@@ -102,6 +102,7 @@
 
 
                 <Button
+                    android:id="@+id/minus2"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"
@@ -117,6 +118,7 @@
                     android:text="1"/>
 
                 <Button
+                    android:id="@+id/plus2"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"

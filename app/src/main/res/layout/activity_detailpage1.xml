@@ -102,6 +102,7 @@
 
 
                     <Button
+                        android:id="@+id/usinumMius"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@drawable/buttonedge"
@@ -110,6 +111,7 @@
                         android:text="-" />
 
                     <EditText
+                        android:id="@+id/usiNum"
                         android:layout_width="50dp"
                         android:layout_height="35dp"
                         android:background="@drawable/buttonedge"
@@ -117,6 +119,7 @@
                         android:text="1"/>
 
                     <Button
+                        android:id="@+id/usinumPlus"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:background="@drawable/buttonedge"

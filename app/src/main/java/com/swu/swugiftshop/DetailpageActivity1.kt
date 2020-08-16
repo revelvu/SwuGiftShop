@@ -3,12 +3,19 @@ package com.swu.swugiftshop
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.activity_mypage_purchase.*
 import kotlinx.android.synthetic.main.navi_header.*
+
+
+var usinumtext= 1   //유시 노트의 초기수량 == 1
+var i=0
+var putItem1 =RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,27 +27,41 @@ class DetailpageActivity1 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
+        //유시노트의 수량 edittext에서 가져오기
+        var usinum=findViewById<EditText>(R.id.usiNum)
+//        var usinums= usinum.toString()  //수량 string값으로 변환
+
+        //유시노트의 수량 증가시킬 수 있는 + 버튼
+        var plus= findViewById<Button>(R.id.usinumPlus)
+        plus.setOnClickListener {
+            usinumtext += 1
+            usinum.setText(usinumtext.toString())
+        }
+
+        //유시노트의 수량 감소시킬 수 있는 - 버튼
+        var minus=findViewById<Button>(R.id.usinumMius)
+        minus.setOnClickListener {
+            usinumtext -= 1
+            usinum.setText(usinumtext.toString())
+        }
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기
         val emptyheart = findViewById<ImageView>(R.id.empty_heart)
 
         emptyheart.setOnClickListener {
 
-            val putItem2=RecyclerItem("유시 유선 노트", "1 개", "usinotecrop")
-            var i=0
-
             if(i==0){
                 emptyheart.setImageResource(R.drawable.heartfull)
-                i+1
+                i += 1
 
-                wishList.add(putItem2)
+                wishList.add(putItem1)
 
             }else {
                 emptyheart.setImageResource(R.drawable.heartempty)
-                i - 1
 
                 //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
-                wishList.remove(putItem2)
+                wishList.remove(putItem1)
+                i -= 1
             }
         }
     }
