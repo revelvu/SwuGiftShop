@@ -16,10 +16,12 @@ import java.util.List;
 public class MainListViewActivity extends AppCompatActivity {
 
     private List<String> list;          // 데이터를 넣은 리스트변수
+    private List<String> list2;
     private ListView listView;          // 검색을 보여줄 리스트변수
     private EditText editSearch;        // 검색어를 입력할 Input 창
     private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<String> arraylist;
+    private ArrayList<String> arraylist2;
 
 
 
@@ -30,6 +32,7 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();
+        list2 = new ArrayList<String>();
 
         // 리스트에 검색될 데이터(단어)를 추가한다.
         settingList();
@@ -45,12 +48,17 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();
+        list2 = new ArrayList<String>();
 
         // 검색에 사용할 데이터을 미리 저장한다.
         settingList();
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
         arraylist = new ArrayList<String>();
         arraylist.addAll(list);
+
+        arraylist2 = new ArrayList<String>();
+        arraylist2.addAll(list2);
+
 
         // 리스트에 연동될 아답터를 생성한다.
         adapter = new SearchAdapter(list, this);
@@ -85,10 +93,11 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
         list.clear();
+        list2.clear();
 
         // 문자 입력이 없을때는 모든 데이터를 보여준다.
         if (charText.length() == 0) {
-            list.addAll(arraylist);
+            list2.addAll(arraylist2);
         }
         // 문자 입력을 할때..
         else
@@ -115,6 +124,12 @@ public class MainListViewActivity extends AppCompatActivity {
         list.add("유시 L자 파일");
         list.add("우치 에코백");
 
+    }
+
+    private void settingList2() {
+        list2.add("인기 검색어");
+        list2.add("학잠");
+        list2.add("과잠");
     }
 
 
