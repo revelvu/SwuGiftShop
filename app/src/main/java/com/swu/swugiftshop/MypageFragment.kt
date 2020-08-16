@@ -61,9 +61,9 @@ class MypageFragment : Fragment() {
         }
     }
 
-//    interface OnUserProfileSetListener {
-//        fun userProfileSet(nickname: String, email: String)
-//    }
+    interface OnUserProfileSetListener {
+        fun userProfileSet(nickname: String, email: String)
+    }
 
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
@@ -73,7 +73,7 @@ class MypageFragment : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
 //        listener = context as? OnUserProfileSetListener
-//        onUserProfileSetListener.userProfileSet(myNickName.toString(), myEmail.toString())
+////        onUserProfileSetListener.userProfileSet(myNickName.toString(), myEmail.toString())
 //        if (listener == null) {
 //            throw ClassCastException("$context must implement OnUserProfileSetListener")
 //        }
@@ -100,6 +100,7 @@ class MypageFragment : Fragment() {
         val myEmail = view?.findViewById<TextView>(R.id.myEmail)
         val userID = firebaseAuth.currentUser?.email.toString()
         myEmail?.text = userID
+        val noteEmail: String = myEmail.toString()
 
         //프로필에 사용자 nickname 띄우기
         val myNickname = view?.findViewById<TextView>(R.id.myNickName)
@@ -109,11 +110,13 @@ class MypageFragment : Fragment() {
             if (task.isSuccessful) {
                 val document = task.result
                 if (document != null) {
-                    Log.d("value", "DocumentSnapshot data: " + (task.result!!.data)!!.values)
-                    var temp = (task.result!!.data)!!.values.toString()
-                    val ran = IntRange(1, temp.length - 2)
-                    temp = temp.slice(ran)
-                    myNickname?.text = temp
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("nickname")?.toString()
+                    )
+                    myNickname?.text = task.result!!.data?.get("nickname")?.toString()
+//                    val noteNickname: String = myNickname.toString()
+//                    listener?.userProfileSet(noteNickname, noteEmail)
                 } else {
                     Log.d("value", "No such document")
                 }

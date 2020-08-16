@@ -111,6 +111,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/detailprice1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="3,000"
@@ -160,6 +161,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/detailprice2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="3,000"
@@ -208,6 +210,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/detailprice3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="1,500"

@@ -2,8 +2,14 @@ package com.swu.swugiftshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.TextView
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 
 class DetailpageActivity3 : AppCompatActivity() {
@@ -15,6 +21,27 @@ class DetailpageActivity3 : AppCompatActivity() {
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        //상품info가져오기
+        val productName = findViewById<TextView>(R.id.productname)
+        val productPrice = findViewById<TextView>(R.id.productprice)
+        val pName = db.collection("OfficialProduct").document("유시 L자 파일")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("상품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("상품명")?.toString()
+                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                }
+            }
+        })
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기
         val emptyhearttt = findViewById<ImageView>(R.id.empty_heart)
