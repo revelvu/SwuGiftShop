@@ -35,12 +35,12 @@
 
         <ImageView
             android:id="@+id/searchBtn"
-            android:layout_width="200dp"
+            android:layout_width="190dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="65dp"
+            android:src="@drawable/search"
             android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/search" />
+            android:focusable="true"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -55,34 +55,11 @@
             android:orientation="vertical">
 
 
-            <ViewFlipper
-                android:id="@+id/flipper"
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="160dp">
-
-                <ImageView
-                    android:id="@+id/img01"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/wendi_mirror"/>
-
-                <ImageView
-                    android:id="@+id/img02"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/usinote"/>
-
-                <ImageView
-                    android:id="@+id/img03"
-                    android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/swufile"/>
-            </ViewFlipper>
-<!--            <ImageView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="160dp"-->
-<!--                android:background="#DBDBDB"-->
-<!--                android:layout_marginBottom="10dp"/>-->
+                android:layout_height="160dp"
+                android:background="#DBDBDB"
+                android:layout_marginBottom="10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -94,6 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:text="인기 추천 공식 굿즈"
                     android:textColor="#000000"
                     android:textSize="18dp"
@@ -124,6 +102,7 @@
                             android:id="@+id/detailname1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="유시 무선 노트"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -134,7 +113,6 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/detailprice1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="3,000"
@@ -174,6 +152,7 @@
                             android:id="@+id/detailname2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="웬디 손거울"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -184,7 +163,6 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/detailprice2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="3,000"
@@ -223,6 +201,7 @@
                             android:id="@+id/detailname3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="유시 L자 파일"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -233,7 +212,6 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/detailprice3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="1,500"
@@ -259,6 +237,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="신규 공식 굿즈"
                     android:textColor="#000000"
@@ -333,6 +312,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
+                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="10dp"
                     android:text="신규 비공식 굿즈 펀딩"
                     android:textColor="#000000"
@@ -367,16 +348,35 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="귀여운 우치를 내 가방 속에, 우치 에코백"
                             android:textColor="#000"
                             android:textSize="14dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="0%"
-                            android:textColor="#000"
-                            android:textSize="14dp" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/swuColor"
+                                android:textSize="14dp"
+                                android:text="0"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="%"
+                                android:textColor="@color/swuColor"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
+
+
 
                     </LinearLayout>
 
@@ -399,12 +399,28 @@
                             android:textColor="#000"
                             android:textSize="14dp" />
 
-                        <TextView
-                            android:layout_width="match_parent"
+                        <LinearLayout
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="가격"
-                            android:textColor="#000"
-                            android:textSize="14dp" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/swuColor"
+                                android:textSize="14dp"
+                                android:text="펀딩률"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:text="%"
+                                android:textColor="@color/swuColor"
+                                android:textSize="12dp" />
+
+                        </LinearLayout>
 
                     </LinearLayout>
 

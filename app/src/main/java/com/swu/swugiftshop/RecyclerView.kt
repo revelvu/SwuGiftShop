@@ -52,11 +52,10 @@ class MainAdapter(val context: Context, var wishlist: ArrayList<RecyclerItem>) :
 
                 //위시리스트에 아직 아무것도 안들어왔을때!
                 check_heart?.setImageResource(R.drawable.heartempty)
-                item_name?.text="담긴 물품이 없습니다."
 
             }
             item_name?.text = recycleritem.item_name
-            item_num?.text = recycleritem.item_price
+            item_num?.text = recycleritem.num
         }
     }
 

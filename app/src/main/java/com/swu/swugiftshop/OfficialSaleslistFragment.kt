@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlinx.android.synthetic.main.official_saleslist.*
+
 
 class OfficialSaleslistFragment : Fragment() {
 
@@ -27,6 +29,7 @@ class OfficialSaleslistFragment : Fragment() {
             return OfficialSaleslistFragment()
         }
     }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -53,9 +56,13 @@ class OfficialSaleslistFragment : Fragment() {
         }
     }
 //
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+
+
+
+    }
 //
 //    override fun onAttach(context: Context) {
 //        super.onAttach(context)

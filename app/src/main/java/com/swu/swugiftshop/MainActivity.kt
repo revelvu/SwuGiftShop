@@ -5,16 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_layout.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.my_toolbar
-import kotlinx.android.synthetic.main.fragment_mypage.*
+import kotlinx.android.synthetic.main.official_saleslist.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -59,12 +59,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 R.id.categoryicon -> {
                     var drawer = findViewById<DrawerLayout>(R.id.drawer_Layout)
                     drawer.openDrawer(GravityCompat.START)
-//                    val d = drawer.findViewById<NavigationView>(R.id.nav_view)
-//                    val e = d.findViewById<TextView>(R.id.mynickname)
-//                    val f = d.findViewById<TextView>(R.id.myemail)
-//                    val info = Info()
-
-
                 }
                 R.id.wishlisticon -> {
                     wishlistFragment = WishlistFragment.newInstance()
@@ -78,11 +72,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 R.id.mypageicon -> {
                     mypageFragment = MypageFragment.newInstance()
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragments_frame, mypageFragment).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.fragments_frame, mypageFragment).commit()
 
-//                    val mainIntent = getIntent()
-//                    val NickName = mainIntent.getStringExtra("닉네임")
+                    val mainIntent = getIntent()
+                    val NickName = mainIntent.getStringExtra("닉네임")
 
 //                    val goMainIntent = Intent(this, MypageFragment::class.java)
 //                    goMainIntent.putExtra("닉네임", NickName)
@@ -123,17 +116,5 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-//    class Info : MypageFragment.OnUserProfileSetListener {
-//        override fun userProfileSet(nickname: String, email: String) {
-//            val nm = nickname
-//            val em = email
-//            Log.d("nm", nm)
-//            Log.d("em", nm)
-//        }
-//
-//    }
-
-
 }
-
 

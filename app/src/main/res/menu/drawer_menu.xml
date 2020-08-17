@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group>
+        <item
+            android:title="공식 굿즈"
+            android:enabled="false"/>
         <item
             android:id="@+id/nav_stationery"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:title="문구류"
-            />
+            android:title="문구류" />
         <item
             android:id="@+id/nav_clothing"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
-            android:title="의류"
-            />
+            android:title="의류" />
         <item
             android:id="@+id/nav_accessory"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
@@ -20,5 +21,28 @@
             android:id="@+id/nav_etc"
             style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
             android:title="기타" />
+    </group>
+    <group>
+        <item
+            android:title="비공식 펀딩"
+            android:enabled="false"/>
+        <item
+            android:id="@+id/unoff_stationery"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="문구류" />
+        <item
+            android:id="@+id/unoff_clothing"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="의류" />
+        <item
+            android:id="@+id/unoff_accessory"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="악세사리" />
+
+        <item
+            android:id="@+id/unoff_etc"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            android:title="기타" />
+
     </group>
 </menu>

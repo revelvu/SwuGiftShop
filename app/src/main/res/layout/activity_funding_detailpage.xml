@@ -185,7 +185,6 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/supporters"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="5dp"
