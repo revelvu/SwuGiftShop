@@ -83,11 +83,10 @@ class DetailpageActivity1 : AppCompatActivity() {
 
             }else {
                 emptyheart.setImageResource(R.drawable.heartempty)
-                i - 1
+                i -= 1
 
                 //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
                 wishList.remove(putItem1)
-                i -= 1
             }
         }
     }

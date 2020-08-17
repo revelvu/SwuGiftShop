@@ -62,7 +62,6 @@ class LogInActivity : AppCompatActivity() {
                         Log.d(TAG, "Login Success")
                         Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
 
-
                         val homeIntent = Intent(this, MainActivity::class.java)
 //                        homeIntent.putExtra("닉네임", realnick)
                         startActivity(homeIntent)  //이때 닉네임값도 같이 넘어간다.

@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 
 
-var i = 0
+//var i = 0
 
 class FundingDetailpageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,19 +26,19 @@ class FundingDetailpageActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        //하트 클릭시 full/empty heart 이미지 나오도록하기
-        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
-
-        emptyheart.setOnClickListener {
-
-            i = if (i == 0) {
-                emptyheart.setImageResource(R.drawable.heartfull)
-                i + 1
-            } else {
-                emptyheart.setImageResource(R.drawable.heartempty)
-                i - 1
-            }
-        }
+//        //하트 클릭시 full/empty heart 이미지 나오도록하기
+//        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+//
+//        emptyheart.setOnClickListener {
+//
+//            i = if (i == 0) {
+//                emptyheart.setImageResource(R.drawable.heartfull)
+//                i + 1
+//            } else {
+//                emptyheart.setImageResource(R.drawable.heartempty)
+//                i - 1
+//            }
+//        }
 
         // 펀딩하기 버튼을 눌렀을 때
         fundingBtn.setOnClickListener {

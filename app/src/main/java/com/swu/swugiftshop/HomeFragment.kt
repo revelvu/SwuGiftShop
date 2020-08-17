@@ -7,7 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.ViewFlipper
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -67,6 +70,36 @@ class HomeFragment : Fragment() {
         }
 
 
+        //viewflipper 사용해서 물품사진 자동으로 넘기기
+        val flipper= getView()?.findViewById<ViewFlipper>(R.id.flipper)
+
+        val showln=AnimationUtils.loadAnimation(activity,android.R.anim.slide_in_left)
+        flipper?.animation = showln
+
+        flipper?.setOutAnimation(activity, android.R.anim.slide_out_right)
+
+//        flipper?.flipInterval(1000)
+        flipper?.startFlipping()
+
+        //뷰 플리퍼 클릭시, 각 이미지에 맞는 상세 페이지로 이동
+        val img01= getView()?.findViewById<ImageView>(R.id.img01)
+        val img02= getView()?.findViewById<ImageView>(R.id.img02)
+        val img03=getView()?.findViewById<ImageView>(R.id.img03)
+
+        img01?.setOnClickListener {
+            val img01_intent=Intent(activity, DetailpageActivity2::class.java)
+            startActivity(img01_intent)
+        }
+
+        img02?.setOnClickListener {
+            val img02_intent= Intent(activity, DetailpageActivity1::class.java)
+            startActivity(img02_intent)
+        }
+
+        img03?.setOnClickListener {
+            val img03_intent= Intent(activity, DetailpageActivity3::class.java)
+            startActivity(img03_intent)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

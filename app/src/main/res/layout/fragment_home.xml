@@ -55,11 +55,34 @@
             android:orientation="vertical">
 
 
-            <ImageView
+            <ViewFlipper
+                android:id="@+id/flipper"
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:background="#DBDBDB"
-                android:layout_marginBottom="10dp"/>
+                android:layout_height="160dp">
+
+                <ImageView
+                    android:id="@+id/img01"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/wendi_mirror"/>
+
+                <ImageView
+                    android:id="@+id/img02"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/usinote"/>
+
+                <ImageView
+                    android:id="@+id/img03"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:src="@drawable/swufile"/>
+            </ViewFlipper>
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="160dp"-->
+<!--                android:background="#DBDBDB"-->
+<!--                android:layout_marginBottom="10dp"/>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
