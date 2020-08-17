@@ -29,7 +29,6 @@
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            app:layout_behavior="tech.thdev.app.view.BottomNavigationBehavior"
             android:id="@+id/bottom_nav"
             android:layout_width="match_parent"
             android:layout_height="56dp"
@@ -39,6 +38,7 @@
             app:menu="@menu/bottom_navigation"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true" />
+
     </RelativeLayout>
 
     <com.google.android.material.navigation.NavigationView

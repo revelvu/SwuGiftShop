@@ -21,6 +21,6 @@ class ReviewFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.fragment_review, container, false)
+        return inflater.inflate(R.layout.review_fragment, container, false)
     }
 }

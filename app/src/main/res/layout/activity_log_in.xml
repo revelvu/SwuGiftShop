@@ -101,7 +101,6 @@
             android:id="@+id/registerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="1dp"
             style="?android:attr/borderlessButtonStyle"
             android:fontFamily="@font/kopubworld_dotum_medium"
             android:text="회원가입"

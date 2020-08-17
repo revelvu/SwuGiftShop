@@ -3,7 +3,7 @@ package com.swu.swugiftshop
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_mypage_purchase.*
+import kotlinx.android.synthetic.main.activity_empty_funding.*
 
 class EmptyFundingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

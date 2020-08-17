@@ -18,6 +18,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="192dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -30,6 +38,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:text="거울\n학잠" />
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="68dp"
+        android:background="#DBDBDB"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-8dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -49,11 +67,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:text="인기 검색어"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -70,4 +89,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

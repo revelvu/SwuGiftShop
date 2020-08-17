@@ -49,10 +49,10 @@ class LogInActivity : AppCompatActivity() {
         //로그인 버튼 눌렀을 때
         loginBtn.setOnClickListener {
 
-            val realnick = makedb(password.text.toString())
+//            val realnick = makedb(password.text.toString())
 
 //            //main 액티비티로 닉네임 값 전달할것 먼저 저장!!(아직 전달x)
-//            val mainIntent = Intent(this, MainActivity::class.java)
+            val mainIntent = Intent(this, MainActivity::class.java)
 //            mainIntent.putExtra("닉네임",makedb(password.text.toString()))
 
 
@@ -62,9 +62,8 @@ class LogInActivity : AppCompatActivity() {
                         Log.d(TAG, "Login Success")
                         Toast.makeText(this, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
 
-
                         val homeIntent = Intent(this, MainActivity::class.java)
-                        homeIntent.putExtra("닉네임", realnick)
+//                        homeIntent.putExtra("닉네임", realnick)
                         startActivity(homeIntent)  //이때 닉네임값도 같이 넘어간다.
 
                     } else {
@@ -77,22 +76,22 @@ class LogInActivity : AppCompatActivity() {
         }
     }
 
-    fun makedb(pwd: String): String {
-
-        var mynick = ""
-        val db = FirebaseFirestore.getInstance()    //cloud firebase 데이터베이스 생성
-
-        db.collection(pwd)  //password(string값) 이라는 컬렉션 밑에
-            .get()
-            .addOnSuccessListener { result ->
-
-                for (document in result) {
-                    mynick = document.data["nick"] as String
-
-                }
-            }
-        return mynick
-        Log.d(TAG, "왜 안나와? $mynick")   //Unreachable code.
-    }
+//    fun makedb(pwd: String): String {
+//
+//        var mynick = ""
+//        val db = FirebaseFirestore.getInstance()    //cloud firebase 데이터베이스 생성
+//
+//        db.collection(pwd)  //password(string값) 이라는 컬렉션 밑에
+//            .get()
+//            .addOnSuccessListener { result ->
+//
+//                for (document in result) {
+//                    mynick = document.data["nick"] as String
+//
+//                }
+//            }
+//        return mynick
+//        Log.d(TAG, "왜 안나와? $mynick")   //Unreachable code.
+//    }
 }
 
