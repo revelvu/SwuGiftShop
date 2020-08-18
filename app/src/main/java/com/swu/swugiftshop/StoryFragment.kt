@@ -69,23 +69,23 @@ class StoryFragment : Fragment() {
             }
         }
 
-        //유시노트의 수량 edittext에서 가져오기
-        var usinum = view.findViewById<EditText>(R.id.usiNum)
-//        var usinums= usinum.toString()  //수량 string값으로 변환
-
-        //유시노트의 수량 증가시킬 수 있는 + 버튼
-        var plus = view.findViewById<Button>(R.id.usinumPlus)
-        plus.setOnClickListener {
-            usinumtext += 1
-            usinum.setText(usinumtext.toString())
-        }
-
-        //유시노트의 수량 감소시킬 수 있는 - 버튼
-        var minus = view.findViewById<Button>(R.id.usinumMius)
-        minus.setOnClickListener {
-            usinumtext -= 1
-            usinum.setText(usinumtext.toString())
-        }
+//        //유시노트의 수량 edittext에서 가져오기
+//        var usinum1 = view.findViewById<EditText>(R.id.usiNum)
+////        var usinums= usinum.toString()  //수량 string값으로 변환
+//
+//        //유시노트의 수량 증가시킬 수 있는 + 버튼
+//        var plus1 = view.findViewById<Button>(R.id.usinumPlus)
+//        plus1.setOnClickListener {
+//            usinumtext += 1
+//            usinum1.setText(usinumtext.toString())
+//        }
+//
+//        //유시노트의 수량 감소시킬 수 있는 - 버튼
+//        var minus1 = view.findViewById<Button>(R.id.usinumMius)
+//        minus1.setOnClickListener {
+//            usinumtext -= 1
+//            usinum1.setText(usinumtext.toString())
+//        }
 
         val firebaseAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
@@ -136,26 +136,6 @@ class StoryFragment : Fragment() {
             usinum.setText(usinumtext.toString())
             var show = productTotalPriceShow * usinumtext
             productTotalPrice.setText(show.toString())
-        }
-
-        //하트 클릭시 full/empty heart 이미지 나오도록하기
-        val emptyheart = view.findViewById<ImageView>(R.id.empty_heart)
-
-        emptyheart.setOnClickListener {
-
-            if(i==0){
-                empty_heart.setImageResource(R.drawable.heartfull)
-                i += 1
-
-                wishList.add(putItem1)
-
-            }else {
-                empty_heart.setImageResource(R.drawable.heartempty)
-                i -= 1
-
-                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
-                wishList.remove(putItem1)
-            }
         }
 
 
