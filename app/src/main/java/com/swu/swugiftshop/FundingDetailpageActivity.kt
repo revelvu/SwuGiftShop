@@ -26,19 +26,28 @@ class FundingDetailpageActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-//        //하트 클릭시 full/empty heart 이미지 나오도록하기
-//        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
-//
-//        emptyheart.setOnClickListener {
-//
-//            i = if (i == 0) {
-//                emptyheart.setImageResource(R.drawable.heartfull)
-//                i + 1
-//            } else {
-//                emptyheart.setImageResource(R.drawable.heartempty)
-//                i - 1
-//            }
-//        }
+       //하트 클릭시 full/empty heart 이미지 나오도록하기, 위시리스트로 들어가기
+        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+
+        emptyheart.setOnClickListener {
+
+            if(i==0){
+                emptyheart.setImageResource(R.drawable.heartfull)
+                i += 1
+
+                if(wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
+                wishList.add(putItem1)
+            }else {
+                emptyheart.setImageResource(R.drawable.heartempty)
+                i -= 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem1)
+            }
+        }
+
 
         // 펀딩하기 버튼을 눌렀을 때
         fundingBtn.setOnClickListener {

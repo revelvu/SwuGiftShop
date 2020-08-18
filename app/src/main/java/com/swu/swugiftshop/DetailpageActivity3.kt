@@ -75,6 +75,9 @@ class DetailpageActivity3 : AppCompatActivity() {
                 emptyhearttt.setImageResource(R.drawable.heartfull)
                 iii += 1
 
+                if(wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
                 wishList.add(putItem3)
 
             } else {

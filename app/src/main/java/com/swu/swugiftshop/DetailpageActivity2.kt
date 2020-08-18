@@ -75,6 +75,9 @@ class DetailpageActivity2 : AppCompatActivity() {
                 ii+=1
 
                 //하트가 채워지면, recyclerview item들 중에서 해당 데이터가 추가되어야한다.
+                if(wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
                 wishList.add(putItem2)
 
             }else{
