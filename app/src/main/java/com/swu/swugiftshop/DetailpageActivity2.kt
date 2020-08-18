@@ -14,9 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlin.properties.Delegates
 
-var ii=0
-val putItem2= RecyclerItem("웬디 손거울","3000 원","wendi_mirror_crop")
+var wendynumtext = 1 //웬디손거울 초기수량 == 1
+var ii = 0
+val putItem2 = RecyclerItem("웬디 손거울", "3000 원", "wendi_mirror_crop")
 
 class DetailpageActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,21 +30,6 @@ class DetailpageActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        var wendynum=findViewById<EditText>(R.id.wendiNum)
-
-        //웬디 손거울의 수량 증가시킬 수 있는 + 버튼
-        var plus= findViewById<Button>(R.id.plus)
-        plus.setOnClickListener {
-            usinumtext += 1
-            wendynum.setText(usinumtext.toString())
-        }
-
-        //웬디 손거울의 수량 감소시킬 수 있는 - 버튼
-        var minus=findViewById<Button>(R.id.minus)
-        minus.setOnClickListener {
-            usinumtext -= 1
-            wendynum.setText(usinumtext.toString())
-        }
 
         val firebaseAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
@@ -50,6 +37,9 @@ class DetailpageActivity2 : AppCompatActivity() {
         //상품info가져오기
         val productName = findViewById<TextView>(R.id.productname)
         val productPrice = findViewById<TextView>(R.id.productprice)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
         val pName = db.collection("OfficialProduct").document("웬디손거울")
         pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
             if (task.isSuccessful) {
@@ -61,18 +51,44 @@ class DetailpageActivity2 : AppCompatActivity() {
                     )
                     productName.text = task.result!!.data?.get("상품명")?.toString()
                     productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPriceShow =
+                        Integer.parseInt((productPrice.text.toString()))
                 }
             }
         })
+
+        //웬디손거울 수량 TextView에서 가져오기
+        var wendynum = findViewById<TextView>(R.id.wendiNum)
+        var plus = findViewById<Button>(R.id.plus)
+        var minus = findViewById<Button>(R.id.minus)
+
+        //웬디 손거울의 수량 증가시킬 수 있는 + 버튼
+        plus.setOnClickListener {
+            wendynumtext += 1
+            if (wendynumtext > 0) minus.setEnabled(true)
+            wendynum.setText(wendynumtext.toString())
+            var show = productTotalPriceShow * wendynumtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //웬디 손거울의 수량 감소시킬 수 있는 - 버튼
+        minus.setOnClickListener {
+            wendynumtext -= 1
+            if (wendynumtext == 0) minus.setEnabled(false)
+            wendynum.setText(wendynumtext.toString())
+            var show = productTotalPriceShow * wendynumtext
+            productTotalPrice.setText(show.toString())
+        }
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기
         val emptyheartt = findViewById<ImageView>(R.id.empty_heart)
 
         emptyheartt.setOnClickListener {
 
-            if(ii==0){
+            if (ii == 0) {
                 emptyheartt.setImageResource(R.drawable.heartfull)
-                ii+=1
+                ii += 1
 
                 //하트가 채워지면, recyclerview item들 중에서 해당 데이터가 추가되어야한다.
                 if(wishList.contains(inititem)) {
@@ -80,9 +96,9 @@ class DetailpageActivity2 : AppCompatActivity() {
                 }
                 wishList.add(putItem2)
 
-            }else{
+            } else {
                 emptyheartt.setImageResource(R.drawable.heartempty)
-                ii-=1
+                ii -= 1
 
                 //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
                 wishList.remove(putItem2)

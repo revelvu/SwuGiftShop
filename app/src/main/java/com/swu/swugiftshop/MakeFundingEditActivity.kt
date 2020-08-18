@@ -4,21 +4,24 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_empty_funding.*
+import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
+import kotlinx.android.synthetic.main.activity_log_in.*
+import kotlinx.android.synthetic.main.activity_make_funding_edit.*
 
-class EmptyFundingActivity : AppCompatActivity() {
+class MakeFundingEditActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_empty_funding)
+        setContentView(R.layout.activity_make_funding_edit)
 
         // tool bar back button
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        startBtn.setOnClickListener {
-            val startIntent = Intent(this, MakeFundingEditActivity::class.java)
-            startActivity(startIntent)
+        storyIntentBtn.setOnClickListener {
+            val editorIntent = Intent(this, MakeFundingEditActivity2::class.java)
+            startActivity(editorIntent)
         }
     }
 

@@ -24,7 +24,6 @@ import kotlinx.android.synthetic.main.navi_header.*
 
 
 var usinumtext = 1   //유시 노트의 초기수량 == 1
-
 var i = 0
 var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 
@@ -41,7 +40,7 @@ class DetailpageActivity1 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-// tab bar
+        // tab bar
         tab_layout.addTab(tab_layout.newTab().setText("스토리"))
         tab_layout.addTab(tab_layout.newTab().setText("문의하기"))
         tab_layout.addTab(tab_layout.newTab().setText("리뷰"))
