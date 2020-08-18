@@ -58,7 +58,7 @@ class DetailpageActivity3 : AppCompatActivity() {
             }
         })
 
-        //유시 L자 파일의 수량 edittext에서 가져오기
+        //유시 L자 파일의 수량 TextView에서 가져오기
         var usiLnum = findViewById<TextView>(R.id.usiLnum)
         var plus = findViewById<Button>(R.id.plus2)
         var minus = findViewById<Button>(R.id.minus2)

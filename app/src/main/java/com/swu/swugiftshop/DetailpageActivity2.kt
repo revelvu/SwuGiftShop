@@ -58,11 +58,10 @@ class DetailpageActivity2 : AppCompatActivity() {
             }
         })
 
-        //웬디손거울 수량 editText에서 가져오기
+        //웬디손거울 수량 TextView에서 가져오기
         var wendynum = findViewById<TextView>(R.id.wendiNum)
         var plus = findViewById<Button>(R.id.plus)
         var minus = findViewById<Button>(R.id.minus)
-
 
         //웬디 손거울의 수량 증가시킬 수 있는 + 버튼
         plus.setOnClickListener {

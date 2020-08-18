@@ -22,9 +22,9 @@ import kotlinx.android.synthetic.main.activity_mypage_purchase.*
 import kotlinx.android.synthetic.main.navi_header.*
 
 
-var usinumtext= 1   //유시 노트의 초기수량 == 1
-var i=0
-var putItem1 =RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
+var usinumtext = 1   //유시 노트의 초기수량 == 1
+var i = 0
+var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
