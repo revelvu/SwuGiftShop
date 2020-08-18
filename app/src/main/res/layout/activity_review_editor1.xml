@@ -55,7 +55,7 @@
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:gravity="right"
-            android:isIndicator="true"
+            android:isIndicator="false"
             android:numStars="5"
             android:rating="0"
             android:stepSize="0.5" />

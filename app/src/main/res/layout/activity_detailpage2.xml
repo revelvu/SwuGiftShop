@@ -9,7 +9,7 @@
     tools:context=".DetailpageActivity2">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
+        android:id="@+id/my_toolbar1"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#ffffff"
@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="공식 굿즈 상세페이지"
+            android:text="상세페이지"
             android:textColor="#000"
             android:textSize="18dp"
             android:textStyle="bold" />

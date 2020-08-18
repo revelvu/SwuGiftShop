@@ -18,7 +18,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detailpage1.*
+import kotlinx.android.synthetic.main.activity_detailpage2.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.activity_funding_detailpage.tab_layout
+import kotlinx.android.synthetic.main.activity_funding_detailpage.view_pager
+import kotlinx.android.synthetic.main.story_fragment2.*
 import kotlin.properties.Delegates
 
 var wendynumtext = 1 //웬디손거울 초기수량 == 1
@@ -31,7 +35,7 @@ class DetailpageActivity2 : AppCompatActivity() {
         setContentView(R.layout.activity_detailpage2)
 
         // tool bar back button
-        setSupportActionBar(my_toolbar)
+        setSupportActionBar(my_toolbar1)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
