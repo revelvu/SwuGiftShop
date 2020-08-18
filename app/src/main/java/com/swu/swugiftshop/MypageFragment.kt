@@ -62,22 +62,11 @@ class MypageFragment : Fragment() {
         }
     }
 
-    interface OnUserProfileSetListener {
-        fun userProfileSet(nickname: String, email: String)
-    }
-
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
-//    var listener: OnUserProfileSetListener? = null
-//    lateinit var onUserProfileSetListener: OnUserProfileSetListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-//        listener = context as? OnUserProfileSetListener
-////        onUserProfileSetListener.userProfileSet(myNickName.toString(), myEmail.toString())
-//        if (listener == null) {
-//            throw ClassCastException("$context must implement OnUserProfileSetListener")
-//        }
     }
 
     override fun onDetach() {
@@ -101,7 +90,6 @@ class MypageFragment : Fragment() {
         val myEmail = view?.findViewById<TextView>(R.id.myEmail)
         val userID = firebaseAuth.currentUser?.email.toString()
         myEmail?.text = userID
-        val noteEmail: String = myEmail.toString()
 
         //프로필에 사용자 nickname 띄우기
         val myNickname = view?.findViewById<TextView>(R.id.myNickName)
@@ -116,8 +104,6 @@ class MypageFragment : Fragment() {
                         "DocumentSnapshot data: " + task.result!!.data?.get("nickname")?.toString()
                     )
                     myNickname?.text = task.result!!.data?.get("nickname")?.toString()
-//                    val noteNickname: String = myNickname.toString()
-//                    listener?.userProfileSet(noteNickname, noteEmail)
                 } else {
                     Log.d("value", "No such document")
                 }

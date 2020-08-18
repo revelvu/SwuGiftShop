@@ -8,8 +8,12 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.drawer_layout.*
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -28,6 +32,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     companion object {
         const val TAG: String = "로그"
     }
+
+    val firebaseAuth = FirebaseAuth.getInstance()
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,13 +65,28 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
                 R.id.categoryicon -> {
                     var drawer = findViewById<DrawerLayout>(R.id.drawer_Layout)
+                    val d = drawer.findViewById<NavigationView>(R.id.nav_view)
+                    val e = d.findViewById<TextView>(R.id.mynickname)
+                    val f = d.findViewById<TextView>(R.id.myemail)
+                    val userID = firebaseAuth.currentUser?.email.toString()
+                    f.text = userID
+                    val userNickname =
+                        db.collection("UserProfile").document(userID)
+                    userNickname.get()
+                        .addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+                            if (task.isSuccessful) {
+                                val document = task.result
+                                if (document != null) {
+                                    e.text =
+                                        task.result!!.data?.get("nickname")?.toString()
+                                } else {
+                                    Log.d("value", "No such document")
+                                }
+                            } else {
+                                Log.d("value", "get failed with ", task.exception)
+                            }
+                        })
                     drawer.openDrawer(GravityCompat.START)
-//                    val d = drawer.findViewById<NavigationView>(R.id.nav_view)
-//                    val e = d.findViewById<TextView>(R.id.mynickname)
-//                    val f = d.findViewById<TextView>(R.id.myemail)
-//                    val info = Info()
-
-
                 }
                 R.id.wishlisticon -> {
                     wishlistFragment = WishlistFragment.newInstance()
@@ -122,16 +144,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             super.onBackPressed()
         }
     }
-
-//    class Info : MypageFragment.OnUserProfileSetListener {
-//        override fun userProfileSet(nickname: String, email: String) {
-//            val nm = nickname
-//            val em = email
-//            Log.d("nm", nm)
-//            Log.d("em", nm)
-//        }
-//
-//    }
 
 
 }
