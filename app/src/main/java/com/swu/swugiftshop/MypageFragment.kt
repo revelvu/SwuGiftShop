@@ -136,6 +136,7 @@ class MypageFragment : Fragment() {
             logoutBuilder.setTitle("로그아웃")
             logoutBuilder.setMessage("정말 로그아웃 하시겠어요?")
 
+            logoutBuilder.setNegativeButton("취소", null)
             logoutBuilder.setPositiveButton("확인") { dialog, which ->
             FirebaseAuth.getInstance().signOut()
             //로그아웃을 성공하면, 다시 로그인 페이지!
@@ -145,7 +146,7 @@ class MypageFragment : Fragment() {
                 startActivity(relogin)
             }
         }
-            logoutBuilder.setNegativeButton("취소", null)
+
 
             val dialog = logoutBuilder.create()
             dialog.show()

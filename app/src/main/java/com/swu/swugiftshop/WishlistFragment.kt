@@ -11,14 +11,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_wishlist.*
 
+val inititem= RecyclerItem("상품이 담기지 않았습니다","","")
 var wishList = mutableListOf(
     //데이터 추가 기능 만들기 전 일단 임의 리스트 생성
     //(이름,수량,이미지(String)) 순서로 작성
-    RecyclerItem(" ", "", "")
-//    RecyclerItem("웬디 손거울","2","wendi_mirror_crop"),
-//    RecyclerItem("유시 L자 파일","3","usifile_crop")
+    inititem
 )
-
 
 
 class WishlistFragment : Fragment() {
@@ -27,7 +25,6 @@ class WishlistFragment : Fragment() {
         fun newInstance(): WishlistFragment {
             return WishlistFragment()
         }
-
     }
 
 
@@ -61,9 +58,6 @@ class WishlistFragment : Fragment() {
         wish_recycler.layoutManager=LinearLayoutManager(context!!)
 
         wish_recycler.setHasFixedSize(true)
-
-
-
     }
 }
 

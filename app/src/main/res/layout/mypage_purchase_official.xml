@@ -4,71 +4,96 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/mypage_purchase_official1"
-            android:layout_width="match_parent"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#ffffff"
+        android:elevation="4dp"
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="12dp">
+            android:layout_marginLeft="155dp"
+            android:text="구매 내역"
+            android:textColor="#000"
+            android:textSize="22dp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="100dp"
-                android:background="#DBDBDB"
-                android:src="@drawable/usinotecrop"/>
+    </androidx.appcompat.widget.Toolbar>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/purchase_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="유시 무선 노트"
-                    android:textColor="#000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+<!--            <LinearLayout-->
+<!--                android:id="@+id/mypage_purchase_official1"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:padding="12dp">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="3dp"
-                    android:text="그루밍천재"
-                    android:textColor="#000"
-                    android:textSize="14dp" />
+<!--                <ImageView-->
+<!--                    android:layout_width="150dp"-->
+<!--                    android:layout_height="100dp"-->
+<!--                    android:background="#DBDBDB"-->
+<!--                    android:src="@drawable/usinotecrop"/>-->
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="3dp"
-                    android:orientation="horizontal">
+<!--                <LinearLayout-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="#000"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        android:text="3,000"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginBottom="5dp"-->
+<!--                        android:text="유시 무선 노트"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="16dp"-->
+<!--                        android:textStyle="bold" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:textColor="#000"
-                        android:textSize="16dp"
-                        android:text="원"/>
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginBottom="3dp"-->
+<!--                        android:text="그루밍천재"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="14dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginLeft="3dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="10dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            android:textSize="18dp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="3,000"/>-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginLeft="5dp"-->
+<!--                            android:textColor="#000"-->
+<!--                            android:textSize="16dp"-->
+<!--                            android:text="원"/>-->
 
 
-                </LinearLayout>
+<!--                    </LinearLayout>-->
 
-            </LinearLayout>
+<!--                </LinearLayout>-->
 
-        </LinearLayout>
+<!--            </LinearLayout>-->
 
 </LinearLayout>

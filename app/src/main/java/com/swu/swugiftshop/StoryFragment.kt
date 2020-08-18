@@ -5,10 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.google.android.gms.tasks.OnCompleteListener
@@ -20,11 +17,8 @@ import kotlin.properties.Delegates
 
 class StoryFragment : Fragment() {
 
-        override fun onActivityCreated(savedInstanceState: Bundle?) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
-
     }
 
     override fun onCreateView(
@@ -35,6 +29,46 @@ class StoryFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.story_fragment, container, false)
 
+        //하트 클릭시 full/empty heart 이미지 나오도록하기
+        val emptyheart = view.findViewById<ImageView>(R.id.empty_heart)
+
+        emptyheart?.setOnClickListener {
+
+            if (i == 0) {
+                emptyheart?.setImageResource(R.drawable.heartfull)
+                i += 1
+
+                if (wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
+                wishList.add(putItem1)
+            } else {
+                emptyheart?.setImageResource(R.drawable.heartempty)
+                i -= 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem1)
+            }
+        }
+
+
+//        //유시노트의 수량 edittext에서 가져오기
+//        var usinum1 = view.findViewById<EditText>(R.id.usiNum)
+////        var usinums= usinum.toString()  //수량 string값으로 변환
+//
+//        //유시노트의 수량 증가시킬 수 있는 + 버튼
+//        var plus1 = view.findViewById<Button>(R.id.usinumPlus)
+//        plus1.setOnClickListener {
+//            usinumtext += 1
+//            usinum1.setText(usinumtext.toString())
+//        }
+//
+//        //유시노트의 수량 감소시킬 수 있는 - 버튼
+//        var minus1 = view.findViewById<Button>(R.id.usinumMius)
+//        minus1.setOnClickListener {
+//            usinumtext -= 1
+//            usinum1.setText(usinumtext.toString())
+//        }
 
         val firebaseAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
@@ -87,27 +121,27 @@ class StoryFragment : Fragment() {
             productTotalPrice.setText(show.toString())
         }
 
-        //하트 클릭시 full/empty heart 이미지 나오도록하기
-        val emptyheart = view.findViewById<ImageView>(R.id.empty_heart)
+//        var numm= view!!.findViewById<TextView>(R.id.usiNum).text
 
-        emptyheart.setOnClickListener {
+        //구매하기 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = view.findViewById<Button>(R.id.fundingBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
+            var productTotalprice_t= productTotalPrice.text
+            var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "$productTotalprice_t 원", " $usinumtext 개", "usinotecrop")
 
-            if(i==0){
-                empty_heart.setImageResource(R.drawable.heartfull)
-                i += 1
-
-                wishList.add(putItem1)
-
-            }else {
-                empty_heart.setImageResource(R.drawable.heartempty)
-                i -= 1
-
-                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
-                wishList.remove(putItem1)
+            if (p == 0) {
+                if (purchaselist.contains(inititem2)) {
+                    purchaselist.remove(inititem2)
+                }
+                purchaselist.add(purchaseItem1)
+                Toast.makeText(context, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+                p += 1
+            } else {
+                Toast.makeText(context, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
             }
         }
-
-
         return view
     }
 }

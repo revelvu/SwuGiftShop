@@ -45,6 +45,7 @@
             android:text="아직 내가 진행한 펀딩이 없어요."/>
 
         <Button
+            android:id="@+id/startBtn"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
