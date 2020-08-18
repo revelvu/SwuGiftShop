@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var mypageFragment: MypageFragment
     private lateinit var officialSaleslistFragment: OfficialSaleslistFragment
     private lateinit var unofficialSaleslistFragment: UnofficialSaleslistFragment
+    private lateinit var unofficialSaleslistFragment2: UnofficialSaleslistFragment2
     lateinit var navView: NavigationView
 
     companion object {
@@ -103,7 +104,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     .replace(R.id.fragments_frame, unofficialSaleslistFragment).commit()
             }
             R.id.unoffi_clothing -> {
-
+                unofficialSaleslistFragment2 = UnofficialSaleslistFragment2.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragments_frame, unofficialSaleslistFragment2).commit()
             }
         }
         drawer_Layout.closeDrawers()

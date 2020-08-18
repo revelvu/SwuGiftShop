@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MakeFundingEditActivity2"></activity>
+        <activity android:name=".ReviewEditorActivity1"></activity>
+        <activity android:name=".MakeFundingEditActivity2" />
         <activity android:name=".MakeFundingEditActivity" />
         <activity android:name=".Mypage_purchaseActivity" />
         <activity android:name=".EmptyFundingActivity" />
