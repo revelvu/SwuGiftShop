@@ -116,8 +116,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() { //뒤로가기 처리
-        if (main_drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            main_drawer_layout.closeDrawers()
+        if (drawer_Layout.isDrawerOpen(GravityCompat.START)) {
+            drawer_Layout.closeDrawers()
         } else {
             super.onBackPressed()
         }

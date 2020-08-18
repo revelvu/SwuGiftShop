@@ -1,29 +1,19 @@
 package com.swu.swugiftshop
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.SearchView
-import android.widget.TextView
-import kotlinx.android.synthetic.main.activity_mypage_purchase.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.fragment_home.my_toolbar
+import kotlinx.android.synthetic.main.activity_empty_funding.*
 
-class SearchActivity : AppCompatActivity() {
+class EmptyFundingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
-
-
-
-
+        setContentView(R.layout.activity_empty_funding)
 
         // tool bar back button
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
-
     }
 
     // tool bar back button

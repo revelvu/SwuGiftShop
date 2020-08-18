@@ -58,26 +58,28 @@
             <ViewFlipper
                 android:id="@+id/flipper"
                 android:layout_width="match_parent"
-                android:layout_height="160dp">
+                android:layout_height="230dp"
+                android:layout_marginBottom="10dp">
 
                 <ImageView
-                    android:id="@+id/img01"
+                    android:id="@+id/banner01"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/wendi_mirror"/>
+                    android:layout_height="230dp"
+                    android:src="@drawable/main_banner"/>
 
                 <ImageView
-                    android:id="@+id/img02"
+                    android:id="@+id/banner02"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/usinote"/>
+                    android:layout_height="230dp"
+                    android:src="@drawable/usi_banner"/>
 
                 <ImageView
-                    android:id="@+id/img03"
+                    android:id="@+id/banner03"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
-                    android:src="@drawable/swufile"/>
+                    android:layout_height="230dp"
+                    android:src="@drawable/wendi_banner"/>
             </ViewFlipper>
+
 <!--            <ImageView-->
 <!--                android:layout_width="match_parent"-->
 <!--                android:layout_height="160dp"-->

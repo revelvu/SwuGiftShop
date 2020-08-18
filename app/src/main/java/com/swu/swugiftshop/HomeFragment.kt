@@ -34,6 +34,8 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+
+
         searchBtn.setOnClickListener {
             activity?.let {
                 val searchIntent = Intent(context, MainListViewActivity::class.java)
@@ -82,14 +84,14 @@ class HomeFragment : Fragment() {
         flipper?.startFlipping()
 
         //뷰 플리퍼 클릭시, 각 이미지에 맞는 상세 페이지로 이동
-        val img01= getView()?.findViewById<ImageView>(R.id.img01)
-        val img02= getView()?.findViewById<ImageView>(R.id.img02)
-        val img03=getView()?.findViewById<ImageView>(R.id.img03)
+//        val img01= getView()?.findViewById<ImageView>(R.id.banner01)
+        val img02= getView()?.findViewById<ImageView>(R.id.banner02)
+        val img03=getView()?.findViewById<ImageView>(R.id.banner03)
 
-        img01?.setOnClickListener {
-            val img01_intent=Intent(activity, DetailpageActivity2::class.java)
-            startActivity(img01_intent)
-        }
+//        img01?.setOnClickListener {
+//            val img01_intent=Intent(activity, DetailpageActivity2::class.java)
+//            startActivity(img01_intent)
+//        }
 
         img02?.setOnClickListener {
             val img02_intent= Intent(activity, DetailpageActivity1::class.java)
@@ -97,7 +99,7 @@ class HomeFragment : Fragment() {
         }
 
         img03?.setOnClickListener {
-            val img03_intent= Intent(activity, DetailpageActivity3::class.java)
+            val img03_intent= Intent(activity, DetailpageActivity2::class.java)
             startActivity(img03_intent)
         }
     }

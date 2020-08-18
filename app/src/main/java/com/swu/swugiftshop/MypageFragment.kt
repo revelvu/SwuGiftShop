@@ -1,5 +1,6 @@
 package com.swu.swugiftshop
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -126,17 +127,30 @@ class MypageFragment : Fragment() {
         })
 
 
-        // 구입한 굿즈 버튼을 눌렀을 때
+
         val purchasebtn = view.findViewById<Button>(R.id.purchaseBtn)
         purchasebtn.setOnClickListener {
             activity?.let {
-                val Intent = Intent(context, Mypage_purchaseActivity::class.java)
-                startActivity(Intent)
+                val intent = Intent(context, Mypage_purchaseActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        val makeFundingbtn = view.findViewById<Button>(R.id.makeFundingBtn)
+        makeFundingbtn.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, EmptyFundingActivity::class.java)
+                startActivity(intent)
             }
         }
 
         val logoutbtn = view.findViewById<Button>(R.id.logoutBtn)
         logoutbtn.setOnClickListener {
+            val logoutBuilder = AlertDialog.Builder(context)
+            logoutBuilder.setTitle("로그아웃")
+            logoutBuilder.setMessage("정말 로그아웃 하시겠어요?")
+
+            logoutBuilder.setPositiveButton("확인") { dialog, which ->
             FirebaseAuth.getInstance().signOut()
             //로그아웃을 성공하면, 다시 로그인 페이지!
 
@@ -144,6 +158,11 @@ class MypageFragment : Fragment() {
                 val relogin = Intent(context, LogInActivity::class.java)
                 startActivity(relogin)
             }
+        }
+            logoutBuilder.setNegativeButton("취소", null)
+
+            val dialog = logoutBuilder.create()
+            dialog.show()
         }
         return view
     }
