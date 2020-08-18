@@ -1,13 +1,11 @@
 package com.swu.swugiftshop
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.mypage_purchase_official.*
 import kotlinx.android.synthetic.main.mypage_purchase_unofficial.*
 
 class Mypage_Purchase_unofficial : Fragment() {
@@ -17,7 +15,7 @@ class Mypage_Purchase_unofficial : Fragment() {
 
         mypage_purchase_unofficial1.setOnClickListener {
             activity?.let {
-                val unofficialDetailIntent = Intent(context, FundingDetailpageActivity::class.java)
+                val unofficialDetailIntent = Intent(context, FundingDetailpageActivity1::class.java)
                 startActivity(unofficialDetailIntent)
             }
         }

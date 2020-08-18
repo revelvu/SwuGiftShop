@@ -66,7 +66,7 @@ class HomeFragment : Fragment() {
 
         fundingDetail1.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity::class.java)
+                val intent = Intent(context, FundingDetailpageActivity1::class.java)
                 startActivity(intent)
             }
         }

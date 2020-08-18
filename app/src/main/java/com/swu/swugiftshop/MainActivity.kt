@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     private lateinit var wishlistFragment: WishlistFragment
     private lateinit var mypageFragment: MypageFragment
     private lateinit var officialSaleslistFragment: OfficialSaleslistFragment
+    private lateinit var unofficialSaleslistFragment: UnofficialSaleslistFragment
     lateinit var navView: NavigationView
 
     companion object {
@@ -96,13 +97,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragments_frame, officialSaleslistFragment).commit()
             }
-            R.id.nav_clothing -> {
-
+            R.id.unoffi_stationery -> {
+                unofficialSaleslistFragment = UnofficialSaleslistFragment.newInstance()
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragments_frame, unofficialSaleslistFragment).commit()
             }
-            R.id.nav_accessory -> {
+            R.id.unoffi_clothing -> {
 
-            }
-            R.id.nav_etc -> {
             }
         }
         drawer_Layout.closeDrawers()

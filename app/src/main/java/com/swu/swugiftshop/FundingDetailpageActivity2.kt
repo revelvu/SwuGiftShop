@@ -11,14 +11,20 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.funding_story2.*
 
 
-//var i = 0
+var sticker2numtext = 1
+var i6 = 0
+var putItem6 = RecyclerItem("홀로그램 스티커", "3000 원", "sticket2")
 
-class FundingDetailpageActivity : AppCompatActivity() {
+var p6 = 0
+var purchaseItem6 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
+
+class FundingDetailpageActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_funding_detailpage)
+        setContentView(R.layout.activity_funding_detailpage2)
 
 
         // tool bar back button
@@ -27,26 +33,26 @@ class FundingDetailpageActivity : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
        //하트 클릭시 full/empty heart 이미지 나오도록하기, 위시리스트로 들어가기
-        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
-
-        emptyheart.setOnClickListener {
-
-            if(i==0){
-                emptyheart.setImageResource(R.drawable.heartfull)
-                i += 1
-
-                if(wishList.contains(inititem)) {
-                    wishList.remove(inititem)
-                }
-                wishList.add(putItem1)
-            }else {
-                emptyheart.setImageResource(R.drawable.heartempty)
-                i -= 1
-
-                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
-                wishList.remove(putItem1)
-            }
-        }
+//        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+//
+//        emptyheart.setOnClickListener {
+//
+//            if(i==0){
+//                emptyheart.setImageResource(R.drawable.heartfull)
+//                i += 1
+//
+//                if(wishList.contains(inititem)) {
+//                    wishList.remove(inititem)
+//                }
+//                wishList.add(putItem1)
+//            }else {
+//                emptyheart.setImageResource(R.drawable.heartempty)
+//                i -= 1
+//
+//                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+//                wishList.remove(putItem1)
+//            }
+//        }
 
 
         // 펀딩하기 버튼을 눌렀을 때
@@ -58,24 +64,31 @@ class FundingDetailpageActivity : AppCompatActivity() {
 
 
         // option Dialog
-        optionBtn.setOnClickListener {
-            var optionDialog = AlertDialog.Builder(this)
-            val colors = arrayOf("화이트", "블랙")
-            val checkedItem = 1
-
-            optionDialog.setItems(colors) { dialog, which ->
-                when (which) {
-                    0 -> {
-                        optionBtn.setText(colors[which])
-                    }
-                    1 -> {
-                        optionBtn.setText(colors[which])
-                    }
-                }
-            }
-            val dialog = optionDialog.create()
-            optionDialog.show()
-        }
+//        optionBtn.setOnClickListener {
+//            var optionDialog = AlertDialog.Builder(this)
+//            val colors = arrayOf("Learn to share, Share to learn", "나는 꿈꾸고 우치는 자랍니다"
+//                , "Seoul Women's University", "SWU" )
+//            val checkedItem = 1
+//
+//            optionDialog.setItems(colors) { dialog, which ->
+//                when (which) {
+//                    0 -> {
+//                        optionBtn.setText(colors[which])
+//                    }
+//                    1 -> {
+//                        optionBtn.setText(colors[which])
+//                    }
+//                    2 -> {
+//                        optionBtn.setText(colors[which])
+//                    }
+//                    3 -> {
+//                        optionBtn.setText(colors[which])
+//                    }
+//                }
+//            }
+//            val dialog = optionDialog.create()
+//            optionDialog.show()
+//        }
 
     }
 
