@@ -49,23 +49,6 @@ class StoryFragment1 : Fragment() {
             }
         }
 
-        //구매하기 버튼 클릭시, 구매 내역 페이지로 들어간다.
-        val purchase = view.findViewById<Button>(R.id.fundingBtn)
-        purchase?.setOnClickListener {
-            //버튼 한 번 클릭 -> 구매내역으로 들어감
-            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
-
-            if (p == 0) {
-                if (purchaselist.contains(inititem2)) {
-                    purchaselist.remove(inititem2)
-                }
-                purchaselist.add(purchaseItem1)
-                Toast.makeText(context, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
-                p += 1
-            } else {
-                Toast.makeText(context, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
-            }
-        }
 
 //        //유시노트의 수량 edittext에서 가져오기
 //        var usinum1 = view.findViewById<EditText>(R.id.usiNum)
@@ -136,7 +119,27 @@ class StoryFragment1 : Fragment() {
             productTotalPrice.setText(show.toString())
         }
 
+//        var numm= view!!.findViewById<TextView>(R.id.usiNum).text
 
+        //구매하기 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = view.findViewById<Button>(R.id.fundingBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
+            var productTotalprice_t= productTotalPrice.text
+            var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "$productTotalprice_t 원", " $usinumtext 개", "usinotecrop")
+
+            if (p == 0) {
+                if (purchaselist.contains(inititem2)) {
+                    purchaselist.remove(inititem2)
+                }
+                purchaselist.add(purchaseItem1)
+                Toast.makeText(context, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+                p += 1
+            } else {
+                Toast.makeText(context, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
+            }
+        }
         return view
     }
 }

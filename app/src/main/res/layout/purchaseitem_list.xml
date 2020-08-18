@@ -5,7 +5,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -77,21 +76,18 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="80dp">
+        <RelativeLayout
+            android:layout_width="70dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="65dp">
 
-            <ImageView
-                android:id="@+id/checkheart"
+            <Button
+                android:id="@+id/purchase_remove"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginRight="7dp"
-                android:layout_marginBottom="30dp"
-                android:src="@drawable/heartfull" />
+                android:layout_height="40dp"
+                android:text="삭제"
+                android:textSize="10dp"/>
 
         </RelativeLayout>
 

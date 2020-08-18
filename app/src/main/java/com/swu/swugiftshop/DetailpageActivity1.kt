@@ -17,7 +17,7 @@ var i = 0
 var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 
 var p = 0
-var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
+//var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,45 +47,6 @@ class DetailpageActivity1 : AppCompatActivity() {
         })
         view_pager1.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout1))
 
-
-
-//        //유시노트의 수량 edittext에서 가져오기
-//        var usinum=findViewById<EditText>(R.id.usiNum)
-////        var usinums= usinum.toString()  //수량 string값으로 변환
-//
-//        //유시노트의 수량 증가시킬 수 있는 + 버튼
-//        var plus= findViewById<Button>(R.id.usinumPlus)
-//        plus.setOnClickListener {
-//            usinumtext += 1
-//            usinum.setText(usinumtext.toString())
-//        }
-//
-//        //유시노트의 수량 감소시킬 수 있는 - 버튼
-//        var minus=findViewById<Button>(R.id.usinumMius)
-//        minus.setOnClickListener {
-//            usinumtext -= 1
-//            usinum.setText(usinumtext.toString())
-//        }
-//        val firebaseAuth = FirebaseAuth.getInstance()
-//        val db = FirebaseFirestore.getInstance()
-//
-//        //상품info가져오기
-//        val productName = findViewById<TextView>(R.id.productname)
-//        val productPrice = findViewById<TextView>(R.id.productprice)
-//        val pName = db.collection("OfficialProduct").document("유시유선노트")
-//        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
-//            if (task.isSuccessful) {
-//                val document = task.result
-//                if (document != null) {
-//                    Log.d(
-//                        "value",
-//                        "DocumentSnapshot data: " + task.result!!.data?.get("상품명")?.toString()
-//                    )
-//                    productName.text = task.result!!.data?.get("상품명")?.toString()
-//                    productPrice.text = task.result!!.data?.get("가격")?.toString()
-//                }
-//            }
-//        })
 
     }
 
