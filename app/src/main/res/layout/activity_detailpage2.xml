@@ -113,7 +113,7 @@
                     android:textSize="20dp"
                     android:text="-" />
 
-                <EditText
+                <TextView
                     android:id="@+id/wendiNum"
                     android:layout_width="50dp"
                     android:layout_height="35dp"

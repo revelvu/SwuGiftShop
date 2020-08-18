@@ -13,8 +13,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlin.properties.Delegates
 
-var iii =0
+var usifoldernumtext = 1 //유시 L자 폴더의 초기수량 ==1
+var iii = 0
 val putItem3 = RecyclerItem("유시 L자 파일", "1500 원", "usifile_crop")
 
 
@@ -28,30 +30,16 @@ class DetailpageActivity3 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-
-        var usiLnum=findViewById<EditText>(R.id.wendiNum)
-
-        //유시 L자 파일의 수량 증가시킬 수 있는 + 버튼
-        var plus= findViewById<Button>(R.id.plus2)
-        plus.setOnClickListener {
-            usinumtext += 1
-            usiLnum.setText(usinumtext.toString())
-        }
-
-        //유시 L자 파일의 수량 감소시킬 수 있는 - 버튼
-        var minus=findViewById<Button>(R.id.minus2)
-        minus.setOnClickListener {
-            usinumtext -= 1
-            usiLnum.setText(usinumtext.toString())
-        }
-
-
         val firebaseAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
 
         //상품info가져오기
         val productName = findViewById<TextView>(R.id.productname)
         val productPrice = findViewById<TextView>(R.id.productprice)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        //상품명 다른거 띄우려면 documentPath이름만 바꿔주면 됨.
         val pName = db.collection("OfficialProduct").document("유시 L자 파일")
         pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
             if (task.isSuccessful) {
@@ -63,9 +51,35 @@ class DetailpageActivity3 : AppCompatActivity() {
                     )
                     productName.text = task.result!!.data?.get("상품명")?.toString()
                     productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPriceShow =
+                        Integer.parseInt((productPrice.text.toString()))
                 }
             }
         })
+
+        //유시 L자 파일의 수량 edittext에서 가져오기
+        var usiLnum = findViewById<TextView>(R.id.usiLnum)
+        var plus = findViewById<Button>(R.id.plus2)
+        var minus = findViewById<Button>(R.id.minus2)
+
+        //유시 L자 파일의 수량 증가시킬 수 있는 + 버튼
+        plus.setOnClickListener {
+            usifoldernumtext += 1
+            if (usifoldernumtext > 0) minus.setEnabled(true)
+            usiLnum.setText(usifoldernumtext.toString())
+            var show = productTotalPriceShow * usifoldernumtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //유시 L자 파일의 수량 감소시킬 수 있는 - 버튼
+        minus.setOnClickListener {
+            usifoldernumtext -= 1
+            if (usifoldernumtext == 0) minus.setEnabled(false)
+            usiLnum.setText(usifoldernumtext.toString())
+            var show = productTotalPriceShow * usifoldernumtext
+            productTotalPrice.setText(show.toString())
+        }
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기
         val emptyhearttt = findViewById<ImageView>(R.id.empty_heart)
