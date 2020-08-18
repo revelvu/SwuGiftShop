@@ -20,7 +20,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     private lateinit var homeFragment: HomeFragment
     private lateinit var wishlistFragment: WishlistFragment
-    private lateinit var messageFragment: MessageFragment
     private lateinit var mypageFragment: MypageFragment
     private lateinit var officialSaleslistFragment: OfficialSaleslistFragment
     lateinit var navView: NavigationView
@@ -70,11 +69,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     wishlistFragment = WishlistFragment.newInstance()
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragments_frame, wishlistFragment).commit()
-                }
-                R.id.messageicon -> {
-                    messageFragment = MessageFragment.newInstance()
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragments_frame, messageFragment).commit()
                 }
                 R.id.mypageicon -> {
                     mypageFragment = MypageFragment.newInstance()

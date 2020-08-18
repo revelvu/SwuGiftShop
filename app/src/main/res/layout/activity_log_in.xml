@@ -29,8 +29,8 @@
             android:fontFamily="@font/notosans_regular"
             android:layout_gravity="center"
             android:textColor="#000"
-            android:text="App Name"
-            android:textSize="30dp"
+            android:text="swutore"
+            android:textSize="35dp"
             android:textStyle="bold" />
 
 
