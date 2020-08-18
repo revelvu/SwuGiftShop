@@ -36,7 +36,7 @@ class DetailpageActivity1 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-// tab bar
+        // tab bar
         tab_layout.addTab(tab_layout.newTab().setText("스토리"))
         tab_layout.addTab(tab_layout.newTab().setText("문의하기"))
         tab_layout.addTab(tab_layout.newTab().setText("리뷰"))
