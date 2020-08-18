@@ -16,11 +16,7 @@
         android:id="@+id/wishlisticon"
         android:icon="@drawable/hearticon"
         android:title="위시리스트" />
-
-    <item
-        android:id="@+id/messageicon"
-        android:icon="@drawable/messageicon"
-        android:title="메세지" />
+    
 
     <item
         android:id="@+id/mypageicon"

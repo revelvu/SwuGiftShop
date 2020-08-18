@@ -28,16 +28,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
-            android:text="App name"
+            android:text="swutore"
             android:textColor="@color/swuColor"
-            android:textSize="20dp"
+            android:textSize="25dp"
             android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/searchBtn"
             android:layout_width="200dp"
             android:layout_height="40dp"
-            android:layout_marginLeft="55dp"
+            android:layout_marginLeft="70dp"
             android:clickable="true"
             android:focusable="true"
             android:src="@drawable/search" />
@@ -95,11 +95,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:layout_marginBottom="10dp"
                     android:text="인기 추천 공식 굿즈"
                     android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textSize="18dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -126,6 +126,7 @@
                             android:id="@+id/detailname1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="유시 무선 노트"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -176,6 +177,7 @@
                             android:id="@+id/detailname2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="웬디 손거울"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -225,6 +227,7 @@
                             android:id="@+id/detailname3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="유시 L자 파일"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -261,11 +264,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:layout_marginBottom="10dp"
                     android:text="신규 공식 굿즈"
                     android:textColor="#000000"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textSize="18dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -280,14 +283,15 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_width="182dp"
+                            android:layout_height="135dp"
                             android:layout_marginBottom="3dp"
                             android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="상품명1"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -308,14 +312,15 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_width="182dp"
+                            android:layout_height="135dp"
                             android:layout_marginBottom="3dp"
                             android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
                             android:text="상품명2"
                             android:textColor="#000"
                             android:textSize="14dp" />
@@ -335,6 +340,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:layout_marginBottom="10dp"
                     android:text="신규 비공식 굿즈 펀딩"
                     android:textColor="#000000"
@@ -354,22 +360,24 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_width="182dp"
+                            android:layout_height="135dp"
                             android:layout_marginBottom="3dp"
-                            android:background="#DBDBDB" />
+                            android:src="@drawable/sticker2" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="그루밍천재"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
+                            android:text="고영희가세상을지배한다"
                             android:textColor="#808080"
                             android:textSize="12dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="귀여운 우치를 내 가방 속에, 우치 에코백"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
+                            android:text="홀로그램 스티커"
                             android:textColor="#000"
                             android:textSize="14dp" />
 
@@ -383,28 +391,37 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/fundingDetail2"
                         android:layout_width="182dp"
                         android:layout_height="200dp"
+                        android:layout_marginRight="15dp"
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="120dp"
+                            android:layout_width="182dp"
+                            android:layout_height="135dp"
                             android:layout_marginBottom="3dp"
                             android:background="#DBDBDB" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="상품명2"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
+                            android:text="고영희가세상을지배한다"
+                            android:textColor="#808080"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/kopubworld_dotum_medium"
+                            android:text="홀로그램 스티커"
                             android:textColor="#000"
                             android:textSize="14dp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="가격"
+                            android:text="0%"
                             android:textColor="#000"
                             android:textSize="14dp" />
 
