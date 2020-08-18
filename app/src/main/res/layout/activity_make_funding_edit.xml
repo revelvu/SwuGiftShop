@@ -89,41 +89,173 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:layout_marginBottom="12dp"
-                android:text="이미지 업로드"
+                android:text="이미지 업로드"/>
         </RelativeLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/make_edit"
+            android:orientation="vertical"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="12dp">
 
-            <TextView
-                android:id="@+id/fundingCategory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_bold"
-                android:text="카테고리"
-                android:paddingTop="15dp"
-                android:paddingLeft="15dp"
-                android:textColor="#000"
-                android:textSize="16dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
+                    android:text="카테고리"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
 
-            <Button
-                android:id="@+id/optionBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:text="카테고리                            ▼"
-                android:gravity="center_vertical"
-                android:paddingLeft="15dp"
-                android:background="@drawable/buttonedge"
-                style="?android:attr/borderlessButtonStyle"
-                android:layout_margin="15dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:text="카테고리 선택                        ▼"
+                    android:layout_marginLeft="20dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/buttonedge"
+                    style="?android:attr/borderlessButtonStyle" />
+            </LinearLayout>
 
-        </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
+                    android:text="가격"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:text="0"
+                    android:textColor="#000"
+                    android:gravity="right|center"
+                    android:layout_marginLeft="49dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/buttonedge"
+                    style="?android:attr/borderlessButtonStyle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"
+                    android:textSize="12dp"
+                    android:text="원"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
+                    android:text="색상,종류"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:hint="없으면 비워주세요"
+                    android:layout_marginLeft="16dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:gravity="left|center"
+                    android:background="@drawable/buttonedge"
+                    style="?android:attr/borderlessButtonStyle" />
+                <Button
+                    android:layout_width="60dp"
+                    android:layout_height="40dp"
+                    android:textSize="12dp"
+                    android:text="추가"/>
+            </LinearLayout>
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="40dp"-->
+<!--                android:layout_marginTop="3dp"-->
+<!--                android:layout_marginLeft="92dp"-->
+<!--                android:orientation="horizontal"-->
+<!--                android:visibility="visible">-->
+<!--                <EditText-->
+<!--                    android:layout_width="200dp"-->
+<!--                    android:layout_height="30dp"-->
+<!--                    android:fontFamily="@font/kopubworld_dotum_medium"-->
+<!--                    android:hint="색상 또는 종류"-->
+<!--                    android:paddingLeft="10dp"-->
+<!--                    android:gravity="left|center"-->
+<!--                    android:background="@drawable/buttonedge"-->
+<!--                    style="?android:attr/borderlessButtonStyle"-->
+<!--                    android:visibility="visible"/>-->
+<!--                -->
+<!--            </LinearLayout>-->
+
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/kopubworld_dotum_light"-->
+<!--                android:textSize="12dp"-->
+<!--                android:layout_marginLeft="92dp"-->
+<!--                android:text="※ 없다면 비워주세요"/>-->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
+                    android:text="최소 수량"
+                    android:paddingTop="15dp"
+                    android:paddingLeft="15dp"
+                    android:textColor="#000"
+                    android:textSize="16dp"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="30dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:textColor="#000"
+                    android:text="0"
+                    android:gravity="right|center"
+                    android:layout_marginLeft="17dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:background="@drawable/buttonedge"
+                    style="?android:attr/borderlessButtonStyle" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="#000"
+                    android:textSize="12dp"
+                    android:text="개"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
 
 
 
