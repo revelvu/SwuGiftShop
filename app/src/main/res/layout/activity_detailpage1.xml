@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="공식 굿즈"
+            android:text="공식 굿즈 상세페이지"
             android:textColor="#000"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -32,18 +32,210 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"/>
+        android:layout_height="match_parent">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/usinotecrop"
+                android:background="#DEDEDE" />
+
+            <TextView
+                android:id="@+id/productname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:text="유시 유선 노트"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/productprice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:text="3,000"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:text="원"
+                    android:textColor="#000"
+                    android:textSize="14dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/usinumMius"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text="-" />
+
+                    <EditText
+                        android:id="@+id/usiNum"
+                        android:layout_width="50dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:text="1"/>
+
+                    <Button
+                        android:id="@+id/usinumPlus"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:background="@drawable/buttonedge"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text="+" />
+
+
+                </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_centerVertical="true"
+                    android:text="총 상품 금액"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:orientation="horizontal"
+                    android:layout_alignParentRight="true">
+
+
+                    <TextView
+                        android:id="@+id/productTotalprice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#000"
+                        android:textSize="20dp"
+                        android:text="3,000"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="3dp"
+                        android:layout_marginRight="3dp"
+                        android:text="원"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp">
+
+
+                <ImageView
+                    android:id="@+id/empty_heart"
+                    android:layout_width="50dp"
+                    android:layout_height="52dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/buttonedge"
+                    android:padding="8dp"
+                    android:src="@drawable/heartempty"/>
+
+                <Button
+                    android:id="@+id/fundingBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp"
+                    android:textColor="#fff"
+                    android:background="@color/swuColor"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="구입하기"/>
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginBottom="20dp"
+                android:src="@drawable/usinote"
+                android:background="#DEDEDE" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:textColor="#000"
+                android:textSize="18dp"
+                android:text="유시는 너무 귀여워 유시는 너무 귀여워 유시는 너무 귀여워 유시는 너무 귀여워 유시는 너무 귀여워 유시는 너무 귀여워 유시는 너무 귀여워 "/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 
