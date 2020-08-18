@@ -29,6 +29,9 @@ class StoryFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.story_fragment, container, false)
 
+        var numm= view!!.findViewById<TextView>(R.id.usiNum)
+        var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " $numm 개", "usinotecrop")
+
         //하트 클릭시 full/empty heart 이미지 나오도록하기
         val emptyheart = view.findViewById<ImageView>(R.id.empty_heart)
 
