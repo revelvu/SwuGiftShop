@@ -14,12 +14,7 @@ import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlinx.android.synthetic.main.funding_story2.*
 
 
-var sticker2numtext = 1
-var i6 = 0
-var putItem6 = RecyclerItem("홀로그램 스티커", "3000 원", "sticket2")
 
-var p6 = 0
-var purchaseItem6 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
 class FundingDetailpageActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

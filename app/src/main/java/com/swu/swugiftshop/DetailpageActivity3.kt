@@ -42,8 +42,8 @@ class DetailpageActivity3 : AppCompatActivity() {
         tab_layout2.addTab(tab_layout2.newTab().setText("문의하기"))
         tab_layout2.addTab(tab_layout2.newTab().setText("리뷰"))
 
-        val pagerAdapter4 = FragmentPagerAdapter4(supportFragmentManager, 3)
-        view_pager2.adapter = pagerAdapter4
+        val pagerAdapter3 = FragmentPagerAdapter3(supportFragmentManager, 3)
+        view_pager2.adapter = pagerAdapter3
 
         tab_layout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -54,25 +54,23 @@ class DetailpageActivity3 : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
         })
         view_pager2.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout2))
+    }
 
-
-
-        // tool bar back button
-        fun onOptionsItemSelected(item: MenuItem): Boolean {
-            val id = item.itemId
-            when (id) {
-                android.R.id.home -> {
-                    finish()
-                    return true
-                }
+    // tool bar back button
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            android.R.id.home -> {
+                finish()
+                return true
             }
-            return super.onOptionsItemSelected(item)
         }
+        return super.onOptionsItemSelected(item)
     }
 }
 
 // tab bar
-class FragmentPagerAdapter4(
+class FragmentPagerAdapter3(
     fragmentManager: FragmentManager,
     val tabCount: Int
 ) : FragmentStatePagerAdapter(fragmentManager) {
@@ -95,3 +93,4 @@ class FragmentPagerAdapter4(
         return tabCount
     }
 }
+

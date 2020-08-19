@@ -18,12 +18,6 @@ import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.funding_story1.*
 
 
-var stickernumtext = 1
-var i5 = 0
-var putItem5 = RecyclerItem("홀로그램 스티커", "3000 원", "sticket2")
-
-var p5 = 0
-var purchaseItem5 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
 class FundingDetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,8 +35,8 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         tab_layout.addTab(tab_layout.newTab().setText("문의하기"))
         tab_layout.addTab(tab_layout.newTab().setText("리뷰"))
 
-        val pagerAdapter3 = FragmentPagerAdapter3(supportFragmentManager, 3)
-        view_pager.adapter = pagerAdapter3
+        val pagerAdapter4 = FragmentPagerAdapter4(supportFragmentManager, 3)
+        view_pager.adapter = pagerAdapter4
 
         tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -150,7 +144,7 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
 }
 
 // tab bar
-class FragmentPagerAdapter3(
+class FragmentPagerAdapter4(
     fragmentManager: FragmentManager,
     val tabCount: Int
 ) : FragmentStatePagerAdapter(fragmentManager) {

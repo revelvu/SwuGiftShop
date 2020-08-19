@@ -395,6 +395,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/fundingDetail2"
                         android:layout_width="182dp"
                         android:layout_height="200dp"
                         android:layout_marginRight="15dp"

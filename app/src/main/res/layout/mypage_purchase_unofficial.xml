@@ -2,7 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#fff">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"/>
 
         <LinearLayout
             android:id="@+id/mypage_purchase_unofficial1"
@@ -14,7 +20,8 @@
             <ImageView
                 android:layout_width="150dp"
                 android:layout_height="100dp"
-                android:background="#DBDBDB" />
+                android:src="@drawable/ss17"
+                android:scaleType="centerCrop"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -24,20 +31,20 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:layout_marginLeft="10dp"
                     android:layout_marginBottom="5dp"
-                    android:text="귀여운 우치를 내 가방 속에, 우치 에코백"
+                    android:text="2017 S/S 꽃학잠"
                     android:textColor="#000"
-                    android:textSize="16dp"
-                    android:textStyle="bold" />
+                    android:textSize="16dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="3dp"
-                    android:text="그루밍천재"
-                    android:textColor="#000"
+                    android:layout_marginBottom="5dp"
+                    android:text="팜파미"
+                    android:textColor="#808080"
                     android:textSize="14dp" />
 
                 <LinearLayout
@@ -48,10 +55,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_bold"
                         android:layout_marginLeft="10dp"
-                        android:textColor="#000"
+                        android:textColor="@color/swuColor"
                         android:textSize="16dp"
-                        android:textStyle="bold"
                         android:text="펀딩 종료"/>
 
 

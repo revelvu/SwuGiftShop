@@ -15,7 +15,7 @@ class UnofficialSaleslistFragment2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.unofficial_saleslist, container, false)
+        val view = inflater.inflate(R.layout.unofficial_saleslist2, container, false)
 
         return view
     }
@@ -32,14 +32,7 @@ class UnofficialSaleslistFragment2 : Fragment() {
 
         unofficial_salelist1.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity1::class.java)
-                startActivity(intent)
-            }
-        }
-
-        unofficial_salelist2.setOnClickListener {
-            activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity2::class.java)
+                val intent = Intent(context, FundingDetailpageActivity3::class.java)
                 startActivity(intent)
             }
         }
