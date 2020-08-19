@@ -42,6 +42,9 @@ class MakeFundingEditActivity2 : AppCompatActivity() {
                 Toast.LENGTH_SHORT
             ).show()
             //펀딩 글쓰기 끝내면 화면전환을 어디로 해야하지??????????????????????
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent)
         }
     }
 

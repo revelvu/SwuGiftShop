@@ -1,12 +1,13 @@
 package com.swu.swugiftshop
 
+
 import android.app.AlertDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
@@ -16,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_make_funding_edit.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
+
 
 class MakeFundingEditActivity : AppCompatActivity() {
     //firebase
@@ -55,21 +57,24 @@ class MakeFundingEditActivity : AppCompatActivity() {
                 when (which) {
                     0 -> {
                         enterFcategory.setText(categoryOption[which])
+                        categoryText = enterFcategory.text.toString()
                     }
                     1 -> {
                         enterFcategory.setText(categoryOption[which])
+                        categoryText = enterFcategory.text.toString()
                     }
                     2 -> {
                         enterFcategory.setText(categoryOption[which])
+                        categoryText = enterFcategory.text.toString()
                     }
                     3 -> {
                         enterFcategory.setText(categoryOption[which])
+                        categoryText = enterFcategory.text.toString()
                     }
                 }
             }
             val dialog = optionDialog.create()
             optionDialog.show()
-            categoryText = enterFcategory.text.toString()
         }
         //EditText 가져와보자
         val fdName = findViewById<EditText>(R.id.enterFname)
@@ -83,15 +88,7 @@ class MakeFundingEditActivity : AppCompatActivity() {
             Option.add(fdOption.text.toString())
             fdOption.setText("")
         }
-        //글쓰는 유저의 UserProfile 컬렉션에 펀딩 올린 물품명 저장하기
-        UserProfile.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
-            if (task.isSuccessful) {
-                val document = task.result
-                if (document != null) {
-                    UserProfile.update("나의펀딩", "" + fdName.text.toString())
-                }
-            }
-        })
+
         storyIntentBtn.setOnClickListener {
             val editorIntent = Intent(this, MakeFundingEditActivity2::class.java)
             //여기다 db생성부 구현하자
@@ -112,6 +109,15 @@ class MakeFundingEditActivity : AppCompatActivity() {
                     .update("옵션$i", Option[i])
 
             }
+            //글쓰는 유저의 UserProfile 컬렉션에 펀딩 올린 물품명 저장하기
+            UserProfile.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+                if (task.isSuccessful) {
+                    val document = task.result
+                    if (document != null) {
+                        UserProfile.update("나의펀딩", "" + fdName.text.toString())
+                    }
+                }
+            })
             editorIntent.putExtra("NAme", fdName.text.toString())
             startActivity(editorIntent)
         }
@@ -158,4 +164,5 @@ class MakeFundingEditActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

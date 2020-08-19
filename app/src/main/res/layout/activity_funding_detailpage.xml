@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#fff"
     android:orientation="vertical"
-    tools:context=".FundingDetailpageActivity">
+    tools:context=".FundingDetailpageActivity1">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/my_toolbar"

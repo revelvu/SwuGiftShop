@@ -64,7 +64,11 @@ class MypageFragment : Fragment() {
 
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
+    val userID = firebaseAuth.currentUser?.email.toString()
+    val UserProfile =
+        db.collection("UserProfile").document(userID)
 
+    lateinit var temp: String
     override fun onAttach(context: Context) {
         super.onAttach(context)
     }
@@ -75,8 +79,15 @@ class MypageFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
+        UserProfile.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    temp = task.result!!.data?.get("나의펀딩").toString()
+                    Log.d("temp", temp)
+                }
+            }
+        })
     }
 
     override fun onCreateView(
@@ -88,14 +99,11 @@ class MypageFragment : Fragment() {
 
         //프로필에 사용자 email 띄우기
         val myEmail = view?.findViewById<TextView>(R.id.myEmail)
-        val userID = firebaseAuth.currentUser?.email.toString()
         myEmail?.text = userID
 
         //프로필에 사용자 nickname 띄우기
         val myNickname = view?.findViewById<TextView>(R.id.myNickName)
-        val userNickname =
-            db.collection("UserProfile").document(userID)
-        userNickname.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+        UserProfile.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
             if (task.isSuccessful) {
                 val document = task.result
                 if (document != null) {
@@ -113,7 +121,6 @@ class MypageFragment : Fragment() {
         })
 
 
-
         val purchasebtn = view.findViewById<Button>(R.id.purchaseBtn)
         purchasebtn.setOnClickListener {
             activity?.let {
@@ -122,11 +129,23 @@ class MypageFragment : Fragment() {
             }
         }
 
+
         val makeFundingbtn = view.findViewById<Button>(R.id.makeFundingBtn)
         makeFundingbtn.setOnClickListener {
-            activity?.let {
-                val intent = Intent(context, EmptyFundingActivity::class.java)
-                startActivity(intent)
+            Log.d("펀딩버튼", "눌렸음")
+            //펀딩물품이 없으면 emptyFundingActivity
+            //펀딩물품이 있으면 MyFundingActivity
+            Log.d("템프", temp)
+            if (temp != "") {
+                activity?.let {
+                    val intent = Intent(context, MyFundingActivity::class.java)
+                    startActivity(intent)
+                }
+            } else {
+                activity?.let {
+                    val intent = Intent(context, EmptyFundingActivity::class.java)
+                    startActivity(intent)
+                }
             }
         }
 
@@ -138,19 +157,20 @@ class MypageFragment : Fragment() {
 
             logoutBuilder.setNegativeButton("취소", null)
             logoutBuilder.setPositiveButton("확인") { dialog, which ->
-            FirebaseAuth.getInstance().signOut()
-            //로그아웃을 성공하면, 다시 로그인 페이지!
+                FirebaseAuth.getInstance().signOut()
+                //로그아웃을 성공하면, 다시 로그인 페이지!
 
-            activity?.let {
-                val relogin = Intent(context, LogInActivity::class.java)
-                startActivity(relogin)
+                activity?.let {
+                    val relogin = Intent(context, LogInActivity::class.java)
+                    startActivity(relogin)
+                }
             }
-        }
 
 
             val dialog = logoutBuilder.create()
             dialog.show()
         }
+
         return view
     }
 }

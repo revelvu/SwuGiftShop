@@ -20,8 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detailpage1.*
 import kotlinx.android.synthetic.main.activity_detailpage2.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
-import kotlinx.android.synthetic.main.activity_funding_detailpage.tab_layout
-import kotlinx.android.synthetic.main.activity_funding_detailpage.view_pager
 import kotlinx.android.synthetic.main.story_fragment2.*
 import kotlin.properties.Delegates
 
