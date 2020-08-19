@@ -21,6 +21,7 @@ var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 var p = 0
 //var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
+
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
