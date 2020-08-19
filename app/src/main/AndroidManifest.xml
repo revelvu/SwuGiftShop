@@ -25,7 +25,10 @@
         </activity>
         <activity android:name=".ItemSearchActivity" />
         <activity android:name=".FundingDetailpageActivity" />
-        <activity android:name=".DetailpageActivity1" />
+        <activity android:name=".DetailpageActivity1" >
+
+
+        </activity>
         <activity android:name=".DetailpageActivity2" />
         <activity android:name=".DetailpageActivity3" />
         <activity android:name=".RegisterActivity" />

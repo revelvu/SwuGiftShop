@@ -50,10 +50,12 @@ public class MainListViewActivity extends AppCompatActivity {
         editSearch = (EditText) findViewById(R.id.editSearch);
         listView = (ListView) findViewById(R.id.listView);
 
+        listView1.setVisibility(View.VISIBLE);
+
         // 리스트를 생성한다.
         list = new ArrayList<String>();
 
-//        // 리스트에 검색될 데이터(단어)를 추가한다.
+        // 리스트에 검색될 데이터(단어)를 추가한다.
         settingList();
 
         // 리스트의 모든 데이터를 arraylist에 복사한다.// list 복사본을 만든다.
@@ -65,6 +67,8 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 리스트뷰에 아답터를 연결한다.
         listView.setAdapter(adapter);
+
+
 
 
         // input창에 검색어를 입력시 "addTextChangedListener" 이벤트 리스너를 정의한다.
@@ -89,6 +93,7 @@ public class MainListViewActivity extends AppCompatActivity {
         list.clear();
 
 
+
         // 인기가요 순위 데이터 (다량의 데이터 준비)
         al.add(new Song("유시 무선 노트",R.drawable.usinote,"3000원"));
         al.add(new Song("홀로그램 스티커",R.drawable.sticker,"2000원"));
@@ -102,6 +107,7 @@ public class MainListViewActivity extends AppCompatActivity {
         ListView lv = (ListView)findViewById(R.id.listView1);
         lv.setAdapter(adapter);
 
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
@@ -114,13 +120,18 @@ public class MainListViewActivity extends AppCompatActivity {
                         getApplicationContext(), // 현재화면의 제어권자
                         ItemDetail.class); // 다음넘어갈 화면
 
+
                 // intent 객체에 데이터를 실어서 보내기
                 // 리스트뷰 클릭시 인텐트 (Intent) 생성하고 position 값을 이용하여 인텐트로 넘길값들을 넘긴다
                 intent.putExtra("name", al.get(position).name);
                 intent.putExtra("img", al.get(position).img);
                 intent.putExtra("price", al.get(position).price);
 
+
+
                 startActivity(intent);
+
+
             }
         });
     }
@@ -132,6 +143,8 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 문자 입력시마다 리스트를 지우고 새로 뿌려준다.
         list.clear();
+
+
 
         // 문자 입력이 없을때는 모든 데이터를 보여준다.
         if (charText.length() == 0) {
@@ -150,6 +163,8 @@ public class MainListViewActivity extends AppCompatActivity {
         }
         // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
         adapter.notifyDataSetChanged();
+
+
     }
 
 
@@ -177,6 +192,8 @@ class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
         this.al = al;
         inf = (LayoutInflater)context.getSystemService
                 (Context.LAYOUT_INFLATER_SERVICE);
+
+
     }
     @Override
     public int getCount() {
@@ -204,6 +221,8 @@ class MyAdapter extends BaseAdapter { // 리스트 뷰의 아답타
         goodsName.setText(m.name);
         goodsPrice.setText(m.price);
 
+
+
         return convertView;
     }
 }
@@ -217,6 +236,8 @@ class Song { // 자바빈
         this.name = name;
         this.img = img;
         this.price = price;
+
+
     }
     public Song() {}
 }
