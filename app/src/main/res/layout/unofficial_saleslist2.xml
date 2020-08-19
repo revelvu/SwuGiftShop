@@ -24,7 +24,7 @@
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:text="비공식 굿즈 - 문구류"/>
+            android:text="비공식 굿즈 - 의류"/>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -60,9 +60,8 @@
                     <ImageView
                         android:layout_width="match_parent"
                         android:layout_height="130dp"
-                        android:src="@drawable/sticker2"
+                        android:src="@drawable/ss17"
                         android:scaleType="centerCrop"
-
                         android:layout_marginBottom="8dp" />
 
                     <TextView
@@ -72,7 +71,7 @@
                         android:layout_marginBottom="3dp"
                         android:textColor="#808080"
                         android:textSize="12dp"
-                        android:text="고영희가세상을지배한다" />
+                        android:text="팜파미" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -81,12 +80,7 @@
                         android:layout_marginBottom="3dp"
                         android:textColor="#000"
                         android:textSize="14dp"
-                        android:text="홀로그램 스티커" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:text="2017 S/S 꽃학잠" />
 
                         <TextView
                             android:layout_width="match_parent"
@@ -94,17 +88,10 @@
                             android:textColor="@color/swuColor"
                             android:textSize="14dp"
                             android:textStyle="bold"
-                            android:text="펀딩률" />
+                            android:text="펀딩 성공" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:textColor="@color/swuColor"
-                            android:textSize="12dp"
-                            android:text="%" />
 
-                    </LinearLayout>
+
 
                 </LinearLayout>
 
@@ -120,7 +107,7 @@
                         android:layout_height="130dp"
                         android:layout_marginBottom="8dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/sticker"/>
+                        android:src="@drawable/flower_jacket"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -129,7 +116,7 @@
                         android:layout_marginBottom="3dp"
                         android:textColor="#808080"
                         android:textSize="12dp"
-                        android:text="랑이발바닥" />
+                        android:text="뉴냥내꺼" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -138,7 +125,7 @@
                         android:layout_marginBottom="3dp"
                         android:textColor="#000"
                         android:textSize="14dp"
-                        android:text="전자파 차단 스티커" />
+                        android:text="2020 S/S 꽃학잠" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -151,7 +138,7 @@
                             android:textColor="@color/swuColor"
                             android:textSize="14dp"
                             android:textStyle="bold"
-                            android:text="펀딩률" />
+                            android:text="0" />
 
                         <TextView
                             android:layout_width="match_parent"

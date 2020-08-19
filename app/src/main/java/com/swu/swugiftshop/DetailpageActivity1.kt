@@ -2,25 +2,14 @@ package com.swu.swugiftshop
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.widget.*
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.activity_detailpage1.*
+import kotlinx.android.synthetic.main.activity_detailpage2.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
-import kotlinx.android.synthetic.main.activity_mypage_purchase.*
-import kotlinx.android.synthetic.main.navi_header.*
 
 
 var usinumtext = 1   //유시 노트의 초기수량 == 1
@@ -41,22 +30,23 @@ class DetailpageActivity1 : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         // tab bar
-        tab_layout.addTab(tab_layout.newTab().setText("스토리"))
-        tab_layout.addTab(tab_layout.newTab().setText("문의하기"))
-        tab_layout.addTab(tab_layout.newTab().setText("리뷰"))
+        tab_layout1.addTab(tab_layout1.newTab().setText("스토리"))
+        tab_layout1.addTab(tab_layout1.newTab().setText("문의하기"))
+        tab_layout1.addTab(tab_layout1.newTab().setText("리뷰"))
 
-        val pagerAdapter2 = FragmentPagerAdapter2(supportFragmentManager, 3)
-        view_pager.adapter = pagerAdapter2
+        val pagerAdapter1 = FragmentPagerAdapter1(supportFragmentManager, 3)
+        view_pager1.adapter = pagerAdapter1
 
-        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        tab_layout1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                view_pager.setCurrentItem(tab!!.position)
+                view_pager1.setCurrentItem(tab!!.position)
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
         })
-        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
+        view_pager1.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout1))
+
 
     }
 
@@ -74,14 +64,14 @@ class DetailpageActivity1 : AppCompatActivity() {
 }
 
 // tab bar
-class FragmentPagerAdapter2(
+class FragmentPagerAdapter1(
     fragmentManager: FragmentManager,
     val tabCount: Int
 ) : FragmentStatePagerAdapter(fragmentManager) {
     override fun getItem(position: Int): Fragment {
         when (position) {
             0 -> {
-                return StoryFragment()
+                return StoryFragment1()
             }
             1 -> {
                 return QnAFragment()
@@ -89,7 +79,7 @@ class FragmentPagerAdapter2(
             2 -> {
                 return ReviewFragment()
             }
-            else -> return return StoryFragment()
+            else -> return return StoryFragment1()
         }
     }
 
