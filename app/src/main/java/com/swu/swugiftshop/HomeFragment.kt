@@ -70,12 +70,18 @@ class HomeFragment : Fragment() {
                 startActivity(intent)
             }
         }
+        fundingDetail2.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, FundingDetailpageActivity2::class.java)
+                startActivity(intent)
+            }
+        }
 
 
         //viewflipper 사용해서 물품사진 자동으로 넘기기
-        val flipper= getView()?.findViewById<ViewFlipper>(R.id.flipper)
+        val flipper = getView()?.findViewById<ViewFlipper>(R.id.flipper)
 
-        val showln=AnimationUtils.loadAnimation(activity,android.R.anim.slide_in_left)
+        val showln = AnimationUtils.loadAnimation(activity, android.R.anim.slide_in_left)
         flipper?.animation = showln
 
         flipper?.setOutAnimation(activity, android.R.anim.slide_out_right)
@@ -85,8 +91,8 @@ class HomeFragment : Fragment() {
 
         //뷰 플리퍼 클릭시, 각 이미지에 맞는 상세 페이지로 이동
 //        val img01= getView()?.findViewById<ImageView>(R.id.banner01)
-        val img02= getView()?.findViewById<ImageView>(R.id.banner02)
-        val img03=getView()?.findViewById<ImageView>(R.id.banner03)
+        val img02 = getView()?.findViewById<ImageView>(R.id.banner02)
+        val img03 = getView()?.findViewById<ImageView>(R.id.banner03)
 
 //        img01?.setOnClickListener {
 //            val img01_intent=Intent(activity, DetailpageActivity2::class.java)
@@ -94,12 +100,12 @@ class HomeFragment : Fragment() {
 //        }
 
         img02?.setOnClickListener {
-            val img02_intent= Intent(activity, DetailpageActivity1::class.java)
+            val img02_intent = Intent(activity, DetailpageActivity1::class.java)
             startActivity(img02_intent)
         }
 
         img03?.setOnClickListener {
-            val img03_intent= Intent(activity, DetailpageActivity2::class.java)
+            val img03_intent = Intent(activity, DetailpageActivity2::class.java)
             startActivity(img03_intent)
         }
     }
@@ -169,6 +175,36 @@ class HomeFragment : Fragment() {
                     )
                     productName3?.text = task.result!!.data?.get("상품명")?.toString()
                     productPrice3?.text = task.result!!.data?.get("가격")?.toString()
+                }
+            }
+        })
+        //비공식 상품 info 가져오기 - 홀로그램 스티커
+        val fundingNickLeft = view?.findViewById<TextView>(R.id.fundingNickLeft)
+        val fundingNameLeft = view?.findViewById<TextView>(R.id.fundingItemLeft)
+        val fundingPerLeft = view?.findViewById<TextView>(R.id.fundingPercentLeft)
+        val fLeft = db.collection("UnofficialProduct").document("홀로그램 스티커")
+        fLeft.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    fundingNickLeft?.text = task.result!!.data?.get("펀딩주최자")?.toString()
+                    fundingNameLeft?.text = task.result!!.data?.get("물품명")?.toString()
+                    fundingPerLeft?.text = task.result!!.data?.get("펀딩률")?.toString()
+                }
+            }
+        })
+        //비공식 상품 info 가져오기 - 전자파 차단 스티커
+        val fundingNickRight = view?.findViewById<TextView>(R.id.fundingNickRight)
+        val fundingNameRight = view?.findViewById<TextView>(R.id.fundingItemRight)
+        val fundingPerRight = view?.findViewById<TextView>(R.id.fundingPercentRight)
+        val fRight = db.collection("UnofficialProduct").document("전자파 차단 스티커")
+        fRight.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    fundingNickRight?.text = task.result!!.data?.get("펀딩주최자")?.toString()
+                    fundingNameRight?.text = task.result!!.data?.get("물품명")?.toString()
+                    fundingPerRight?.text = task.result!!.data?.get("펀딩률")?.toString()
                 }
             }
         })

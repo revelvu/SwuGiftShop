@@ -22,9 +22,10 @@ import kotlin.properties.Delegates
 
 
 //var i = 0
-var numtobuy = 1
 
 class FundingDetailpageActivity : AppCompatActivity() {
+    //+-로 표시한 수량 초기넘버
+    var numtobuy = 1
     //firebase
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
