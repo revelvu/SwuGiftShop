@@ -13,6 +13,8 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.properties.Delegates
 
+
+
 class StoryFragment1 : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

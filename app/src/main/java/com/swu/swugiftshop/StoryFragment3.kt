@@ -101,6 +101,27 @@ class StoryFragment3 : Fragment() {
 
         }
 
+        //구매하기 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = view.findViewById<Button>(R.id.fundingBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
+            var productTotalprice_t= productTotalPrice.text
+            var purchaseItem2 = purchase_RecyclerItem("슈니즈 L자 홀더", "$productTotalprice_t 원", " $usifoldernumtext 개", "swufile_crop")
+
+            if (p == 0) {
+                if (purchaselist.contains(inititem2)) {
+                    purchaselist.remove(inititem2)
+                }
+                purchaselist.add(purchaseItem2)
+                Toast.makeText(context, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+                p += 1
+            } else {
+                Toast.makeText(context, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
+            }
+        }
+
+
         return view
     }
 }

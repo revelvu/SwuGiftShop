@@ -1,8 +1,10 @@
 package com.swu.swugiftshop
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -19,10 +21,12 @@ var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 var p = 0
 //var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
+
 class DetailpageActivity1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage1)
+
 
         // tool bar back button
         setSupportActionBar(my_toolbar)
