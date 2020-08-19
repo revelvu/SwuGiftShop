@@ -10,11 +10,24 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
+import kotlinx.android.synthetic.main.activity_funding_detailpage2.*
 import kotlinx.android.synthetic.main.funding_story2.*
 
 
+//펀딩하기 버튼눌렀을때 숫자 올라가기
+var sticker2numtext = 1
 
+//var i5 = 0
+var putItem6 = RecyclerItem("전자파 차단 스티커", "3000 원", "sticker")
+
+var p6 = 0
+var purchaseItem6 = purchase_RecyclerItem("전자파 차단 스티커", "3000원", " * 개", "sticket")
 
 class FundingDetailpageActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +39,24 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
+
+        // tab bar
+        tab_layout6.addTab(tab_layout6.newTab().setText("스토리"))
+        tab_layout6.addTab(tab_layout6.newTab().setText("문의하기"))
+        tab_layout6.addTab(tab_layout6.newTab().setText("리뷰"))
+
+        val pagerAdapter6 = FragmentPagerAdapter6(supportFragmentManager, 3)
+        view_pager6.adapter = pagerAdapter6
+
+        tab_layout6.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                view_pager6.setCurrentItem(tab!!.position)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+        })
+        view_pager6.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout6))
 
        //하트 클릭시 full/empty heart 이미지 나오도록하기, 위시리스트로 들어가기
 //        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
@@ -50,39 +81,13 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
 //        }
 
 
-        // 펀딩하기 버튼을 눌렀을 때
-        fundingBtn.setOnClickListener {
-            //서포터즈+1, 펀딩완료로 setText
-            showDialog()
-            fundingBtn.setEnabled(false)
-        }
-
-
-        // option Dialog
-//        optionBtn.setOnClickListener {
-//            var optionDialog = AlertDialog.Builder(this)
-//            val colors = arrayOf("Learn to share, Share to learn", "나는 꿈꾸고 우치는 자랍니다"
-//                , "Seoul Women's University", "SWU" )
-//            val checkedItem = 1
+//        val fundingbtn = findViewById<Button>(R.id.fundingBtn)
 //
-//            optionDialog.setItems(colors) { dialog, which ->
-//                when (which) {
-//                    0 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    1 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    2 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    3 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                }
-//            }
-//            val dialog = optionDialog.create()
-//            optionDialog.show()
+//        // 펀딩하기 버튼을 눌렀을 때
+//        fundingBtn.setOnClickListener {
+//            //서포터즈+1, 펀딩완료로 setText
+//            showDialog()
+//            fundingBtn.setEnabled(false)
 //        }
 
     }
@@ -150,4 +155,29 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         fundingDialog.show()
     }
 
+}
+
+// tab bar
+class FragmentPagerAdapter6(
+    fragmentManager: FragmentManager,
+    val tabCount: Int
+) : FragmentStatePagerAdapter(fragmentManager) {
+    override fun getItem(position: Int): Fragment {
+        when (position) {
+            0 -> {
+                return FundingStoryFragment2()
+            }
+            1 -> {
+                return FundingQnAFragment2()
+            }
+            2 -> {
+                return FundingReviewFragment2()
+            }
+            else -> return return FundingStoryFragment2()
+        }
+    }
+
+    override fun getCount(): Int {
+        return tabCount
+    }
 }

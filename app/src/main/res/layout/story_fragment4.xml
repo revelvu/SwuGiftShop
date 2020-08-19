@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#fff">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +19,8 @@
                 android:layout_height="300dp"
                 android:layout_marginBottom="20dp"
                 android:background="#DEDEDE"
-                android:src="@drawable/usinotecrop" />
+                android:scaleType="centerCrop"
+                android:src="@drawable/swufile_crop" />
 
             <TextView
                 android:id="@+id/productname"
@@ -27,7 +29,7 @@
                 android:fontFamily="@font/kopubworld_dotum_bold"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="7dp"
-                android:text="유시 유선 노트"
+                android:text="슈니즈 L자 파일"
                 android:textColor="#000"
                 android:textSize="20dp" />
 
@@ -36,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
 
@@ -44,7 +46,7 @@
                     android:id="@+id/productprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="3,000"
+                    android:text="1,500"
                     android:textColor="#000"
                     android:textSize="20dp" />
 
@@ -69,34 +71,34 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/buttonedge"
                 android:gravity="right"
+                android:background="@drawable/buttonedge"
                 android:orientation="horizontal">
 
 
                 <Button
-                    android:id="@+id/usinumMius"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/swuMinus"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center_vertical"
                     android:text="ㅡ"
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/usiNum"
+                    android:id="@+id/swuNum"
                     android:layout_width="50dp"
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"
                     android:gravity="center"
-                    android:text="1"
-                    android:textSize="12dp" />
+                    android:textSize="12dp"
+                    android:text="1" />
 
                 <Button
-                    android:id="@+id/usinumPlus"
-                    style="?android:attr/borderlessButtonStyle"
+                    android:id="@+id/swuPlus"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center"
                     android:text="+"
                     android:textSize="12dp" />
@@ -135,7 +137,7 @@
                         android:id="@+id/productTotalprice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3,000"
+                        android:text="1,500"
                         android:textColor="#000"
                         android:textSize="20dp" />
 
@@ -194,76 +196,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kopubworld_dotum_bold"
+                android:padding="10dp"
                 android:gravity="center"
-                android:padding="15dp"
-                android:text="유시 유선 노트"
+                android:text="슈니즈 L자 파일"
                 android:textColor="#000"
                 android:textSize="18dp" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginBottom="20dp"
-                android:background="#DEDEDE"
-                android:src="@drawable/usinote" />
+                android:layout_height="310dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/swufile"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/swufile_b"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kopubworld_dotum_medium"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="3dp"
+                android:padding="10dp"
+                android:layout_marginBottom="30dp"
                 android:gravity="center"
-                android:text="서울여자대학교 마스코트 슈니즈 중 "
-                android:textColor="#000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="25dp"
-                android:gravity="center"
-                android:text="한 명인 유시를 공책으로 만나볼 수 있어요"
-                android:textColor="#000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="3dp"
-                android:gravity="center"
-                android:text="넘김이 쉬운 스프링 제본과"
-                android:textColor="#000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="25dp"
-                android:gravity="center"
-                android:text="글씨가 삐뚤어지지 않도록 도와주는 유선 형식"
-                android:textColor="#000"
-                android:textSize="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="50dp"
-                android:gravity="center"
-                android:text="유시 노트와 함께라면 이번 학기는 A+!"
+                android:text="들고 다니기 딱 좋은 사이즈로 실용성을 더한
+                              슈니즈 L자 파일 "
                 android:textColor="#000"
                 android:textSize="16dp" />
 

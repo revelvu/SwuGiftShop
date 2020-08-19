@@ -50,7 +50,7 @@ public class MainListViewActivity extends AppCompatActivity {
         editSearch = (EditText) findViewById(R.id.editSearch);
         listView = (ListView) findViewById(R.id.listView);
 
-        listView1.setVisibility(View.VISIBLE);
+        //listView1.setVisibility(View.VISIBLE);
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();

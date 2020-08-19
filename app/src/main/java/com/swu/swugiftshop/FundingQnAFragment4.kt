@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class FundingQnAFragment1 : Fragment() {
+class FundingQnAFragment4 : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -21,6 +21,6 @@ class FundingQnAFragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.funding_qna1, container, false)
+        return inflater.inflate(R.layout.qna_fragment4, container, false)
     }
 }

@@ -38,22 +38,22 @@ class DetailpageActivity3 : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         // tab bar
-        tab_layout2.addTab(tab_layout2.newTab().setText("스토리"))
-        tab_layout2.addTab(tab_layout2.newTab().setText("문의하기"))
-        tab_layout2.addTab(tab_layout2.newTab().setText("리뷰"))
+        tab_layout3.addTab(tab_layout3.newTab().setText("스토리"))
+        tab_layout3.addTab(tab_layout3.newTab().setText("문의하기"))
+        tab_layout3.addTab(tab_layout3.newTab().setText("리뷰"))
 
         val pagerAdapter3 = FragmentPagerAdapter3(supportFragmentManager, 3)
-        view_pager2.adapter = pagerAdapter3
+        view_pager3.adapter = pagerAdapter3
 
-        tab_layout2.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+        tab_layout3.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                view_pager2.setCurrentItem(tab!!.position)
+                view_pager3.setCurrentItem(tab!!.position)
             }
 
             override fun onTabReselected(tab: TabLayout.Tab?) {}
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
         })
-        view_pager2.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout2))
+        view_pager3.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout3))
     }
 
     // tool bar back button

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DBDBDB"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/mypageicon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:text="익명1"
+                android:textColor="#000"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="7dp"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:text="공책 내지는 몇장인가요?"
+            android:textColor="#404040"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:text="08/15"
+            android:textColor="#878787"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#808080" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#EFEFEF"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/mypagedefault"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:text="판매자"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/swuColor"
+                android:textSize="16dp"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:textColor="#404040"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="7dp"
+            android:textSize="16dp"
+            android:text="총 50매입니다."/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/kopubworld_dotum_medium"
+            android:textColor="#878787"
+            android:layout_marginLeft="5dp"
+            android:textSize="12dp"
+            android:text="08/15" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+            <EditText
+                android:id="@+id/qna_editor"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/defalt_btn"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:layout_margin="10dp"
+                android:gravity="left"
+                android:hint="문의하실 내용을 입력하세요."
+                android:padding="15dp"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="right"
+                android:background="#fff"
+                android:layout_alignBottom="@+id/qna_editor"
+                android:layout_alignRight="@+id/qna_editor"
+                android:layout_margin="3dp"
+                style="?android:attr/borderlessButtonStyle"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:text="등록"
+                android:textColor="#808080" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

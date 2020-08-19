@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="310dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/sticker"
+                android:src="@drawable/flower_jacket"
                 android:layout_marginBottom="20dp"/>
 
             <TextView
@@ -33,7 +33,7 @@
                 android:fontFamily="@font/kopubworld_dotum_bold"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="12dp"
-                android:text="전자파 차단 스티커"
+                android:text="2020 S/S 꽃학잠"
                 android:textColor="#000"
                 android:textSize="20dp" />
 
@@ -75,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#000"
                     android:textSize="20dp"
-                    android:text="3,000"/>
+                    android:text="35,000"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -116,7 +116,7 @@
                             android:id="@+id/detailpagePercent"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="5dp"
+                            android:layout_marginRight="3dp"
                             android:text="0"
                             android:textColor="#000"
                             android:textSize="18dp"
@@ -331,7 +331,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/kopubworld_dotum_medium"
-                    android:layout_marginBottom="3dp"
                     android:textColor="#000"
                     android:layout_centerVertical="true"
                     android:text="총 상품 금액"/>
@@ -350,7 +349,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="#000"
                         android:textSize="20dp"
-                        android:text="3,000"/>
+                        android:text="35,000"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -407,8 +406,9 @@
                 android:gravity="center"
                 android:textColor="#000"
                 android:textSize="16dp"
-                android:text="전자파를 막아주는 전자파 차단 스티커
-                                휴대폰, 노트북에 붙여보세요!"/>
+                android:text="노란 꽃자수가 돋보이는 검정 바탕
+
+                            지금만 만나볼 수 있는 2020년 꽃학잠!"/>
 
         </LinearLayout>
 

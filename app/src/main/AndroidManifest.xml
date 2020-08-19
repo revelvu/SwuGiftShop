@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_swu_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FundingDetailpageActivity3"></activity>
+        <activity android:name=".FundingDetailpageActivity4"></activity>
+        <activity android:name=".FundingDetailpageActivity3" />
         <activity android:name=".ReviewEditorActivity1" />
         <activity android:name=".MakeFundingEditActivity2" />
         <activity android:name=".MakeFundingEditActivity" />
@@ -24,6 +25,7 @@
         <activity android:name=".DetailpageActivity1" />
         <activity android:name=".DetailpageActivity2" />
         <activity android:name=".DetailpageActivity3" />
+        <activity android:name=".DetailpageActivity4" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">
             <intent-filter>
