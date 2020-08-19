@@ -14,7 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.properties.Delegates
 
 
-
 class StoryFragment1 : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -98,10 +97,10 @@ class StoryFragment1 : Fragment() {
         })
 
         //유시노트의 수량 TextView에서 가져오기
-        var usinum=view.findViewById<TextView>(R.id.usiNum)
+        var usinum = view.findViewById<TextView>(R.id.usiNum)
 //        var usinums= usinum.toString()  //수량 string값으로 변환
-        var plus= view.findViewById<Button>(R.id.usinumPlus)
-        var minus=view.findViewById<Button>(R.id.usinumMius)
+        var plus = view.findViewById<Button>(R.id.usinumPlus)
+        var minus = view.findViewById<Button>(R.id.usinumMius)
 
         //유시노트의 수량 증가시킬 수 있는 + 버튼
         plus.setOnClickListener {
@@ -128,8 +127,13 @@ class StoryFragment1 : Fragment() {
         purchase?.setOnClickListener {
             //버튼 한 번 클릭 -> 구매내역으로 들어감
             //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
-            var productTotalprice_t= productTotalPrice.text
-            var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "$productTotalprice_t 원", " $usinumtext 개", "usinotecrop")
+            var productTotalprice_t = productTotalPrice.text
+            var purchaseItem1 = purchase_RecyclerItem(
+                "유시 유선 노트",
+                "$productTotalprice_t 원",
+                " $usinumtext 개",
+                "usinotecrop"
+            )
 
             if (p == 0) {
                 if (purchaselist.contains(inititem2)) {
