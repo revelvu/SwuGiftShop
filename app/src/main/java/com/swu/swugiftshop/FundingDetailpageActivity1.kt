@@ -18,9 +18,11 @@ import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.funding_story1.*
 
 
+//펀딩하기 버튼눌렀을때 숫자 올라가기
 var stickernumtext = 1
-var i5 = 0
-var putItem5 = RecyclerItem("홀로그램 스티커", "3000 원", "sticket2")
+
+//var i5 = 0
+var putItem5 = RecyclerItem("홀로그램 스티커", "3000 원", "sticker2")
 
 var p5 = 0
 var purchaseItem5 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
