@@ -19,7 +19,11 @@
         <activity android:name=".Mypage_purchaseActivity" />
         <activity android:name=".EmptyFundingActivity" />
         <activity android:name=".MainListViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ItemSearchActivity" />
         <activity android:name=".FundingDetailpageActivity1" />
@@ -30,6 +34,7 @@
         <activity android:name=".DetailpageActivity4" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LogInActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
