@@ -6,10 +6,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.official_saleslist.*
 
 class OfficialSaleslistFragment : Fragment() {
+
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +32,31 @@ class OfficialSaleslistFragment : Fragment() {
         fun newInstance(): OfficialSaleslistFragment {
             return OfficialSaleslistFragment()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val fundingPerLeft = view?.findViewById<TextView>(R.id.viewRateLeft)
+        val fLeft = db.collection("UnofficialProduct").document("홀로그램 스티커")
+        fLeft.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    fundingPerLeft?.text = task.result!!.data?.get("펀딩률")?.toString()
+                }
+            }
+        })
+
+        val fundingPerRight = view?.findViewById<TextView>(R.id.viewRateRight)
+        val fRight = db.collection("UnofficialProduct").document("전자파 차단 스티커")
+        fRight.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    fundingPerRight?.text = task.result!!.data?.get("펀딩률")?.toString()
+                }
+            }
+        })
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
