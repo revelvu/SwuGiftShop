@@ -4,7 +4,6 @@ import android.content.DialogInterface
 import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
@@ -13,17 +12,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.storage.FileDownloadTask
 import com.google.firebase.storage.FirebaseStorage
-import com.google.firebase.storage.OnProgressListener
 import kotlinx.android.synthetic.main.activity_my_funding.*
-import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.properties.Delegates
@@ -38,9 +35,7 @@ class MyFundingActivity : AppCompatActivity() {
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
     val userID = firebaseAuth.currentUser?.email.toString()
-    val storage = FirebaseStorage.getInstance()
-    var storageRef = storage.getReferenceFromUrl("gs://swugiftshop.appspot.com")
-    var pathReference = storageRef.child("images/$userID.png")
+
 
     lateinit var productName: String
 
@@ -61,11 +56,11 @@ class MyFundingActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        val fdThumbnail = findViewById<ImageView>(R.id.fdThumbnail)
 
         //funding page detail db에서 가져와 표시하기
-        //1. 펀딩제목
+        //1. 펀딩제목 및 내용
         val fdTitle = findViewById<TextView>(R.id.fdTitle)
+        val fdContent = findViewById<TextView>(R.id.fdContent)
         //2. 펀딩주최자 닉네임
         val fdNickname = findViewById<TextView>(R.id.fdNickname)
         //3. 펀딩률 - 밑에 증가 반영했음
@@ -98,6 +93,7 @@ class MyFundingActivity : AppCompatActivity() {
                                 val document = task.result
                                 if (document != null) {
                                     fdTitle.text = task.result!!.data?.get("펀딩제목")?.toString()
+                                    fdContent.text = task.result!!.data?.get("내용")?.toString()
                                     fdNickname.text = task.result!!.data?.get("펀딩주최자")?.toString()
                                     fdPercent.text = task.result!!.data?.get("펀딩률").toString()
                                     fdSupporters.text = task.result!!.data?.get("서포터").toString()
@@ -130,6 +126,28 @@ class MyFundingActivity : AppCompatActivity() {
                 }
             }
         })
+        val fdThumbnail = findViewById<ImageView>(R.id.fdThumbnail)
+        // Create a storage reference from our app
+        val storage = FirebaseStorage.getInstance()
+        val storageRef = storage.getReferenceFromUrl("gs://swugiftshop.appspot.com")
+        val pathReference = storageRef.child("images/$userID.png")
+
+        pathReference.downloadUrl
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    // Glide 이용하여 이미지뷰에 로딩
+                    Glide.with(this@MyFundingActivity)
+                        .load(task.result)
+                        .into(fdThumbnail)
+                } else {
+                    // URL을 가져오지 못하면 토스트 메세지
+                    Toast.makeText(
+                        this@MyFundingActivity,
+                        "실패",
+                        Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
 
         //수량 TextView에서 가져오기
         var num2buy = findViewById<TextView>(R.id.num2buy)

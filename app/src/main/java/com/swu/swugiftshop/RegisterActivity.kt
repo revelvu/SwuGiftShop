@@ -62,6 +62,8 @@ class RegisterActivity : AppCompatActivity() {
                             )
                             db.collection("UserProfile").document(email.text.toString())
                                 .set(nicknamehash)
+                            db.collection("UserProfile").document(email.text.toString())
+                                .update("나의펀딩", "")
 
                             val user = FirebaseAuth.getInstance().currentUser
                             val loginIntent = Intent(this, LogInActivity::class.java)

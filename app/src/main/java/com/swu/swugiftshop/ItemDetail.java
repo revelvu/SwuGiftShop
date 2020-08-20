@@ -24,7 +24,7 @@ public class ItemDetail extends AppCompatActivity {
 
         Intent intent = getIntent(); // 보내온 Intent를 얻는다
         goodsName.setText(intent.getStringExtra("name"));
-        goodsPrice.setText(intent.getStringExtra("Price"));
+        goodsPrice.setText(intent.getStringExtra("price"));
         iv.setImageResource(intent.getIntExtra("img", 0));
 
 
