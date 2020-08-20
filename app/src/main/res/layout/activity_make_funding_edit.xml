@@ -76,21 +76,44 @@
             android:textColor="#000"
             android:textSize="16dp" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:background="@drawable/make_edit_bottom">
-
-            <Button
-                android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
+                android:background="@drawable/make_edit_bottom">
+
+                <Button
+                    android:id="@+id/enterFimagechoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="이미지 선택" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginBottom="12dp"
-                android:text="이미지 업로드" />
-        </RelativeLayout>
+                android:background="@drawable/make_edit_bottom">
+
+                <Button
+                    android:id="@+id/enterFimageupload"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:text="업로드" />
+            </RelativeLayout>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
