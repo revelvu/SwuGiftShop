@@ -174,10 +174,10 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
 
         //상품info가져오기
-        val productName = findViewById<TextView>(R.id.productname)
-        val productPrice = findViewById<TextView>(R.id.productPrice)
+        val productName = findViewById<TextView>(R.id.productName)
+//        val productPrice = findViewById<TextView>(R.id.productPrice)
         val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
-        var productTotalPriceShow by Delegates.notNull<Int>()
+//        var productTotalPriceShow by Delegates.notNull<Int>()
 
         val pName = db.collection("UnofficialProduct").document("홀로그램 스티커")
         pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
@@ -189,10 +189,10 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
                         "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
                     )
                     productName.text = task.result!!.data?.get("물품명")?.toString()
-                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+//                    productPrice.text = task.result!!.data?.get("가격")?.toString()
                     productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
-                    productTotalPriceShow =
-                        Integer.parseInt((productPrice.text.toString()))
+//                    productTotalPriceShow =
+//                        Integer.parseInt((productPrice.text.toString()))
                 }
             }
         })
@@ -252,9 +252,11 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
 
+        var productnamee= productName
+
         var productTotalprice_t = fdProductPrice
         var purchase_unoff_item1 = purchase_unoff_RecyclerItem(
-            "productName",
+            "$productnamee",
             "$productTotalprice_t 원",
             " $numtobuy 개",
             "sticker2" //image주의
@@ -283,7 +285,7 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
                         Toast.LENGTH_LONG
                     ).show()
                     //버튼을 눌렀을 때 버튼 텍스트 바꾸기
-                    fundingbutton.text = "이미 펀딩한 상품입니"
+                    fundingbutton.text = "이미 펀딩한 상품입니다"
                     fundingbutton.setBackgroundColor(Color.parseColor("#424242"))
                     fundingBtn.setEnabled(false)
                     //버튼을 눌렀을 때 서포터 인원 +1

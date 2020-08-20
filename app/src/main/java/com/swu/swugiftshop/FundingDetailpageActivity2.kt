@@ -137,6 +137,33 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
             }
         }
 
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        //상품info가져오기
+        val productName = findViewById<TextView>(R.id.productName)
+//        val productPrice = findViewById<TextView>(R.id.productPrice)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+//        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        val pName = db.collection("UnofficialProduct").document("전자파 차단 스티커")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("물품명")?.toString()
+//                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+//                    productTotalPriceShow =
+//                        Integer.parseInt((productPrice.text.toString()))
+                }
+            }
+        })
+
 
         //수량 TextView에서 가져오기
         var num2buy = findViewById<TextView>(R.id.num)
@@ -192,9 +219,11 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
 
+        var productnamee= productName
+
         var productTotalprice_t = fdProductPrice
         var purchase_unoff_item2 = purchase_unoff_RecyclerItem(
-            "productName",
+            "$productnamee",
             "$productTotalprice_t 원",
             " $numtobuy 개",
             "sticker" //image주의

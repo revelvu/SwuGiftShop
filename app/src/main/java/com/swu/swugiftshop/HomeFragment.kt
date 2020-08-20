@@ -84,12 +84,12 @@ class HomeFragment : Fragment() {
             }
         }
 
-        fundingDetail2.setOnClickListener {
-            activity?.let {
-                val funding2intent = Intent(context, FundingDetailpageActivity2::class.java)
-                startActivity(funding2intent)
-            }
-        }
+//        fundingDetail2.setOnClickListener {
+//            activity?.let {
+//                val funding2intent = Intent(context, FundingDetailpageActivity2::class.java)
+//                startActivity(funding2intent)
+//            }
+//        }
 
 
         //viewflipper 사용해서 물품사진 자동으로 넘기기
@@ -99,8 +99,6 @@ class HomeFragment : Fragment() {
         flipper?.animation = showln
 
         flipper?.setOutAnimation(activity, android.R.anim.slide_out_right)
-
-//        flipper?.flipInterval(1000)
         flipper?.startFlipping()
 
         //뷰 플리퍼 클릭시, 각 이미지에 맞는 상세 페이지로 이동

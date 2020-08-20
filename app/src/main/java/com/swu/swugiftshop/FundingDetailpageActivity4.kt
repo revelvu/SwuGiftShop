@@ -217,9 +217,11 @@ class FundingDetailpageActivity4 : AppCompatActivity() {
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
 
+        var productnamee= productName
+
         var productTotalprice_t = fdProductPrice
         var purchase_unoff_item3 = purchase_unoff_RecyclerItem(
-            "productName",
+            "$productnamee",
             "$productTotalprice_t 원",
             " $numtobuy 개",
             "flower_jacket" //image주의
