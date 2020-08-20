@@ -34,6 +34,7 @@
             android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:scaleType="centerCrop"
             android:src="@drawable/abc_btn_radio_to_on_mtrl_015" />
 
         <TextView

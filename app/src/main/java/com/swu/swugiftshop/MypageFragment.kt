@@ -121,7 +121,7 @@ class MypageFragment : Fragment() {
         })
 
 
-        val purchasebtn = view.findViewById<Button>(R.id.purchaseBtn)
+        val purchasebtn = view.findViewById<Button>(R.id.purchaseGoodsBtn)
         purchasebtn.setOnClickListener {
             activity?.let {
                 val intent = Intent(context, Mypage_purchaseActivity::class.java)

@@ -88,13 +88,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/swuColor"
-                            android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:text="펀딩률" />
 
                         <TextView
                             android:id="@+id/viewRateLeft"

@@ -30,6 +30,7 @@ class MainAdapter(val context: Context, var wishlist: ArrayList<RecyclerItem>) :
 
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
+        val emptyWishlist = itemView?.findViewById<TextView>(empty_wishlist)
         val item_name = itemView?.findViewById<TextView>(ItemName)
         val item_num = itemView?.findViewById<TextView>(Num)
         val item_image = itemView?.findViewById<ImageView>(Item_Image)

@@ -78,7 +78,7 @@
             android:background="#DBDBDB"/>
 
         <Button
-            android:id="@+id/purchaseBtn"
+            android:id="@+id/purchaseGoodsBtn"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_marginLeft="17dp"

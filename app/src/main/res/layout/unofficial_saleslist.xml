@@ -89,20 +89,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="펀딩률"
-                            android:textColor="@color/swuColor"
-                            android:textSize="14dp"
-                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/viewRateLeft"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="0"
+                            android:fontFamily="@font/kopubworld_dotum_bold"
+                            android:layout_marginLeft="3dp"
+                            android:text="36"
                             android:textColor="@color/swuColor"
                             android:textSize="14dp" />
 
@@ -155,20 +149,14 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="펀딩률"
-                            android:textColor="@color/swuColor"
-                            android:textSize="14dp"
-                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/viewRateRight"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:text="0"
+                            android:fontFamily="@font/kopubworld_dotum_bold"
+                            android:text="13"
+                            android:layout_marginLeft="3dp"
                             android:textColor="@color/swuColor"
                             android:textSize="14dp" />
 

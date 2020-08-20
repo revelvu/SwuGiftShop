@@ -98,9 +98,9 @@ public class MainListViewActivity extends AppCompatActivity {
 
 
         // 인기가요 순위 데이터 (다량의 데이터 준비)
-        al.add(new Song("유시 무선 노트",R.drawable.usinote,"3000원"));
+        al.add(new Song("유시 무선 노트",R.drawable.usinotecrop,"3000원"));
         al.add(new Song("홀로그램 스티커",R.drawable.sticker,"3000원"));
-        al.add(new Song("꽃학잠", R.drawable.flower_jacket,"32000원"));
+        al.add(new Song("꽃학잠", R.drawable.flower_jacket,"35000원"));
 
 
         MyAdapter adapter = new MyAdapter(
@@ -179,8 +179,10 @@ public class MainListViewActivity extends AppCompatActivity {
         list.add("유시 무선 노트");
         list.add("웬디 손거울");
         list.add("유시 L자 파일");
-        list.add("우치 에코백");
-
+        list.add("슈니즈 L자 파일");
+        list.add("홀로그램 스티커");
+        list.add("전자파 차단 스티커");
+        list.add("2020 S/S 꽃학잠");
     }
 
 

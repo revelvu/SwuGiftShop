@@ -70,7 +70,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="80dp"
         android:layout_marginEnd="32dp"
         android:keepScreenOn="false"
@@ -84,6 +84,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="인기 검색어"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/kopubworld_dotum_bold"
+            android:textSize="18dp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ListView

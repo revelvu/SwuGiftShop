@@ -80,7 +80,7 @@ class DetailpageActivity2 : AppCompatActivity() {
             if (numtobuy > 0) minus.setEnabled(true)
             num2buy.setText(numtobuy.toString())
             var show = productTotalPriceShow * numtobuy
-            productPrice.setText(show.toString())
+            productTotalPrice.setText(show.toString())
         }
 
         //수량 감소시킬 수 있는 - 버튼
@@ -89,7 +89,7 @@ class DetailpageActivity2 : AppCompatActivity() {
             if (numtobuy == 0) minus.setEnabled(false)
             num2buy.setText(numtobuy.toString())
             var show = productTotalPriceShow * numtobuy
-            productPrice.setText(show.toString())
+            productTotalPrice.setText(show.toString())
         }
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기
