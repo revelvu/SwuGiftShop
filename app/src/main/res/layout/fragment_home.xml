@@ -416,6 +416,7 @@
                         <ImageView
                             android:layout_width="182dp"
                             android:layout_height="135dp"
+                            android:src="@drawable/sticker"
                             android:layout_marginBottom="3dp"
                             android:background="#DBDBDB" />
 

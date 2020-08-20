@@ -49,7 +49,7 @@ class DetailpageActivity3 : AppCompatActivity() {
         val firebaseAuth = FirebaseAuth.getInstance()
         val db = FirebaseFirestore.getInstance()
 
-        val pName = db.collection("OfficialProduct").document("웬디손거울")
+        val pName = db.collection("OfficialProduct").document("유시 L자 파일")
         pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
             if (task.isSuccessful) {
                 val document = task.result

@@ -192,6 +192,12 @@ class HomeFragment : Fragment() {
                 }
             }
         })
+
+        return view
+    }
+
+    override fun onResume() {
+        super.onResume()
         //비공식 상품 info 가져오기 - 홀로그램 스티커
         val fundingNickLeft = view?.findViewById<TextView>(R.id.fundingNickLeft)
         val fundingNameLeft = view?.findViewById<TextView>(R.id.fundingItemLeft)
@@ -222,6 +228,5 @@ class HomeFragment : Fragment() {
                 }
             }
         })
-        return view
     }
 }
