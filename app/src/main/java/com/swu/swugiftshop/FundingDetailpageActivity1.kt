@@ -23,9 +23,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.properties.Delegates
 
-//var i5 = 0
 var putItem5 = RecyclerItem("홀로그램 스티커", "3000 원", "sticker2")
-var purchaseItem5 = purchase_RecyclerItem("홀로그램 스티커", "3000원", " * 개", "sticket2")
+//var purchaseItem5 = purchase_RecyclerItem("홀로그램 스티커", "3000원", " * 개", "sticket2")
+
+var p5 = 0
+
+var p7=0
 
 class FundingDetailpageActivity1 : AppCompatActivity() {
 
@@ -167,6 +170,34 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
             }
         }
 
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        //상품info가져오기
+        val productName = findViewById<TextView>(R.id.productName)
+//        val productPrice = findViewById<TextView>(R.id.productPrice)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+//        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        val pName = db.collection("UnofficialProduct").document("홀로그램 스티커")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("물품명")?.toString()
+//                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+//                    productTotalPriceShow =
+//                        Integer.parseInt((productPrice.text.toString()))
+                }
+            }
+        })
+
+
         //수량 TextView에서 가져오기
         var num2buy = findViewById<TextView>(R.id.num)
         var plus = findViewById<Button>(R.id.numPlus)
@@ -221,9 +252,11 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
 
+        var productnamee= productName
+
         var productTotalprice_t = fdProductPrice
-        var purchaseItem5 = purchase_RecyclerItem(
-            "productName",
+        var purchase_unoff_item1 = purchase_unoff_RecyclerItem(
+            "$productnamee",
             "$productTotalprice_t 원",
             " $numtobuy 개",
             "sticker2" //image주의
@@ -236,14 +269,15 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         builder.setMessage("펀딩하시겠습니까?")
 
         val dialogClickListener = DialogInterface.OnClickListener { _, which ->
+
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
                     //마이페이지에서 확인 가능하게끔
                     //고쳐야겠다여기 inititem2이거
-                    if (purchaselist.contains(inititem2)) {
-                        purchaselist.remove(inititem2)
-                    }
-                    purchaselist.add(purchaseItem5)
+                    if (purchase_unofficial_list.contains(inititem3)) {
+                            purchase_unofficial_list.remove(inititem3)
+                        }
+                        purchase_unofficial_list.add(purchase_unoff_item1)
                     //펀딩완료 토스트메시지
                     Toast.makeText(
                         applicationContext,

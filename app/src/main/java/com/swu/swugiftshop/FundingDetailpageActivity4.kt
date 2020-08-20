@@ -20,9 +20,12 @@ import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.properties.Delegates
 
+//펀딩하기 버튼눌렀을때 숫자 올라가기
+var jacketnumtext = 1
+
 //var i8 = 0
 var putItem8 = RecyclerItem("2020 S/S 꽃학잠", "35000 원", "flower_jacket")
-var purchaseItem8 = purchase_RecyclerItem("2020 S/S 꽃학잠", "35000원", " * 개", "flower_jacket")
+//var purchaseItem8 = purchase_RecyclerItem("2020 S/S 꽃학잠", "35000원", " * 개", "flower_jacket")
 
 class FundingDetailpageActivity4 : AppCompatActivity() {
 
@@ -214,9 +217,11 @@ class FundingDetailpageActivity4 : AppCompatActivity() {
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
 
+        var productnamee= productName
+
         var productTotalprice_t = fdProductPrice
-        var purchaseItem = purchase_RecyclerItem(
-            "productName",
+        var purchase_unoff_item3 = purchase_unoff_RecyclerItem(
+            "$productnamee",
             "$productTotalprice_t 원",
             " $numtobuy 개",
             "flower_jacket" //image주의
@@ -233,10 +238,10 @@ class FundingDetailpageActivity4 : AppCompatActivity() {
                 DialogInterface.BUTTON_POSITIVE -> {
                     //마이페이지에서 확인 가능하게끔
                     //고쳐야겠다여기 inititem2이거
-                    if (purchaselist.contains(inititem2)) {
-                        purchaselist.remove(inititem2)
+                    if (purchase_unofficial_list.contains(inititem3)) {
+                        purchase_unofficial_list.remove(inititem3)
                     }
-                    purchaselist.add(purchaseItem)
+                    purchase_unofficial_list.add(purchase_unoff_item3)
                     //펀딩완료 토스트메시지
                     Toast.makeText(
                         applicationContext,
