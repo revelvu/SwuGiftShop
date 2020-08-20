@@ -235,6 +235,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="310dp"
                 android:layout_marginBottom="10dp"
+                android:src="@drawable/wendi_newmirror" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="들고 다니기 좋은 사이즈로 실용성을 더한
+                              웬디 손거울 "
+                android:textColor="#000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/wendi_mirror" />
 
             <TextView
@@ -244,8 +262,7 @@
                 android:fontFamily="@font/kopubworld_dotum_medium"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="들고 다니기 딱 좋은 사이즈로 실용성을 더한
-                              웬디 손거울! "
+                android:text="실물 사진"
                 android:textColor="#000"
                 android:textSize="16dp" />
 

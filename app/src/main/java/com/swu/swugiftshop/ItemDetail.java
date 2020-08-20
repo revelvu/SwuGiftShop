@@ -17,7 +17,6 @@ public class ItemDetail extends AppCompatActivity {
         setContentView(R.layout.activity_item_detail);
 
 
-
         TextView goodsName = (TextView)findViewById(R.id.textView1);
         TextView goodsPrice = (TextView)findViewById(R.id.textView2);
         ImageView iv = (ImageView)findViewById(R.id.imageView1);

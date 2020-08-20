@@ -26,8 +26,8 @@
             android:layout_gravity="center"
             android:text="상세페이지"
             android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="18dp"
+            android:fontFamily="@font/kopubworld_dotum_bold" />
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -53,16 +53,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginBottom="12dp"
                 android:text="2017 S/S 꽃학잠"
                 android:textColor="#000"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/kopubworld_dotum_bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="7dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -74,11 +74,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="팜파미"
                     android:textColor="#000"
-                    android:textSize="15dp" />
+                    android:textSize="16dp" />
 
             </LinearLayout>
 
@@ -122,7 +123,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
+                        android:layout_marginBottom="3dp"
                         android:text="펀딩률"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -162,7 +164,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
+                        android:layout_marginBottom="3dp"
                         android:text="남은시간"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -201,7 +204,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
+                        android:layout_marginBottom="3dp"
                         android:text="서포터"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -252,20 +256,22 @@
                     android:layout_marginBottom="7dp"
                     android:textColor="#000"
                     android:textSize="14dp"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:text="펀딩 성공"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:layout_marginBottom="5dp"
                     android:textColor="#000"
                     android:textSize="14dp"
                     android:text="목표 개수인 20개를 달성했습니다."/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:layout_marginBottom="5dp"
                     android:textColor="#000"
                     android:textSize="14dp"
                     android:text="마감 날짜는 2017년 3월 08일 입니다."/>
@@ -292,6 +298,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:textColor="#000"
                     android:layout_centerVertical="true"
                     android:text="총 상품 금액"/>
@@ -337,7 +344,7 @@
                     android:padding="15dp"
                     android:textColor="#fff"
                     android:background="#FFC9C9"
-                    android:textStyle="bold"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:textSize="16dp"
                     android:text="펀딩 마감"/>
 

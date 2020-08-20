@@ -57,7 +57,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="7dp"
                 android:fontFamily="@font/kopubworld_dotum_bold"
-                android:text="웬디 손거울"
+                android:text="유시 무선 노트"
                 android:textColor="#000"
                 android:textSize="20dp" />
 
@@ -227,7 +227,7 @@
                 android:fontFamily="@font/kopubworld_dotum_bold"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="웬디 손거울"
+                android:text="유시 무선 노트"
                 android:textColor="#000"
                 android:textSize="18dp" />
 

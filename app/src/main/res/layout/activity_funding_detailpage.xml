@@ -26,8 +26,8 @@
             android:layout_gravity="center"
             android:text="상세페이지"
             android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:textSize="18dp"
+            android:fontFamily="@font/kopubworld_dotum_bold"/>
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -54,16 +54,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginBottom="17dp"
+                android:layout_marginBottom="12dp"
                 android:text="펀딩타이틀"
                 android:textColor="#000"
                 android:textSize="20dp"
-                android:textStyle="bold" />
+                android:fontFamily="@font/kopubworld_dotum_bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="7dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -76,11 +76,12 @@
                     android:id="@+id/fdNickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5dp"
                     android:text="펀딩주최자"
                     android:textColor="#000"
-                    android:textSize="15dp" />
+                    android:textSize="16dp" />
 
             </LinearLayout>
 
@@ -98,7 +99,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="3dp"
                         android:text="펀딩률"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -138,7 +139,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="3dp"
                         android:text="남은시간"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -178,7 +179,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginBottom="3dp"
                         android:text="서포터"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -233,18 +234,19 @@
                     android:text="펀딩 진행중"
                     android:textColor="#000"
                     android:textSize="14dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/kopubworld_dotum_bold"/>
 
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="7dp"
+                    android:layout_marginBottom="5dp"
                     android:orientation="horizontal">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="목표 개수인 "
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -253,6 +255,7 @@
                         android:id="@+id/fundingGoal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="50"
                         android:textColor="#000000"
                         android:textSize="14dp" />
@@ -260,6 +263,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text=" 개가 모여야만 제작됩니다."
                         android:textColor="#000000"
                         android:textSize="14dp" />
@@ -275,6 +279,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="마감 날짜는 "
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -283,6 +288,7 @@
                         android:id="@+id/endingDate"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="2020년 8월 20일"
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -290,6 +296,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text=" 입니다."
                         android:textColor="#000"
                         android:textSize="14dp" />
@@ -308,11 +315,12 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_margin="15dp"
                 android:background="@drawable/buttonedge"
-                android:gravity="center_vertical"
                 android:paddingLeft="15dp"
-                android:text="옵션 ▽" />
+                android:text="종류 선택                                                                    ▼"
+                android:gravity="center_vertical"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -335,6 +343,7 @@
                         android:id="@+id/productName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="펀딩상품이름"
                         android:textColor="#000"
                         android:textSize="15dp" />
@@ -342,6 +351,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text=" - "
                         android:textColor="#000"
                         android:textSize="15dp" />
@@ -350,6 +360,7 @@
                         android:id="@+id/showOption"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/kopubworld_dotum_medium"
                         android:text="옵션을 선택하세요"
                         android:textColor="#000"
                         android:textSize="15dp" />
@@ -358,10 +369,11 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="12dp"
                     android:layout_marginBottom="15dp"
                     android:gravity="right"
+                    android:background="@drawable/buttonedge"
                     android:orientation="horizontal">
 
 
@@ -369,10 +381,10 @@
                         android:id="@+id/numMinus"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/buttonedge"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textSize="20dp" />
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_gravity="center_vertical"
+                        android:text="ㅡ"
+                        android:textSize="13dp" />
 
                     <TextView
                         android:id="@+id/num"
@@ -380,16 +392,17 @@
                         android:layout_height="35dp"
                         android:background="@drawable/buttonedge"
                         android:gravity="center"
+                        android:textSize="12dp"
                         android:text="1" />
 
                     <Button
                         android:id="@+id/numPlus"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/buttonedge"
-                        android:gravity="center"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_gravity="center"
                         android:text="+"
-                        android:textSize="20dp" />
+                        android:textSize="12dp" />
 
 
                 </LinearLayout>
@@ -411,6 +424,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_centerVertical="true"
                     android:text="총 상품 금액"
                     android:textColor="#000" />
@@ -459,7 +473,7 @@
                     android:text="펀딩하기"
                     android:textColor="#fff"
                     android:textSize="16dp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/kopubworld_dotum_bold" />
 
                 <ImageView
                     android:id="@+id/empty_heart"
@@ -481,11 +495,53 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
                 android:padding="10dp"
-                android:text="무슨 문구를 좋아하는지 몰라서 다 준비했어
-                            무려 4가지 종류의 홀로그램 스티커!"
                 android:textColor="#000"
-                android:textSize="18dp" />
+                android:textSize="16dp"
+                android:text="무슨 문구를 좋아하는지 몰라서 다 준비했어
+                            무려 4가지 종류의 홀로그램 스티커!"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:text="1. Learn to share, Share to learn"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:text="2. 나는 꿈꾸고 우치는 자랍니다"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:text="3. Seoul Women's University"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:layout_marginBottom="30dp"
+                android:gravity="center"
+                android:textColor="#000"
+                android:textSize="16dp"
+                android:text="4. SWU"/>
 
         </LinearLayout>
 
