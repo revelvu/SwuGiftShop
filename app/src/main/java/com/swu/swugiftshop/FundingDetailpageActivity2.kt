@@ -10,14 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
-import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
-import kotlinx.android.synthetic.main.activity_funding_detailpage2.*
-import kotlinx.android.synthetic.main.funding_story2.*
+import kotlin.properties.Delegates
 
 
 //펀딩하기 버튼눌렀을때 숫자 올라가기
@@ -40,55 +34,78 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        // tab bar
-        tab_layout6.addTab(tab_layout6.newTab().setText("스토리"))
-        tab_layout6.addTab(tab_layout6.newTab().setText("문의하기"))
-        tab_layout6.addTab(tab_layout6.newTab().setText("리뷰"))
 
-        val pagerAdapter6 = FragmentPagerAdapter6(supportFragmentManager, 3)
-        view_pager6.adapter = pagerAdapter6
+        //하트 클릭시 full/empty heart 이미지 나오도록하기 , 위시리스트로 들어가기
+        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
 
-        tab_layout6.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                view_pager6.setCurrentItem(tab!!.position)
+        emptyheart?.setOnClickListener {
+            if (i == 0) {
+                emptyheart?.setImageResource(R.drawable.heartfull)
+                i += 1
+
+                if (wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
+                wishList.add(putItem6)
+            } else {
+                emptyheart?.setImageResource(R.drawable.heartempty)
+                i -= 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem6)
+            }
+        }
+
+
+        var plus = findViewById<Button>(R.id.numPlus)
+        var minus = findViewById<Button>(R.id.numMius)
+        val holostickernum = findViewById<TextView>(R.id.num)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        //전자파 차단 스티커 수량 증가시킬 수 있는 + 버튼 , 하단의 가격 자동 변경
+        plus.setOnClickListener {
+            sticker2numtext += 1
+            if (sticker2numtext > 0) minus.setEnabled(true)
+            holostickernum.setText(sticker2numtext.toString())
+            var show = productTotalPriceShow * sticker2numtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //전자파 차단 스티커 수량 감소시킬 수 있는 - 버튼 , 하단의 가격 자동 변경
+        minus.setOnClickListener {
+            sticker2numtext -= 1
+            if (sticker2numtext == 0) minus.setEnabled(false)
+            holostickernum.setText(sticker2numtext.toString())
+            var show = productTotalPriceShow * sticker2numtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //구매하기[펀딩하기] 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = findViewById<Button>(R.id.fundingBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
+            var productTotalprice_t = productTotalPrice.text
+            var purchaseItem5 = purchase_RecyclerItem(
+                "전자파 차단 스티커",
+                "$productTotalprice_t 원",
+                " $sticker2numtext 개",
+                "sticker"
+            )
+
+            if (p6 == 0) {
+                if (purchaselist.contains(inititem2)) {
+                    purchaselist.remove(inititem2)
+                }
+                purchaselist.add(purchaseItem6)
+                Toast.makeText(this, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+                p6 += 1
+            } else {
+                Toast.makeText(this, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-        })
-        view_pager6.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout6))
-
-       //하트 클릭시 full/empty heart 이미지 나오도록하기, 위시리스트로 들어가기
-//        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
-//
-//        emptyheart.setOnClickListener {
-//
-//            if(i==0){
-//                emptyheart.setImageResource(R.drawable.heartfull)
-//                i += 1
-//
-//                if(wishList.contains(inititem)) {
-//                    wishList.remove(inititem)
-//                }
-//                wishList.add(putItem1)
-//            }else {
-//                emptyheart.setImageResource(R.drawable.heartempty)
-//                i -= 1
-//
-//                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
-//                wishList.remove(putItem1)
-//            }
-//        }
-
-
-//        val fundingbtn = findViewById<Button>(R.id.fundingBtn)
-//
-//        // 펀딩하기 버튼을 눌렀을 때
-//        fundingBtn.setOnClickListener {
-//            //서포터즈+1, 펀딩완료로 setText
-//            showDialog()
-//            fundingBtn.setEnabled(false)
-//        }
+        }
 
     }
 
@@ -157,27 +174,3 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
 
 }
 
-// tab bar
-class FragmentPagerAdapter6(
-    fragmentManager: FragmentManager,
-    val tabCount: Int
-) : FragmentStatePagerAdapter(fragmentManager) {
-    override fun getItem(position: Int): Fragment {
-        when (position) {
-            0 -> {
-                return FundingStoryFragment2()
-            }
-            1 -> {
-                return FundingQnAFragment2()
-            }
-            2 -> {
-                return FundingReviewFragment2()
-            }
-            else -> return return FundingStoryFragment2()
-        }
-    }
-
-    override fun getCount(): Int {
-        return tabCount
-    }
-}

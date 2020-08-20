@@ -6,18 +6,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentStatePagerAdapter
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
-import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
-import kotlinx.android.synthetic.main.funding_story1.*
-import kotlinx.android.synthetic.main.funding_story1.fundingBtn
-import kotlinx.android.synthetic.main.funding_story2.*
+import kotlin.properties.Delegates
 
 
 //펀딩하기 버튼눌렀을때 숫자 올라가기
@@ -40,50 +34,108 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        // tab bar
-        tab_layout.addTab(tab_layout.newTab().setText("스토리"))
-        tab_layout.addTab(tab_layout.newTab().setText("문의하기"))
-        tab_layout.addTab(tab_layout.newTab().setText("리뷰"))
-
-        val pagerAdapter5 = FragmentPagerAdapter5(supportFragmentManager, 3)
-        view_pager.adapter = pagerAdapter5
-
-        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                view_pager.setCurrentItem(tab!!.position)
-            }
-
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-        })
-        view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
 
         // option Dialog
-//        optionBtn.setOnClickListener {
-//            var optionDialog = AlertDialog.Builder(this)
-//            val colors = arrayOf("Learn to share, Share to learn", "나는 꿈꾸고 우치는 자랍니다"
-//                , "Seoul Women's University", "SWU" )
-//            val checkedItem = 1
-//
-//            optionDialog.setItems(colors) { dialog, which ->
-//                when (which) {
-//                    0 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    1 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    2 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                    3 -> {
-//                        optionBtn.setText(colors[which])
-//                    }
-//                }
-//            }
-//            val dialog = optionDialog.create()
-//            optionDialog.show()
-//        }
+        val optionbtn = findViewById<Button>(R.id.optionBtn)
+        optionbtn.setOnClickListener {
+            var optionDialog = AlertDialog.Builder(this)
+            val colors = arrayOf(
+                "Learn to share, Share to learn", "나는 꿈꾸고 우치는 자랍니다"
+                , "Seoul Women's University", "SWU"
+            )
+            val checkedItem = 1
+
+            optionDialog.setItems(colors) { dialog, which ->
+                when (which) {
+                    0 -> {
+                        optionbtn.setText(colors[which])
+                    }
+                    1 -> {
+                        optionbtn.setText(colors[which])
+                    }
+                    2 -> {
+                        optionbtn.setText(colors[which])
+                    }
+                    3 -> {
+                        optionbtn.setText(colors[which])
+                    }
+                }
+            }
+            val dialog = optionDialog.create()
+            optionDialog.show()
+        }
+
+        //하트 클릭시 full/empty heart 이미지 나오도록하기 , 위시리스트로 들어가기
+        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+
+        emptyheart?.setOnClickListener {
+            if (i == 0) {
+                emptyheart?.setImageResource(R.drawable.heartfull)
+                i += 1
+
+                if (wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
+                wishList.add(putItem5)
+            } else {
+                emptyheart?.setImageResource(R.drawable.heartempty)
+                i -= 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem5)
+            }
+        }
+
+
+        var plus = findViewById<Button>(R.id.numPlus)
+        var minus = findViewById<Button>(R.id.numMius)
+        val holostickernum = findViewById<TextView>(R.id.num)
+        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        //홀로그램 스티커 수량 증가시킬 수 있는 + 버튼 , 하단의 가격 자동 변경
+        plus.setOnClickListener {
+            stickernumtext += 1
+            if (stickernumtext > 0) minus.setEnabled(true)
+            holostickernum.setText(stickernumtext.toString())
+            var show = productTotalPriceShow * stickernumtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //홀로그램 스티커 수량 감소시킬 수 있는 - 버튼 , 하단의 가격 자동 변경
+        minus.setOnClickListener {
+            stickernumtext -= 1
+            if (stickernumtext == 0) minus.setEnabled(false)
+            holostickernum.setText(stickernumtext.toString())
+            var show = productTotalPriceShow * stickernumtext
+            productTotalPrice.setText(show.toString())
+        }
+
+        //구매하기[펀딩하기] 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = findViewById<Button>(R.id.fundingBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
+            var productTotalprice_t = productTotalPrice.text
+            var purchaseItem5 = purchase_RecyclerItem(
+                "홀로그램 스티커",
+                "$productTotalprice_t 원",
+                " $stickernumtext 개",
+                "sticker2"
+            )
+
+            if (p5 == 0) {
+                if (purchaselist.contains(inititem2)) {
+                    purchaselist.remove(inititem2)
+                }
+                purchaselist.add(purchaseItem5)
+                Toast.makeText(this, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+                p5 += 1
+            } else {
+                Toast.makeText(this, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
+            }
+
+        }
 
     }
 
@@ -154,27 +206,3 @@ class FundingDetailpageActivity1 : AppCompatActivity() {
 
 }
 
-// tab bar
-class FragmentPagerAdapter5(
-    fragmentManager: FragmentManager,
-    val tabCount: Int
-) : FragmentStatePagerAdapter(fragmentManager) {
-    override fun getItem(position: Int): Fragment {
-        when (position) {
-            0 -> {
-                return FundingStoryFragment1()
-            }
-            1 -> {
-                return FundingQnAFragment1()
-            }
-            2 -> {
-                return FundingReviewFragment1()
-            }
-            else -> return return FundingStoryFragment1()
-        }
-    }
-
-    override fun getCount(): Int {
-        return tabCount
-    }
-}
