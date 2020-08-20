@@ -199,4 +199,3 @@ class FundingDetailpageActivity4 : AppCompatActivity() {
     }
 
 }
-

@@ -27,9 +27,11 @@ public class MainListViewActivity extends AppCompatActivity {
 
     private List<String> list;          // 데이터를 넣은 리스트변수
     private ListView listView;          // 검색을 보여줄 리스트변수
+    private ListView lv;
     private EditText editSearch;        // 검색어를 입력할 Input 창
     private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<String> arraylist;
+
 
     ArrayList<Song> al = new ArrayList<Song>();  // Top10 곡명을 담을 리스트
 
@@ -49,8 +51,9 @@ public class MainListViewActivity extends AppCompatActivity {
 
         editSearch = (EditText) findViewById(R.id.editSearch);
         listView = (ListView) findViewById(R.id.listView);
+        ListView lv = (ListView)findViewById(R.id.listView1);
 
-        //listView1.setVisibility(View.VISIBLE);
+        listView.setVisibility(View.INVISIBLE);
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();
@@ -96,7 +99,8 @@ public class MainListViewActivity extends AppCompatActivity {
 
         // 인기가요 순위 데이터 (다량의 데이터 준비)
         al.add(new Song("유시 무선 노트",R.drawable.usinote,"3000원"));
-        al.add(new Song("홀로그램 스티커",R.drawable.sticker,"2000원"));
+        al.add(new Song("홀로그램 스티커",R.drawable.sticker,"3000원"));
+        al.add(new Song("꽃학잠", R.drawable.flower_jacket,"32000원"));
 
 
         MyAdapter adapter = new MyAdapter(
@@ -104,7 +108,8 @@ public class MainListViewActivity extends AppCompatActivity {
                 R.layout.detail_row,  // 리스트뷰의 한행의 레이아웃
                 al);         // 데이터
 
-        ListView lv = (ListView)findViewById(R.id.listView1);
+
+
         lv.setAdapter(adapter);
 
 
