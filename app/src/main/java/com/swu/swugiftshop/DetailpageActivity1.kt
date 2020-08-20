@@ -35,17 +35,21 @@ var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 class DetailpageActivity1 : AppCompatActivity() {
 
     var numtobuy = 1   //유시 노트의 초기수량 == 1
-
-    //상품info가져오기
-    val productName = findViewById<TextView>(R.id.productname)
-    val productPrice = findViewById<TextView>(R.id.productprice)
-    val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
-    val contentTitle = findViewById<TextView>(R.id.contentTitle)
     var productTotalPriceShow by Delegates.notNull<Int>()
+    lateinit var productName: TextView
+    lateinit var productPrice: TextView
+    lateinit var productTotalPrice: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage1)
+
+        //상품info가져오기
+        productName = findViewById<TextView>(R.id.productname)
+        productPrice = findViewById<TextView>(R.id.productprice)
+        productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+        val contentTitle = findViewById<TextView>(R.id.contentTitle)
 
 
         // tool bar back button
