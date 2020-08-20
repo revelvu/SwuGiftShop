@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.mypage_purchase_official.*
 import kotlin.properties.Delegates
 
 
@@ -21,7 +22,7 @@ var i = 0
 var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
 
 var p = 0
-//var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
+var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
 
 class DetailpageActivity1 : AppCompatActivity() {
@@ -102,7 +103,6 @@ class DetailpageActivity1 : AppCompatActivity() {
                 }
             }
         })
-
         //유시노트의 수량 TextView에서 가져오기
         var usinum = findViewById<TextView>(R.id.usiNum)
 //        var usinums= usinum.toString()  //수량 string값으로 변환

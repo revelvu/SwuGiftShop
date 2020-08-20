@@ -4,12 +4,17 @@ import android.app.AlertDialog
 import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
 import kotlin.properties.Delegates
 
@@ -20,8 +25,6 @@ var sticker2numtext = 1
 //var i5 = 0
 var putItem6 = RecyclerItem("전자파 차단 스티커", "3000 원", "sticker")
 
-var p6 = 0
-var purchaseItem6 = purchase_RecyclerItem("전자파 차단 스티커", "3000원", " * 개", "sticket")
 
 class FundingDetailpageActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,12 +59,40 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
             }
         }
 
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        //상품info가져오기
+        val productName = findViewById<TextView>(R.id.productname)
+        val productPrice = findViewById<TextView>(R.id.productprice)
+        val productTotalPrice= findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        val pName = db.collection("UnofficialProduct").document("전자파 차단 스티커")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("물품명")?.toString()
+                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPriceShow =
+                        Integer.parseInt((productPrice.text.toString()))
+                }
+            }
+        })
+
+
 
         var plus = findViewById<Button>(R.id.numPlus)
         var minus = findViewById<Button>(R.id.numMius)
         val holostickernum = findViewById<TextView>(R.id.num)
-        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
-        var productTotalPriceShow by Delegates.notNull<Int>()
+//        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+//        var productTotalPriceShow by Delegates.notNull<Int>()
 
         //전자파 차단 스티커 수량 증가시킬 수 있는 + 버튼 , 하단의 가격 자동 변경
         plus.setOnClickListener {
@@ -87,20 +118,20 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
             //버튼 한 번 클릭 -> 구매내역으로 들어감
             //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
             var productTotalprice_t = productTotalPrice.text
-            var purchaseItem5 = purchase_RecyclerItem(
+            var purchase_unoffItem5 = purchase_unoff_RecyclerItem(
                 "전자파 차단 스티커",
                 "$productTotalprice_t 원",
-                " $sticker2numtext 개",
-                "sticker"
-            )
+                "$sticker2numtext 개",
+                "sticker")
 
-            if (p6 == 0) {
-                if (purchaselist.contains(inititem2)) {
-                    purchaselist.remove(inititem2)
+
+                if (p7 == 0) {
+                if (purchase_unofficial_list.contains(inititem3)) {
+                    purchase_unofficial_list.remove(inititem3)
                 }
-                purchaselist.add(purchaseItem6)
+                purchase_unofficial_list.add(purchase_unoffItem5)
                 Toast.makeText(this, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
-                p6 += 1
+                p7 += 1
             } else {
                 Toast.makeText(this, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
             }

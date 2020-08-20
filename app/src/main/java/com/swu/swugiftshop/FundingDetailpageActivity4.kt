@@ -113,20 +113,20 @@ class FundingDetailpageActivity4 : AppCompatActivity() {
             //버튼 한 번 클릭 -> 구매내역으로 들어감
             //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
             var productTotalprice_t = productTotalPrice.text
-            var purchaseItem8 = purchase_RecyclerItem(
+            var purchase_unoffItem8 = purchase_unoff_RecyclerItem(
                 "2020 S/S 꽃학잠",
                 "$productTotalprice_t 원",
-                " $jacketnumtext 개",
+                "$jacketnumtext 개",
                 "flower_jacket"
             )
 
-            if (p8 == 0) {
-                if (purchaselist.contains(inititem2)) {
-                    purchaselist.remove(inititem2)
+            if (p7 == 0) {
+                if (purchase_unofficial_list.contains(inititem3)) {
+                    purchase_unofficial_list.remove(inititem3)
                 }
-                purchaselist.add(purchaseItem8)
+                purchase_unofficial_list.add(purchase_unoffItem8)
                 Toast.makeText(this, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
-                p8 += 1
+                p7 += 1
             } else {
                 Toast.makeText(this, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
             }
