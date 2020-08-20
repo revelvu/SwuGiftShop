@@ -36,13 +36,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#fff">
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="160dp"
+                android:layout_height="205dp"
                 android:layout_marginBottom="10dp"
-                android:background="#DBDBDB" />
+                android:src="@drawable/clothes_banner" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,52 +52,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/unofficial_salelist1"
-                    android:layout_width="182dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginRight="15dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="130dp"
-                        android:src="@drawable/ss17"
-                        android:scaleType="centerCrop"
-                        android:layout_marginBottom="8dp" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/kopubworld_dotum_medium"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="#808080"
-                        android:textSize="12dp"
-                        android:text="팜파미" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/kopubworld_dotum_medium"
-                        android:layout_marginBottom="3dp"
-                        android:textColor="#000"
-                        android:textSize="14dp"
-                        android:text="2017 S/S 꽃학잠" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/swuColor"
-                            android:textSize="14dp"
-                            android:textStyle="bold"
-                            android:text="펀딩 성공" />
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/unofficial_salelist2"
+                    android:id="@+id/unofficial_salelist4"
                     android:layout_width="182dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -153,6 +109,48 @@
 
 
                 </LinearLayout>
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/unofficial_salelist1"-->
+<!--                    android:layout_width="182dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical"-->
+<!--                    android:layout_marginRight="15dp">-->
+
+<!--                    <ImageView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="130dp"-->
+<!--                        android:src="@drawable/ss17"-->
+<!--                        android:scaleType="centerCrop"-->
+<!--                        android:layout_marginBottom="8dp" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/kopubworld_dotum_medium"-->
+<!--                        android:layout_marginBottom="3dp"-->
+<!--                        android:textColor="#808080"-->
+<!--                        android:textSize="12dp"-->
+<!--                        android:text="팜파미" />-->
+
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:fontFamily="@font/kopubworld_dotum_medium"-->
+<!--                        android:layout_marginBottom="3dp"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textSize="14dp"-->
+<!--                        android:text="2017 S/S 꽃학잠" />-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textColor="@color/swuColor"-->
+<!--                            android:textSize="14dp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="펀딩 성공" />-->
+
+<!--                </LinearLayout>-->
 
             </LinearLayout>
 

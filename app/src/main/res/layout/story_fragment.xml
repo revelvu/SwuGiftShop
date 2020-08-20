@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -17,27 +17,26 @@
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/usinotecrop"
-                android:background="#DEDEDE" />
+                android:background="#DEDEDE"
+                android:src="@drawable/usinotecrop" />
 
             <TextView
                 android:id="@+id/productname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_bold"
                 android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="7dp"
                 android:text="유시 유선 노트"
                 android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
+                android:textSize="20dp" />
 
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
 
 
@@ -45,9 +44,9 @@
                     android:id="@+id/productprice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="3,000"
                     android:textColor="#000"
-                    android:textSize="20dp"
-                    android:text="3,000"/>
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -70,16 +69,16 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:gravity="right"
                 android:background="@drawable/buttonedge"
+                android:gravity="right"
                 android:orientation="horizontal">
 
 
                 <Button
                     android:id="@+id/usinumMius"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center_vertical"
                     android:text="ㅡ"
                     android:textSize="13dp" />
@@ -90,14 +89,14 @@
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"
                     android:gravity="center"
-                    android:textSize="12dp"
-                    android:text="1" />
+                    android:text="1"
+                    android:textSize="12dp" />
 
                 <Button
                     android:id="@+id/usinumPlus"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center"
                     android:text="+"
                     android:textSize="12dp" />
@@ -108,7 +107,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#DBDBDB"/>
+                android:background="#DBDBDB" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -119,25 +118,26 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#000"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_centerVertical="true"
-                    android:text="총 상품 금액"/>
+                    android:text="총 상품 금액"
+                    android:textColor="#000" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
                     android:layout_marginLeft="15dp"
-                    android:orientation="horizontal"
-                    android:layout_alignParentRight="true">
+                    android:orientation="horizontal">
 
 
                     <TextView
                         android:id="@+id/productTotalprice"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="3,000"
                         android:textColor="#000"
-                        android:textSize="20dp"
-                        android:text="3,000"/>
+                        android:textSize="20dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -155,10 +155,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp">
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
 
 
                 <ImageView
@@ -168,53 +168,53 @@
                     android:layout_marginRight="5dp"
                     android:background="@drawable/buttonedge"
                     android:padding="8dp"
-                    android:src="@drawable/heartempty"/>
+                    android:src="@drawable/heartempty" />
 
                 <Button
                     android:id="@+id/fundingBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:textColor="#fff"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:background="@color/swuColor"
-                    android:textStyle="bold"
-                    android:textSize="16dp"
-                    android:text="구입하기"/>
+                    android:padding="15dp"
+                    android:text="구입하기"
+                    android:textColor="#fff"
+                    android:textSize="16dp" />
 
             </LinearLayout>
-
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#DBDBDB"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp"
+                android:background="#DBDBDB" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="유시 유선 노트"
+                android:textColor="#000"
+                android:textSize="18dp" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_marginBottom="20dp"
-                android:src="@drawable/usinote"
-                android:background="#DEDEDE" />
+                android:background="#DEDEDE"
+                android:src="@drawable/usinote" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="15dp"
-                android:textStyle="bold"
-                android:text="유시 유선 노트"
-                android:textColor="#000"
-                android:textSize="18dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="3dp"
+                android:gravity="center"
                 android:text="서울여자대학교 마스코트 슈니즈 중 "
                 android:textColor="#000"
                 android:textSize="16dp" />
@@ -222,30 +222,35 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="25dp"
+                android:gravity="center"
                 android:text="한 명인 유시를 공책으로 만나볼 수 있어요"
                 android:textColor="#000"
                 android:textSize="16dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="3dp"
+                android:gravity="center"
                 android:text="넘김이 쉬운 스프링 제본과"
                 android:textColor="#000"
                 android:textSize="16dp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="25dp"
+                android:gravity="center"
                 android:text="글씨가 삐뚤어지지 않도록 도와주는 유선 형식"
                 android:textColor="#000"
                 android:textSize="16dp" />
@@ -253,10 +258,11 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="50dp"
+                android:gravity="center"
                 android:text="유시 노트와 함께라면 이번 학기는 A+!"
                 android:textColor="#000"
                 android:textSize="16dp" />

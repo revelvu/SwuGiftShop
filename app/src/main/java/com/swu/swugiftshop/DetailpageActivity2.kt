@@ -56,9 +56,6 @@ class DetailpageActivity2 : AppCompatActivity() {
             override fun onTabUnselected(tab: TabLayout.Tab?) {}
         })
         view_pager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
-
-
-
     }
 
     // tool bar back button

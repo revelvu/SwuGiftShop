@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/swuColor"
+    android:background="#fff"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     tools:context=".RegisterActivity">
@@ -12,77 +12,83 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:text="Register"
-        android:textSize="40dp"
+        android:fontFamily="@font/notosans_bold"
+        android:textColor="#000"
+        android:text="Sign Up"
+        android:textSize="30dp"
         android:textStyle="bold"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="90dp" />
 
     <EditText
         android:id="@+id/nickName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:fontFamily="@font/notosans_regular"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="20dp"
-        android:background="#80FFFFFF"
+        android:background="@drawable/login_inputbox"
         android:hint="Nick name"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20dp" />
+        android:paddingLeft="30dp"
+        android:textColor="#000"
+        android:textColorHint="#808080"
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/email_inputbox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:fontFamily="@font/notosans_regular"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="20dp"
-        android:background="#80FFFFFF"
-        android:hint="E-mail"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20dp" />
+        android:background="@drawable/login_inputbox"
+        android:hint="Email"
+        android:paddingLeft="30dp"
+        android:textColor="#000"
+        android:textColorHint="#808080"
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:fontFamily="@font/notosans_regular"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginBottom="20dp"
-        android:background="#80FFFFFF"
+        android:background="@drawable/login_inputbox"
         android:hint="Password"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20dp" />
+        android:paddingLeft="30dp"
+        android:textColor="#000"
+        android:textColorHint="#808080"
+        android:textSize="18dp" />
 
     <EditText
         android:id="@+id/reEnterPassword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
+        android:fontFamily="@font/notosans_regular"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="#80FFFFFF"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/login_inputbox"
         android:hint="Re-enter password"
-        android:padding="10dp"
-        android:textColor="#ffffff"
-        android:textColorHint="#ffffff"
-        android:textSize="20dp" />
+        android:paddingLeft="30dp"
+        android:textColor="#000"
+        android:textColorHint="#808080"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/signUpBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/kopubworld_dotum_bold"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:background="#ffffff"
-        android:text=" 회원가입하기 "
-        android:layout_marginTop="30dp"
+        android:background="@drawable/ok_btn"
+        android:text="회원가입"
+        android:textColor="#fff"
         android:textSize="20dp"
         android:padding="15dp"/>
 

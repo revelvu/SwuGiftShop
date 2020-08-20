@@ -7,33 +7,45 @@
     tools:context=".ItemDetail">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/abc_btn_radio_to_on_mtrl_015" />
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageView1"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="right"
+            android:text="Name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="right"
+            android:text="Price"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/paybutton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/imageView1"
-        android:text="Name"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView1"
-        android:text="Price"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:text="구매하러 가기" />
 
 
-    출처: https://bitsoul.tistory.com/95 [Happy Programmer~]
+    </LinearLayout>
+
 
 </RelativeLayout>

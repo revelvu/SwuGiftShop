@@ -64,10 +64,24 @@ class HomeFragment : Fragment() {
             }
         }
 
+        detaillayout4.setOnClickListener {
+            activity?.let {
+                val intent = Intent(context, DetailpageActivity4::class.java)
+                startActivity(intent)
+            }
+        }
+
         fundingDetail1.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity1::class.java)
-                startActivity(intent)
+                val funding1intent = Intent(context, FundingDetailpageActivity1::class.java)
+                startActivity(funding1intent)
+            }
+        }
+
+        fundingDetail2.setOnClickListener {
+            activity?.let {
+                val funding2intent = Intent(context, FundingDetailpageActivity2::class.java)
+                startActivity(funding2intent)
             }
         }
 

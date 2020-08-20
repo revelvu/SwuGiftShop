@@ -21,6 +21,6 @@ class FundingQnAFragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.qna_fragment, container, false)
+        return inflater.inflate(R.layout.funding_qna1, container, false)
     }
 }

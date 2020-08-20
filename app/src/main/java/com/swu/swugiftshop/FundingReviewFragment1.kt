@@ -21,6 +21,6 @@ class FundingReviewFragment1 : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return inflater.inflate(R.layout.review_fragment, container, false)
+        return inflater.inflate(R.layout.funding_review1, container, false)
     }
 }

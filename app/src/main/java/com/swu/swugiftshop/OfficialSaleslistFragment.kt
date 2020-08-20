@@ -51,6 +51,13 @@ class OfficialSaleslistFragment : Fragment() {
                 startActivity(Intent)
             }
         }
+
+        official_salelist4.setOnClickListener {
+            activity?.let {
+                val Intent = Intent(context, DetailpageActivity4::class.java)
+                startActivity(Intent)
+            }
+        }
     }
 //
 //    override fun onCreate(savedInstanceState: Bundle?) {
