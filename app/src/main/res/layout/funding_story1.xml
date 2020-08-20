@@ -70,10 +70,10 @@
                 <TextView
                     android:id="@+id/productPrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="19dp"
+                    android:text="3,000"
                     android:textColor="#000"
-                    android:textSize="20dp"
-                    android:text="3,000"/>
+                    android:textSize="20dp" />
 
                 <TextView
                     android:layout_width="wrap_content"

@@ -1,5 +1,6 @@
 package com.swu.swugiftshop
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -26,9 +27,6 @@ class FundingStoryFragment2 : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.funding_story2, container, false)
-
-
-
 
 
         return view

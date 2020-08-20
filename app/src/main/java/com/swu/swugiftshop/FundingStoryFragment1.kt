@@ -82,11 +82,40 @@ class FundingStoryFragment1 : Fragment() {
         }
 
 
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
+
+        //상품info가져오기
+        val productName = view.findViewById<TextView>(R.id.productname)
+        val productPrice = view.findViewById<TextView>(R.id.productPrice)
+        val productTotalPrice = view.findViewById<TextView>(R.id.productTotalprice)
+        var productTotalPriceShow by Delegates.notNull<Int>()
+
+        val pName = db.collection("UnofficialProduct").document("홀로그램 스티커")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("물품명")?.toString()
+                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPriceShow =
+                        Integer.parseInt((productPrice.text.toString()))
+                }
+            }
+        })
+
+
+
         var plus = view.findViewById<Button>(R.id.numPlus)
         var minus = view.findViewById<Button>(R.id.numMius)
         val holostickernum = view.findViewById<TextView>(R.id.num)
-        val productTotalPrice = view.findViewById<TextView>(R.id.productTotalprice)
-        var productTotalPriceShow by Delegates.notNull<Int>()
+//        val productTotalPrice = view.findViewById<TextView>(R.id.productTotalprice)
+//        var productTotalPriceShow by Delegates.notNull<Int>()
 
         //홀로그램 스티커 수량 증가시킬 수 있는 + 버튼 , 하단의 가격 자동 변경
         plus.setOnClickListener {
