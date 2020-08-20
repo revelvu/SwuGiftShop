@@ -52,7 +52,6 @@ class MainAdapter2(val context: Context, var purchaselist: ArrayList<purchase_Re
 
                 //위시리스트에 아직 아무것도 안들어왔을때!
                 check_heart?.setImageResource(R.drawable.heartempty)
-                item_name?.text="구매한 물품이 없습니다."
 
             }
             item_name?.text = purchase_recycleritem.item_name
