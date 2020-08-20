@@ -58,8 +58,9 @@ class MyFundingActivity : AppCompatActivity() {
 
 
         //funding page detail db에서 가져와 표시하기
-        //1. 펀딩제목
+        //1. 펀딩제목 및 내용
         val fdTitle = findViewById<TextView>(R.id.fdTitle)
+        val fdContent = findViewById<TextView>(R.id.fdContent)
         //2. 펀딩주최자 닉네임
         val fdNickname = findViewById<TextView>(R.id.fdNickname)
         //3. 펀딩률 - 밑에 증가 반영했음
@@ -92,6 +93,7 @@ class MyFundingActivity : AppCompatActivity() {
                                 val document = task.result
                                 if (document != null) {
                                     fdTitle.text = task.result!!.data?.get("펀딩제목")?.toString()
+                                    fdContent.text = task.result!!.data?.get("내용")?.toString()
                                     fdNickname.text = task.result!!.data?.get("펀딩주최자")?.toString()
                                     fdPercent.text = task.result!!.data?.get("펀딩률").toString()
                                     fdSupporters.text = task.result!!.data?.get("서포터").toString()
