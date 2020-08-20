@@ -25,7 +25,7 @@ var jacketnumtext = 1
 var putItem8 = RecyclerItem("2020 S/S 꽃학잠", "35000 원", "flower_jacket")
 
 var p8 = 0
-//var purchaseItem8 = purchase_RecyclerItem("2020 S/S 꽃학잠", "35000원", " * 개", "flower_jacket")
+var purchaseItem8 = purchase_RecyclerItem("2020 S/S 꽃학잠", "35000원", " * 개", "flower_jacket")
 
 class FundingDetailpageActivity4 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
