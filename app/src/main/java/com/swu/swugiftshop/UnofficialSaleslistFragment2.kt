@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.unofficial_saleslist.*
+import kotlinx.android.synthetic.main.unofficial_saleslist2.*
 
 class UnofficialSaleslistFragment2 : Fragment() {
 
@@ -15,7 +16,7 @@ class UnofficialSaleslistFragment2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.unofficial_saleslist, container, false)
+        val view = inflater.inflate(R.layout.unofficial_saleslist2, container, false)
 
         return view
     }
@@ -30,16 +31,9 @@ class UnofficialSaleslistFragment2 : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        unofficial_salelist1.setOnClickListener {
+        unofficial_salelist4.setOnClickListener {
             activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity1::class.java)
-                startActivity(intent)
-            }
-        }
-
-        unofficial_salelist2.setOnClickListener {
-            activity?.let {
-                val intent = Intent(context, FundingDetailpageActivity2::class.java)
+                val intent = Intent(context, FundingDetailpageActivity4::class.java)
                 startActivity(intent)
             }
         }

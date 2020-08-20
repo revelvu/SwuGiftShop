@@ -34,26 +34,24 @@
                 android:id="@+id/editSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:background="@drawable/search_button"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:fontFamily="@font/kopubworld_dotum_medium"
+                android:hint="검색어를 입력하세요."
                 android:paddingLeft="15dp"
+                android:paddingTop="10dp"
                 android:paddingRight="100dp"
-                android:hint="검색어를 입력하세요." />
+                android:paddingBottom="10dp" />
 
 
         </SearchView>
 
 
-
-
         <AutoCompleteTextView
             android:id="@+id/autoCompleteTextView"
             android:layout_width="match_parent"
-            android:fontFamily="@font/kopubworld_dotum_medium"
             android:layout_height="0dp"
             android:completionThreshold="1"
+            android:fontFamily="@font/kopubworld_dotum_medium"
             android:gravity="center_vertical"
             android:textColorHint="#555555"
             android:visibility="invisible" />
@@ -62,13 +60,43 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fontFamily="@font/kopubworld_dotum_medium"
             android:divider="#999999"
-            android:dividerHeight="1dp">
+            android:dividerHeight="1dp"
+            android:fontFamily="@font/kopubworld_dotum_medium"></ListView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="32dp"
+        android:keepScreenOn="false"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="인기 검색어"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         </ListView>
 
 
     </LinearLayout>
+
+
+
 
 
 

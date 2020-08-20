@@ -15,7 +15,7 @@ class Mypage_Purchase_unofficial : Fragment() {
 
         mypage_purchase_unofficial1.setOnClickListener {
             activity?.let {
-                val unofficialDetailIntent = Intent(context, FundingDetailpageActivity1::class.java)
+                val unofficialDetailIntent = Intent(context, FundingDetailpageActivity3::class.java)
                 startActivity(unofficialDetailIntent)
             }
         }

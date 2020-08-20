@@ -1,53 +1,184 @@
 package com.swu.swugiftshop
 
+import android.app.ProgressDialog.show
+import android.content.DialogInterface
+import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detailpage1.*
 import kotlinx.android.synthetic.main.activity_detailpage2.*
 import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
+import kotlin.properties.Delegates
 
 
-var usinumtext = 1   //유시 노트의 초기수량 == 1
 var i = 0
 var putItem1 = RecyclerItem("유시 유선 노트", "3000 원", "usinotecrop")
-
-var p = 0
 //var purchaseItem1 = purchase_RecyclerItem("유시 유선 노트", "3000원", " * 개", "usinotecrop")
 
+
 class DetailpageActivity1 : AppCompatActivity() {
+
+    var numtobuy = 1   //유시 노트의 초기수량 == 1
+
+    //상품info가져오기
+    val productName = findViewById<TextView>(R.id.productname)
+    val productPrice = findViewById<TextView>(R.id.productprice)
+    val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
+    val contentTitle = findViewById<TextView>(R.id.contentTitle)
+    var productTotalPriceShow by Delegates.notNull<Int>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailpage1)
+
 
         // tool bar back button
         setSupportActionBar(my_toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
-        // tab bar
-        tab_layout1.addTab(tab_layout1.newTab().setText("스토리"))
-        tab_layout1.addTab(tab_layout1.newTab().setText("문의하기"))
-        tab_layout1.addTab(tab_layout1.newTab().setText("리뷰"))
 
-        val pagerAdapter1 = FragmentPagerAdapter1(supportFragmentManager, 3)
-        view_pager1.adapter = pagerAdapter1
+        val firebaseAuth = FirebaseAuth.getInstance()
+        val db = FirebaseFirestore.getInstance()
 
-        tab_layout1.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                view_pager1.setCurrentItem(tab!!.position)
+        val pName = db.collection("OfficialProduct").document("유시유선노트")
+        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    Log.d(
+                        "value",
+                        "DocumentSnapshot data: " + task.result!!.data?.get("상품명")?.toString()
+                    )
+                    productName.text = task.result!!.data?.get("상품명")?.toString()
+                    contentTitle.text = task.result!!.data?.get("상품명")?.toString()
+                    productPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
+                    productTotalPriceShow =
+                        Integer.parseInt((productPrice.text.toString()))
+                }
+            }
+        })
+        //수량 TextView에서 가져오기
+        var num2buy = findViewById<TextView>(R.id.num2buy)
+        var plus = findViewById<Button>(R.id.plus)
+        var minus = findViewById<Button>(R.id.minus)
+
+        //수량 증가시킬 수 있는 + 버튼
+        plus.setOnClickListener {
+            numtobuy += 1
+            if (numtobuy > 0) minus.setEnabled(true)
+            num2buy.setText(numtobuy.toString())
+            var show = productTotalPriceShow * numtobuy
+            productPrice.setText(show.toString())
+        }
+
+        //수량 감소시킬 수 있는 - 버튼
+        minus.setOnClickListener {
+            numtobuy -= 1
+            if (numtobuy == 0) minus.setEnabled(false)
+            num2buy.setText(numtobuy.toString())
+            var show = productTotalPriceShow * numtobuy
+            productPrice.setText(show.toString())
+        }
+
+        //하트 클릭시 full/empty heart 이미지 나오도록하기
+        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
+
+        emptyheart?.setOnClickListener {
+
+            if (i == 0) {
+                emptyheart?.setImageResource(R.drawable.heartfull)
+                i += 1
+
+                if (wishList.contains(inititem)) {
+                    wishList.remove(inititem)
+                }
+                wishList.add(putItem1)
+            } else {
+                emptyheart?.setImageResource(R.drawable.heartempty)
+                i -= 1
+
+                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+                wishList.remove(putItem1)
+            }
+        }
+
+        //구매하기 버튼 클릭시, 구매 내역 페이지로 들어간다.
+        val purchase = findViewById<Button>(R.id.purchaseBtn)
+        purchase?.setOnClickListener {
+            //버튼 한 번 클릭 -> 구매내역으로 들어감
+            showDialog()
+        }
+
+
+    }
+
+    fun showDialog() {
+        //xml자료
+        val purchaseButton = findViewById<Button>(R.id.purchaseBtn)
+        var productTotalprice_t = productTotalPrice.text
+        var productName_t = productName.text
+        var purchaseItem1 = purchase_RecyclerItem(
+            "$productName_t",
+            "$productTotalprice_t 원",
+            " $numtobuy 개",
+            "usinotecrop" //image변경
+        )
+
+        //alert구현
+        lateinit var purchaseDialog: AlertDialog
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("구매하기")
+        builder.setMessage("구매하시겠습니까?")
+
+        val dialogClickListener = DialogInterface.OnClickListener { _, which ->
+            when (which) {
+                DialogInterface.BUTTON_POSITIVE -> {
+                    //if
+                    if (purchaselist.contains(inititem2)) {
+                        purchaselist.remove(inititem2)
+                    }
+                    purchaselist.add(purchaseItem1)
+                    Toast.makeText(applicationContext, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
+
+                    //버튼을 눌렀을 때 버튼 텍스트 바꾸기
+                    purchaseButton.text = "구매 완료"
+                    purchaseButton.setBackgroundColor(Color.parseColor("#424242"))
+                    purchaseButton.setEnabled(false)
+
+                }
+                DialogInterface.BUTTON_NEGATIVE -> Toast.makeText(
+                    applicationContext,
+                    "취소하였습니다.",
+                    Toast.LENGTH_LONG
+                )
+                    .show()
             }
 
-            override fun onTabReselected(tab: TabLayout.Tab?) {}
-            override fun onTabUnselected(tab: TabLayout.Tab?) {}
-        })
-        view_pager1.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout1))
+        }
 
+        builder.setPositiveButton("구매하기", dialogClickListener)
+        builder.setNegativeButton("취소", dialogClickListener)
 
+        purchaseDialog = builder.create()
+        purchaseDialog.show()
     }
 
     // tool bar back button
@@ -61,29 +192,5 @@ class DetailpageActivity1 : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-}
 
-// tab bar
-class FragmentPagerAdapter1(
-    fragmentManager: FragmentManager,
-    val tabCount: Int
-) : FragmentStatePagerAdapter(fragmentManager) {
-    override fun getItem(position: Int): Fragment {
-        when (position) {
-            0 -> {
-                return StoryFragment1()
-            }
-            1 -> {
-                return QnAFragment()
-            }
-            2 -> {
-                return ReviewFragment()
-            }
-            else -> return return StoryFragment1()
-        }
-    }
-
-    override fun getCount(): Int {
-        return tabCount
-    }
 }

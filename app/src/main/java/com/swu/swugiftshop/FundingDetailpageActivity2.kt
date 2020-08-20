@@ -14,15 +14,33 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
+import kotlinx.android.synthetic.main.activity_funding_detailpage2.*
+import kotlinx.android.synthetic.main.funding_story2.*
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt
 import kotlin.properties.Delegates
 
+//펀딩하기 버튼눌렀을때 숫자 올라가기
+var sticker2numtext = 1
+
+//var i5 = 0
+var putItem6 = RecyclerItem("전자파 차단 스티커", "3000 원", "sticker")
+
+var p6 = 0
+var purchaseItem6 = purchase_RecyclerItem("전자파 차단 스티커", "3000원", " * 개", "sticket")
+
+
 class FundingDetailpageActivity2 : AppCompatActivity() {
     //+-로 표시한 수량 초기넘버
     var numtobuy = 1
+
     //firebase
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
@@ -36,7 +54,8 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_funding_detailpage)
+        setContentView(R.layout.activity_funding_detailpage2)
+
 
         // tool bar back button
         setSupportActionBar(my_toolbar)
@@ -123,26 +142,35 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         }
 
 
-//        //하트 클릭시 full/empty heart 이미지 나오도록하기
+        //하트 클릭시 full/empty heart 이미지 나오도록하기, 위시리스트로 들어가기
 //        val emptyheart = findViewById<ImageView>(R.id.empty_heart)
 //
 //        emptyheart.setOnClickListener {
 //
-//            i = if (i == 0) {
+//            if(i==0){
 //                emptyheart.setImageResource(R.drawable.heartfull)
-//                i + 1
-//            } else {
+//                i += 1
+//
+//                if(wishList.contains(inititem)) {
+//                    wishList.remove(inititem)
+//                }
+//                wishList.add(putItem1)
+//            }else {
 //                emptyheart.setImageResource(R.drawable.heartempty)
-//                i - 1
+//                i -= 1
+//
+//                //하트 다시 비면, mutablelist에서  해당 상품 삭제하기
+//                wishList.remove(putItem1)
 //            }
 //        }
 
+
         // 펀딩하기 버튼을 눌렀을 때
-        fundingBtn.setOnClickListener {
-            //서포터즈+1, 펀딩완료로 setText
-            showDialog()
-            fundingBtn.setEnabled(false)
-        }
+//        fundingBtn.setOnClickListener {
+//            //서포터즈+1, 펀딩완료로 setText
+//            showDialog()
+//            fundingBtn.setEnabled(false)
+//        }
 
         optionBtn.setOnClickListener {
             var optionDialog = AlertDialog.Builder(this)
@@ -183,63 +211,6 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun showDialog() {
-        //xml자료
-        var t = 0
-        val fundingbutton = findViewById<Button>(R.id.fundingBtn)
-        val supporters = findViewById<TextView>(R.id.supporters)
-        val detailpagePercent = findViewById<TextView>(R.id.detailpagePercent)
-        var num: Int = Integer.parseInt(supporters.text.toString())
-        var percent: Double = (detailpagePercent.text.toString()).toDouble()
-
-        //alert구현
-        lateinit var fundingDialog: AlertDialog
-        val builder = AlertDialog.Builder(this)
-        builder.setTitle("펀딩하기")
-        builder.setMessage("펀딩하시겠습니까?")
-
-        val dialogClickListener = DialogInterface.OnClickListener { _, which ->
-            when (which) {
-                DialogInterface.BUTTON_POSITIVE -> {
-                    //펀딩완료 토스트메시지
-                    Toast.makeText(
-                        applicationContext,
-                        "펀딩이 완료되었습니다",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    //버튼을 눌렀을 때 버튼 텍스트 바꾸기
-                    fundingbutton.text = "이미 펀딩한 상품입니다"
-                    fundingbutton.setBackgroundColor(Color.parseColor("#424242"))
-                    //버튼을 눌렀을 때 서포터 인원 +1
-                    num += numtobuy
-                    //인원 증가했음을 화면에 표시
-                    supporters.text = num.toString()
-                    //현재 인원 상태를 db에 갱신
-                    db.collection("UnofficialProduct").document(productName).update("서포터", num)
-                    //버튼 눌렀을 때 펀딩률 상승
-                    percent += rate * numtobuy
-                    //상승한 펀딩률 화면에 표시
-                    percent = Math.round(percent * 100) / 100.0
-                    detailpagePercent.text = percent.toString()
-                    //현재 펀딩률 상태를 db에 갱신
-                    db.collection("UnofficialProduct").document(productName).update("펀딩률", percent)
-                }
-                DialogInterface.BUTTON_NEGATIVE -> Toast.makeText(
-                    applicationContext,
-                    "취소하였습니다.",
-                    Toast.LENGTH_LONG
-                )
-                    .show()
-            }
-
-        }
-
-        builder.setPositiveButton("펀딩하기", dialogClickListener)
-        builder.setNegativeButton("취소", dialogClickListener)
-
-        fundingDialog = builder.create()
-        fundingDialog.show()
-    }
 
     fun remainDate(): String {
         //데이트포맷(일수로 구할거니깐 dd까지만 있으면됨)
