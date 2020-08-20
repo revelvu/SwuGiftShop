@@ -28,15 +28,15 @@ public class ItemDetail extends AppCompatActivity {
         iv.setImageResource(intent.getIntExtra("img", 0));
 
 
-        Button imageButton = (Button) findViewById(R.id.paybutton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), DetailpageActivity1.class);
-                startActivity(intent);
-            }
-        });
+//        Button imageButton = (Button) findViewById(R.id.paybutton);
+//        imageButton.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), DetailpageActivity1.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
     }

@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#fff"
+    android:orientation="vertical"
     tools:context=".DetailpageActivity1">
 
     <androidx.appcompat.widget.Toolbar
@@ -47,16 +47,17 @@
                 android:layout_height="300dp"
                 android:layout_marginBottom="20dp"
                 android:background="#DEDEDE"
+                android:scaleType="centerCrop"
                 android:src="@drawable/usinotecrop" />
 
             <TextView
                 android:id="@+id/productname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_bold"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="7dp"
-                android:text="유시 유선 노트"
+                android:fontFamily="@font/kopubworld_dotum_bold"
+                android:text="웬디 손거울"
                 android:textColor="#000"
                 android:textSize="20dp" />
 
@@ -104,7 +105,7 @@
 
 
                 <Button
-                    android:id="@+id/usinumMius"
+                    android:id="@+id/minus"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -113,7 +114,7 @@
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/usiNum"
+                    android:id="@+id/num2buy"
                     android:layout_width="50dp"
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"
@@ -122,7 +123,7 @@
                     android:textSize="12dp" />
 
                 <Button
-                    android:id="@+id/usinumPlus"
+                    android:id="@+id/plus"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
@@ -147,8 +148,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_centerVertical="true"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:text="총 상품 금액"
                     android:textColor="#000" />
 
@@ -200,11 +201,11 @@
                     android:src="@drawable/heartempty" />
 
                 <Button
-                    android:id="@+id/fundingBtn"
+                    android:id="@+id/puchaseBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:background="@color/swuColor"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:padding="15dp"
                     android:text="구입하기"
                     android:textColor="#fff"
@@ -220,20 +221,20 @@
                 android:background="#DBDBDB" />
 
             <TextView
+                android:id="@+id/contentTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kopubworld_dotum_bold"
                 android:gravity="center"
-                android:padding="15dp"
-                android:text="유시 유선 노트"
+                android:padding="10dp"
+                android:text="웬디 손거울"
                 android:textColor="#000"
                 android:textSize="18dp" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginBottom="20dp"
-                android:background="#DEDEDE"
+                android:layout_height="310dp"
+                android:layout_marginBottom="10dp"
                 android:src="@drawable/usinote" />
 
             <TextView
@@ -299,5 +300,6 @@
         </LinearLayout>
 
     </ScrollView>
+
 
 </LinearLayout>

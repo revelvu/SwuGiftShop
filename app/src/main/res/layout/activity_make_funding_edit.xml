@@ -50,6 +50,7 @@
             android:textSize="16dp" />
 
         <EditText
+            android:id="@+id/enterFname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
@@ -115,6 +116,7 @@
                     android:textSize="16dp" />
 
                 <Button
+                    android:id="@+id/enterFcategory"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="190dp"
                     android:layout_height="30dp"
@@ -142,6 +144,7 @@
                     android:textSize="16dp" />
 
                 <EditText
+                    android:id="@+id/enterFprice"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="190dp"
                     android:layout_height="30dp"
@@ -149,9 +152,10 @@
                     android:background="@drawable/buttonedge"
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:gravity="right|center"
+                    android:hint="0"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="0"
                     android:textColor="#000" />
 
                 <TextView
@@ -179,10 +183,12 @@
                     android:textSize="16dp" />
 
                 <EditText
+                    android:id="@+id/enterFoption"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="190dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="16dp"
+                    android:inputType="text"
                     android:background="@drawable/buttonedge"
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:gravity="left|center"
@@ -191,17 +197,19 @@
                     android:paddingRight="10dp" />
 
                 <Button
+                    android:id="@+id/addOption"
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:layout_marginLeft="5dp"
                     android:text="추가"
                     android:textSize="12dp" />
+
                 <Button
                     android:layout_width="50dp"
                     android:layout_height="40dp"
                     android:text="삭제"
                     android:textSize="12dp"
-                    android:visibility="invisible"/>
+                    android:visibility="invisible" />
             </LinearLayout>
 
             <!--            <LinearLayout-->
@@ -248,6 +256,7 @@
                     android:textSize="16dp" />
 
                 <EditText
+                    android:id="@+id/enterFminimum"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="190dp"
                     android:layout_height="30dp"
@@ -255,9 +264,10 @@
                     android:background="@drawable/buttonedge"
                     android:fontFamily="@font/kopubworld_dotum_medium"
                     android:gravity="right|center"
+                    android:hint="0"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="0"
                     android:textColor="#000" />
 
                 <TextView
@@ -274,6 +284,7 @@
                 android:layout_height="45dp"
                 android:layout_marginBottom="15dp"
                 android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -283,16 +294,20 @@
                     android:text="마감 날짜"
                     android:textColor="#000"
                     android:textSize="16dp" />
-                <Button
+
+                <EditText
+                    android:id="@+id/enterFdate"
                     style="?android:attr/borderlessButtonStyle"
                     android:layout_width="190dp"
                     android:layout_height="30dp"
                     android:layout_marginLeft="20dp"
+                    android:inputType="number"
                     android:background="@drawable/buttonedge"
                     android:fontFamily="@font/kopubworld_dotum_medium"
+                    android:gravity="left|center"
+                    android:hint="예: 20200820"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:text="날짜 선택                         ▼" />
+                    android:paddingRight="10dp" />
 
             </LinearLayout>
 
@@ -302,12 +317,12 @@
             android:id="@+id/storyIntentBtn"
             android:layout_width="150dp"
             android:layout_height="45dp"
+            android:layout_gravity="center"
             android:layout_marginTop="10dp"
             android:background="@drawable/ok_btn"
             android:fontFamily="@font/kopubworld_dotum_medium"
-            android:textColor="#fff"
-            android:layout_gravity="center"
-            android:text="스토리 작성하기"/>
+            android:text="스토리 작성하기"
+            android:textColor="#fff" />
 
 
     </LinearLayout>

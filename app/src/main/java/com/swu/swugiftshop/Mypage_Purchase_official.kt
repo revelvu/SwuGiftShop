@@ -12,8 +12,8 @@ import kotlinx.android.synthetic.main.fragment_wishlist.*
 import kotlinx.android.synthetic.main.mypage_purchase_official.*
 import kotlinx.android.synthetic.main.mypage_purchase_unofficial.*
 
-val inititem2=purchase_RecyclerItem("","","","")
-var purchaselist= mutableListOf(
+val inititem2 = purchase_RecyclerItem("", "", "", "")
+var purchaselist = mutableListOf(
     inititem2
 )
 
@@ -44,11 +44,12 @@ class Mypage_Purchase_official : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mAdapter2 =  activity?.let { MainAdapter2(it, purchaselist as ArrayList<purchase_RecyclerItem>) }
+        val mAdapter2 =
+            activity?.let { MainAdapter2(it, purchaselist as ArrayList<purchase_RecyclerItem>) }
         purchase_recycler.adapter = mAdapter2
 //        adapter.notifyDataSetChanged()
 
-        purchase_recycler.layoutManager= LinearLayoutManager(context!!)
+        purchase_recycler.layoutManager = LinearLayoutManager(context!!)
 
         purchase_recycler.setHasFixedSize(true)
 

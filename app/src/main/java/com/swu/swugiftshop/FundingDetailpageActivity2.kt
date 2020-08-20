@@ -16,17 +16,33 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_funding_detailpage.*
+import java.text.SimpleDateFormat
+import java.util.*
 import kotlin.properties.Delegates
-
-
-//펀딩하기 버튼눌렀을때 숫자 올라가기
-var sticker2numtext = 1
 
 //var i5 = 0
 var putItem6 = RecyclerItem("전자파 차단 스티커", "3000 원", "sticker")
 
+var p6 = 0
+var purchaseItem6 = purchase_RecyclerItem("전자파 차단 스티커", "3000원", " * 개", "sticket")
 
 class FundingDetailpageActivity2 : AppCompatActivity() {
+
+    var numtobuy = 1
+
+    //firebase
+    val firebaseAuth = FirebaseAuth.getInstance()
+    val db = FirebaseFirestore.getInstance()
+
+    var i = 0
+
+    //detail page에 필요한 정보들
+    val productName: String = "전자파 차단 스티커" //이 string 변경함에 따라 물품이 달라짐.
+    val fundingDatabase = db.collection("UnofficialProduct").document(productName)
+    var rate by Delegates.notNull<Double>()
+    lateinit var fundingDate1: String
+    lateinit var fundingDate2: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_funding_detailpage2)
@@ -37,6 +53,68 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
+        //funding page detail db에서 가져와 표시하기
+        //1. 펀딩제목
+        val fdTitle = findViewById<TextView>(R.id.fdTitle)
+        //2. 펀딩주최자 닉네임
+        val fdNickname = findViewById<TextView>(R.id.fdNickname)
+        //3. 펀딩률 - 밑에 증가 반영했음
+        val fdPercent = findViewById<TextView>(R.id.detailpagePercent)
+        //4. 남은 시간
+        val fdRemain = findViewById<TextView>(R.id.timeRemain)
+        val fdEnding = findViewById<TextView>(R.id.endingDate)
+        //5. 서포터 인원수 - 밑에 증가 반영했음
+        val fdSupporters = findViewById<TextView>(R.id.supporters)
+        //6. 펀딩 목표 인원 수
+        val fdGoal = findViewById<TextView>(R.id.fundingGoal)
+        //7. 펀딩물품 사이즈 or 컬러
+        //8. 고른 상품 띄우기(ex. 에코백 - 블랙/ 에코백 - 화이트) -> 컬러는 optionDialog 안에 구현
+        val fdName = findViewById<TextView>(R.id.productName)
+        //9. 상품 가격
+        val fdProductPrice = findViewById<TextView>(R.id.productTotalprice)
+        var fdProductTotalPriceShow by Delegates.notNull<Int>()
+
+        fundingDatabase.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
+            if (task.isSuccessful) {
+                val document = task.result
+                if (document != null) {
+                    fdTitle.text = task.result!!.data?.get("펀딩제목")?.toString()
+                    fdNickname.text = task.result!!.data?.get("펀딩주최자")?.toString()
+                    fdPercent.text = task.result!!.data?.get("펀딩률").toString()
+                    fdSupporters.text = task.result!!.data?.get("서포터").toString()
+                    fdName.text = task.result!!.data?.get("물품명").toString()
+                    fdGoal.text = task.result!!.data?.get("목표인원").toString()
+                    fdProductPrice.text = task.result!!.data?.get("가격")?.toString()
+                    fdProductTotalPriceShow =
+                        Integer.parseInt((fdProductPrice.text.toString()))
+                    val temp1 = task.result!!.data?.get("목표인원").toString()
+                    rate = 100 / temp1.toDouble()
+
+                    val temp2 = task.result!!.data?.get("마감일").toString()
+                    val yearRange = IntRange(0, 3)
+                    val monthRange = IntRange(4, 5)
+                    val dayRange = IntRange(6, 7)
+                    fundingDate1 =
+                        temp2.slice(yearRange) + "-" + temp2.slice(monthRange) + "-" + temp2.slice(
+                            dayRange
+                        )
+                    fundingDate2 =
+                        temp2.slice(yearRange) + "년 " + temp2.slice(monthRange) + "월 " + temp2.slice(
+                            dayRange
+                        ) + "일"
+                    Log.d("fundingDate", fundingDate1)
+                    fdRemain.text = remainDate()
+                    fdEnding.text = fundingDate2
+                }
+            }
+        })
+
+        //옵션 없으므로 선택 불가하게 button 비활성화
+        val optionbtn = findViewById<Button>(R.id.optionBtn)
+        val showOptionText = findViewById<TextView>(R.id.showOption)
+        optionbtn.setText("옵션 없음")
+        optionbtn.setEnabled(false)
+        showOptionText.text = "기본"
 
         //하트 클릭시 full/empty heart 이미지 나오도록하기 , 위시리스트로 들어가기
         val emptyheart = findViewById<ImageView>(R.id.empty_heart)
@@ -59,83 +137,36 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
             }
         }
 
-        val firebaseAuth = FirebaseAuth.getInstance()
-        val db = FirebaseFirestore.getInstance()
 
-        //상품info가져오기
-        val productName = findViewById<TextView>(R.id.productname)
-        val productPrice = findViewById<TextView>(R.id.productprice)
-        val productTotalPrice= findViewById<TextView>(R.id.productTotalprice)
-        var productTotalPriceShow by Delegates.notNull<Int>()
-
-        val pName = db.collection("UnofficialProduct").document("전자파 차단 스티커")
-        pName.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
-            if (task.isSuccessful) {
-                val document = task.result
-                if (document != null) {
-                    Log.d(
-                        "value",
-                        "DocumentSnapshot data: " + task.result!!.data?.get("물품명")?.toString()
-                    )
-                    productName.text = task.result!!.data?.get("물품명")?.toString()
-                    productPrice.text = task.result!!.data?.get("가격")?.toString()
-                    productTotalPrice.text = task.result!!.data?.get("가격")?.toString()
-                    productTotalPriceShow =
-                        Integer.parseInt((productPrice.text.toString()))
-                }
-            }
-        })
-
-
-
+        //수량 TextView에서 가져오기
+        var num2buy = findViewById<TextView>(R.id.num)
         var plus = findViewById<Button>(R.id.numPlus)
-        var minus = findViewById<Button>(R.id.numMius)
-        val holostickernum = findViewById<TextView>(R.id.num)
-//        val productTotalPrice = findViewById<TextView>(R.id.productTotalprice)
-//        var productTotalPriceShow by Delegates.notNull<Int>()
+        var minus = findViewById<Button>(R.id.numMinus)
 
-        //전자파 차단 스티커 수량 증가시킬 수 있는 + 버튼 , 하단의 가격 자동 변경
+        //수량 증가시킬 수 있는 + 버튼
         plus.setOnClickListener {
-            sticker2numtext += 1
-            if (sticker2numtext > 0) minus.setEnabled(true)
-            holostickernum.setText(sticker2numtext.toString())
-            var show = productTotalPriceShow * sticker2numtext
-            productTotalPrice.setText(show.toString())
+            numtobuy += 1
+            if (numtobuy > 0) minus.setEnabled(true)
+            num2buy.setText(numtobuy.toString())
+            var show = fdProductTotalPriceShow * numtobuy
+            fdProductPrice.setText(show.toString())
         }
 
-        //전자파 차단 스티커 수량 감소시킬 수 있는 - 버튼 , 하단의 가격 자동 변경
+        //수량 감소시킬 수 있는 - 버튼
         minus.setOnClickListener {
-            sticker2numtext -= 1
-            if (sticker2numtext == 0) minus.setEnabled(false)
-            holostickernum.setText(sticker2numtext.toString())
-            var show = productTotalPriceShow * sticker2numtext
-            productTotalPrice.setText(show.toString())
+            numtobuy -= 1
+            if (numtobuy == 0) minus.setEnabled(false)
+            num2buy.setText(numtobuy.toString())
+            var show = fdProductTotalPriceShow * numtobuy
+            fdProductPrice.setText(show.toString())
         }
 
         //구매하기[펀딩하기] 버튼 클릭시, 구매 내역 페이지로 들어간다.
-        val purchase = findViewById<Button>(R.id.fundingBtn)
-        purchase?.setOnClickListener {
-            //버튼 한 번 클릭 -> 구매내역으로 들어감
-            //버튼 그 이상 클릭 ->  "이미 담긴 상품입니다" 메세지 출력
-            var productTotalprice_t = productTotalPrice.text
-            var purchase_unoffItem5 = purchase_unoff_RecyclerItem(
-                "전자파 차단 스티커",
-                "$productTotalprice_t 원",
-                "$sticker2numtext 개",
-                "sticker")
-
-
-                if (p7 == 0) {
-                if (purchase_unofficial_list.contains(inititem3)) {
-                    purchase_unofficial_list.remove(inititem3)
-                }
-                purchase_unofficial_list.add(purchase_unoffItem5)
-                Toast.makeText(this, "상품이 성공적으로 담겼습니다", Toast.LENGTH_LONG).show()
-                p7 += 1
-            } else {
-                Toast.makeText(this, " 이미 담긴 상품입니다", Toast.LENGTH_LONG).show()
-            }
-
+        //->모두 showDialog안에서 구현하였습니다.
+        val fundingBtn = findViewById<Button>(R.id.fundingBtn)
+        fundingBtn.setOnClickListener {
+            //서포터즈+1, 펀딩완료로 setText
+            showDialog(fdProductPrice.text.toString())
         }
 
     }
@@ -152,7 +183,7 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    fun showDialog() {
+    fun showDialog(fdProductPrice: String) {
         //xml자료
         var t = 0
         val fundingbutton = findViewById<Button>(R.id.fundingBtn)
@@ -160,6 +191,14 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         val detailpagePercent = findViewById<TextView>(R.id.detailpagePercent)
         var num: Int = Integer.parseInt(supporters.text.toString())
         var percent: Double = (detailpagePercent.text.toString()).toDouble()
+
+        var productTotalprice_t = fdProductPrice
+        var purchase_unoff_item2 = purchase_unoff_RecyclerItem(
+            "productName",
+            "$productTotalprice_t 원",
+            " $numtobuy 개",
+            "sticker" //image주의
+        )
 
         //alert구현
         lateinit var fundingDialog: AlertDialog
@@ -170,6 +209,12 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         val dialogClickListener = DialogInterface.OnClickListener { _, which ->
             when (which) {
                 DialogInterface.BUTTON_POSITIVE -> {
+                    //마이페이지에서 확인 가능하게끔
+                    //고쳐야겠다여기 inititem2이거
+                    if (purchase_unofficial_list.contains(inititem3)) {
+                        purchase_unofficial_list.remove(inititem3)
+                    }
+                    purchase_unofficial_list.add(purchase_unoff_item2)
                     //펀딩완료 토스트메시지
                     Toast.makeText(
                         applicationContext,
@@ -179,12 +224,20 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
                     //버튼을 눌렀을 때 버튼 텍스트 바꾸기
                     fundingbutton.text = "이미 펀딩한 상품입니다"
                     fundingbutton.setBackgroundColor(Color.parseColor("#424242"))
+                    fundingBtn.setEnabled(false)
                     //버튼을 눌렀을 때 서포터 인원 +1
-                    num++
+                    num += numtobuy
+                    //인원 증가했음을 화면에 표시
                     supporters.text = num.toString()
+                    //현재 인원 상태를 db에 갱신
+                    db.collection("UnofficialProduct").document(productName).update("서포터", num)
                     //버튼 눌렀을 때 펀딩률 상승
-                    percent += 2.5 //일단 40명이니까 2.5로 설정했음 db연동 필요 ㅠㅠ
+                    percent += rate * numtobuy
+                    //상승한 펀딩률 화면에 표시
+                    percent = Math.round(percent * 100) / 100.0
                     detailpagePercent.text = percent.toString()
+                    //현재 펀딩률 상태를 db에 갱신
+                    db.collection("UnofficialProduct").document(productName).update("펀딩률", percent)
                 }
                 DialogInterface.BUTTON_NEGATIVE -> Toast.makeText(
                     applicationContext,
@@ -203,5 +256,29 @@ class FundingDetailpageActivity2 : AppCompatActivity() {
         fundingDialog.show()
     }
 
+    fun remainDate(): String {
+        //데이트포맷(일수로 구할거니깐 dd까지만 있으면됨)
+        val todaySdf = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA)
+        //한국기준 날짜
+        val calendar = Calendar.getInstance()
+        val date = Date(calendar.timeInMillis)
+        todaySdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"))
+        val todayDate: String = todaySdf.format(date)
+        //오늘 타임스탬프(데이트포맷으로 저장했다고 치고 그걸 타임스탬프로 바꿔보는 작업)
+        val todayTimestamp: Long = todaySdf.parse(todayDate).getTime()
+        val date2 = Date(todayTimestamp)
+        val todayDate2: String = todaySdf.format(date2)
+        //펀딩 마감 날짜의 타임스탬프
+        val differentDate = fundingDate1
+        val nextdayTimestamp: Long = todaySdf.parse(differentDate).getTime()
+        val difference = nextdayTimestamp - todayTimestamp
+
+        val remain = (difference / (24 * 60 * 60 * 1000)).toString()
+        //db.collection("UnofficialProduct").document(productName).update(remainhash as Map<String, Any>)
+        db.collection("UnofficialProduct").document(productName).update("펀딩남은시간", remain)
+
+        Log.d("남은 일 수: ", remain)
+        return remain
+    }
 }
 

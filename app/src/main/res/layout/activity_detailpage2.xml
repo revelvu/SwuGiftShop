@@ -54,9 +54,9 @@
                 android:id="@+id/productname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_bold"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="7dp"
+                android:fontFamily="@font/kopubworld_dotum_bold"
                 android:text="웬디 손거울"
                 android:textColor="#000"
                 android:textSize="20dp" />
@@ -99,34 +99,34 @@
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:gravity="right"
                 android:background="@drawable/buttonedge"
+                android:gravity="right"
                 android:orientation="horizontal">
 
 
                 <Button
-                    android:id="@+id/wendinumMius"
+                    android:id="@+id/minus"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center_vertical"
                     android:text="ㅡ"
                     android:textSize="13dp" />
 
                 <TextView
-                    android:id="@+id/wendiNum"
+                    android:id="@+id/num2buy"
                     android:layout_width="50dp"
                     android:layout_height="35dp"
                     android:background="@drawable/buttonedge"
                     android:gravity="center"
-                    android:textSize="12dp"
-                    android:text="1" />
+                    android:text="1"
+                    android:textSize="12dp" />
 
                 <Button
-                    android:id="@+id/wendinumPlus"
+                    android:id="@+id/plus"
+                    style="?android:attr/borderlessButtonStyle"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    style="?android:attr/borderlessButtonStyle"
                     android:layout_gravity="center"
                     android:text="+"
                     android:textSize="12dp" />
@@ -148,8 +148,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:layout_centerVertical="true"
+                    android:fontFamily="@font/kopubworld_dotum_medium"
                     android:text="총 상품 금액"
                     android:textColor="#000" />
 
@@ -201,11 +201,11 @@
                     android:src="@drawable/heartempty" />
 
                 <Button
-                    android:id="@+id/fundingBtn"
+                    android:id="@+id/puchaseBtn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:background="@color/swuColor"
+                    android:fontFamily="@font/kopubworld_dotum_bold"
                     android:padding="15dp"
                     android:text="구입하기"
                     android:textColor="#fff"
@@ -221,11 +221,12 @@
                 android:background="#DBDBDB" />
 
             <TextView
+                android:id="@+id/contentTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/kopubworld_dotum_bold"
-                android:padding="10dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="웬디 손거울"
                 android:textColor="#000"
                 android:textSize="18dp" />
@@ -234,15 +235,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="310dp"
                 android:layout_marginBottom="10dp"
-                android:src="@drawable/wendi_mirror"/>
+                android:src="@drawable/wendi_mirror" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/kopubworld_dotum_medium"
-                android:padding="10dp"
                 android:layout_marginBottom="30dp"
+                android:fontFamily="@font/kopubworld_dotum_medium"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="들고 다니기 딱 좋은 사이즈로 실용성을 더한
                               웬디 손거울! "
                 android:textColor="#000"
@@ -251,5 +252,8 @@
         </LinearLayout>
 
     </ScrollView>
+
+
+
 
 </LinearLayout>
