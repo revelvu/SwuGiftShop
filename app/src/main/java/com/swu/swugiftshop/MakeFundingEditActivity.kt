@@ -1,19 +1,28 @@
 package com.swu.swugiftshop
 
 
+import android.app.Activity
 import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_funding_detailpage.my_toolbar
 import kotlinx.android.synthetic.main.activity_make_funding_edit.*
+import kotlinx.android.synthetic.main.activity_my_funding.*
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.ArrayList
@@ -23,6 +32,10 @@ class MakeFundingEditActivity : AppCompatActivity() {
     //firebase
     val firebaseAuth = FirebaseAuth.getInstance()
     val db = FirebaseFirestore.getInstance()
+
+    private var filePath: Uri? = null
+    val userID = firebaseAuth.currentUser?.email.toString()
+    lateinit var fdNickname: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,10 +47,8 @@ class MakeFundingEditActivity : AppCompatActivity() {
         getSupportActionBar()?.setDisplayHomeAsUpEnabled(true)
 
         //글쓰는 유저 닉네임
-        val userID = firebaseAuth.currentUser?.email.toString()
         val UserProfile =
             db.collection("UserProfile").document(userID)
-        lateinit var fdNickname: String
         UserProfile.get().addOnCompleteListener(OnCompleteListener<DocumentSnapshot> { task ->
             if (task.isSuccessful) {
                 val document = task.result
@@ -76,6 +87,19 @@ class MakeFundingEditActivity : AppCompatActivity() {
             val dialog = optionDialog.create()
             optionDialog.show()
         }
+
+        //이미지 선택
+        enterFimagechoice.setOnClickListener {
+            val intent = Intent()
+            intent.type = "image/*"
+            intent.action = Intent.ACTION_GET_CONTENT
+            startActivityForResult(Intent.createChooser(intent, "이미지를 선택하세요."), 0)
+        }
+        //이미지 db에 업로드
+        enterFimageupload.setOnClickListener {
+            uploadFile();
+        }
+
         //EditText 가져와보자
         val fdName = findViewById<EditText>(R.id.enterFname)
         val fdDate = findViewById<EditText>(R.id.enterFdate)
@@ -123,34 +147,61 @@ class MakeFundingEditActivity : AppCompatActivity() {
         }
     }
 
-    fun remainDate(fdDate: String): String {
-        //데이트포맷(일수로 구할거니깐 dd까지만 있으면됨)
-        val todaySdf = SimpleDateFormat("yyyy-MM-dd", Locale.KOREA)
-        //한국기준 날짜
-        val calendar = Calendar.getInstance()
-        val date = Date(calendar.timeInMillis)
-        todaySdf.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"))
-        val todayDate: String = todaySdf.format(date)
-        //오늘 타임스탬프(데이트포맷으로 저장했다고 치고 그걸 타임스탬프로 바꿔보는 작업)
-        val todayTimestamp: Long = todaySdf.parse(todayDate).getTime()
-        val date2 = Date(todayTimestamp)
-        val todayDate2: String = todaySdf.format(date2)
-        //펀딩 마감 날짜의 타임스탬프
-        val yearRange = IntRange(0, 3)
-        val monthRange = IntRange(4, 5)
-        val dayRange = IntRange(6, 7)
-        val differentDate =
-            fdDate.slice(yearRange) + "-" + fdDate.slice(monthRange) + "-" + fdDate.slice(
-                dayRange
-            )
-        val nextdayTimestamp: Long = todaySdf.parse(differentDate).getTime()
-        val difference = nextdayTimestamp - todayTimestamp
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        super.onActivityResult(requestCode, resultCode, data)
+        //request코드가 0이고 OK를 선택했고 data에 뭔가가 들어 있다면
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK) {
+            filePath = data?.data
+            Log.d("뭐지이거", "uri:" + java.lang.String.valueOf(filePath))
+            try {
+                //Uri 파일을 Bitmap으로 만들어서 ImageView에 집어 넣는다.
+                val bitmap =
+                    MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
 
-        val remain = (difference / (24 * 60 * 60 * 1000)).toString()
-        //db.collection("UnofficialProduct").document(productName).update(remainhash as Map<String, Any>)
-//        db.collection("UnofficialProduct").document().update("펀딩남은시간", remain)
-        Log.d("남은 일 수: ", remain)
-        return remain
+
+    //upload the file
+    private fun uploadFile() {
+        //업로드할 파일이 있으면 수행
+        if (filePath != null) {
+            //업로드 진행 Dialog 보이기
+            val progressDialog = ProgressDialog(this)
+            progressDialog.setTitle("업로드 중...")
+            progressDialog.show()
+
+            //storage
+            val storage = FirebaseStorage.getInstance()
+            val filename = "$userID.png"
+            //storage 주소와 폴더 파일명을 지정
+            val storageRef =
+                storage.getReferenceFromUrl("gs://swugiftshop.appspot.com")
+                    .child("images/$filename")
+            storageRef.putFile(filePath!!) //성공시
+                .addOnSuccessListener {
+                    progressDialog.dismiss() //업로드 진행 Dialog 상자 닫기
+                    Toast.makeText(applicationContext, "사진 업로드 완료!", Toast.LENGTH_SHORT)
+                        .show()
+                } //실패시
+                .addOnFailureListener {
+                    progressDialog.dismiss()
+                    Toast.makeText(applicationContext, "사진 업로드 실패", Toast.LENGTH_SHORT)
+                        .show()
+                } //진행중
+                .addOnProgressListener { taskSnapshot ->
+                    val progress =
+                        100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount
+                            .toDouble()
+                    //dialog에 진행률을 퍼센트로 출력해 준다
+                    progressDialog.setMessage("Uploaded " + progress.toInt() + "% ...")
+                }
+        } else {
+            Toast.makeText(applicationContext, "파일을 먼저 선택하세요.", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // tool bar back button
