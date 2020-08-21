@@ -27,14 +27,14 @@ public class MainListViewActivity extends AppCompatActivity {
 
     private List<String> list;          // 데이터를 넣은 리스트변수
     private ListView listView;          // 검색을 보여줄 리스트변수
-    private ListView lv;
+    private ListView listView1;
     private EditText editSearch;        // 검색어를 입력할 Input 창
     private SearchAdapter adapter;      // 리스트뷰에 연결할 아답터
     private ArrayList<String> arraylist;
+    private TextView textView1;
 
 
     ArrayList<Song> al = new ArrayList<Song>();  // Top10 곡명을 담을 리스트
-
 
 
     @Override
@@ -51,9 +51,10 @@ public class MainListViewActivity extends AppCompatActivity {
 
         editSearch = (EditText) findViewById(R.id.editSearch);
         listView = (ListView) findViewById(R.id.listView);
-        ListView lv = (ListView)findViewById(R.id.listView1);
+        ListView listView1 = (ListView)findViewById(R.id.listView1);
+        TextView textView1 = (TextView)findViewById(R.id.textView1);
 
-        listView.setVisibility(View.INVISIBLE);
+//        listView1.setVisibility(View.VISIBLE);
 
         // 리스트를 생성한다.
         list = new ArrayList<String>();
@@ -91,6 +92,11 @@ public class MainListViewActivity extends AppCompatActivity {
                 // search 메소드를 호출한다.
                 String text = editSearch.getText().toString();
                 search(text);
+
+                listView1.setVisibility(View.INVISIBLE);
+                listView.setVisibility(View.VISIBLE);
+                textView1.setVisibility(View.INVISIBLE);
+
             }
         });
         list.clear();
@@ -110,10 +116,10 @@ public class MainListViewActivity extends AppCompatActivity {
 
 
 
-        lv.setAdapter(adapter);
+        listView1.setAdapter(adapter);
 
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
@@ -163,11 +169,13 @@ public class MainListViewActivity extends AppCompatActivity {
                 if (arraylist.get(i).toLowerCase().contains(charText)) {
                     // 검색된 데이터를 리스트에 추가한다.
                     list.add(arraylist.get(i));
+
                 }
             }
         }
         // 리스트 데이터가 변경되었으므로 아답터를 갱신하여 검색된 데이터를 화면에 보여준다.
         adapter.notifyDataSetChanged();
+
 
 
     }
